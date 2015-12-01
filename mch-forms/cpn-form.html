@@ -4,23 +4,41 @@
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <title>LIVRO DE REGISTOS DE CONSULTA PRÉ-NATAL</title>
         <style>
-            h2 { border-bottom: 3px solid red; }
-            
-            table{
-              border-color: #600;}
-              
 
-            td{
-              border-color: #600;
-              border-width: 1px 1px 0 0;
-              background-color: #B2DFEE;}
-            .style1 {
-            font-size: 14px;
+          .header{
+            margin-top: -2px !important;
+            margin-bottom: 10px !important;
+          }
+
+          .header label{
             font-weight: bold;
           }
-          .obs{
-            font-size: 14px;
-            font-weight: bold;
+
+          .header-info{
+            float: right;
+            border: 1px dotted #B2DFEE;
+            padding: 0px 10px 0px 10px;
+          }
+
+          .header-info h3{
+            text-align: center;
+          }
+
+          .header-data{
+            float: left;
+            border: 1px dotted #B2DFEE;
+            margin-bottom: 10px !important;
+            padding: 0px 10px 0px 10px;
+          }
+
+          .header-box{
+            background: #1aac9b;
+            padding: 1px !important;
+            color: #fff;
+          }
+
+          .header-box h2{
+            margin-left: 10px;
           }
 
           .content{
@@ -33,11 +51,11 @@
 
           .demo-data label {
             display: inline-block;
-            width: 150px;
+            width: 180px;
           }
 
           .demo-data p {
-            margin: 3px;
+            margin: 3px
           }
 
           .demo-data input, .demo-data select {
@@ -164,7 +182,7 @@
 
           .last-details{
             float: none;
-            margin-top: 160px;
+            margin-top: 170px;
           }
 
           </style>
@@ -172,58 +190,64 @@
       </head>
 
       <body>
+      
+      <div class="header-box content">
+          <h2>LIVRO DE REGISTOS DE CONSULTA PRÉ-NATAL</h2>
+        </div>
 
-      <table width="960" border="1" align="center">
-      <tbody align="left" style="font-family:verdana; font-size:12px">
-        <tr>
-          <td width="20%" rowspan="5"><div align="center">REPÚBLICA DE MOÇAMBIQUE<br />
-            SERVIÇO NACIONAL DE SAÚDE<br />
-            <br />
-            MOD - SIS - B01</div></td>
-          <td colspan="2"><div align="center" class="style1">LIVRO DE REGISTOS DE CONSULTA PRÉ-NATAL</div></td>
-        </tr>
-        <tr>
-          <td width="20%"><div align="right">Nome:</div></td>
-          <td width="25%"><lookup expression="patient.personName"/></td>
-        </tr>
-        <tr>
-          <td><div align="right">Sexo/Data de Nasc./Idade:</div></td>
-          <td><lookup expression="patient.gender"/> - <lookup expression="patient.birthdate"/> - <lookup expression="patient.age"/></td>
-        </tr>
-        <tr>
-          <td><div align="right">Nº de BI/Outra identificação:</div></td>
-          <td><lookup expression="patient.getPatientIdentifier(3)"/>/<lookup expression="patient.getPatientIdentifier(1)"/></td>
-        </tr>
-        <tr>
-          <td><div align="right">Distrito/Cidade:</div></td>
-          <td><lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.countyDistrict #end"/></td>
-        </tr>
-        <tr>
-          <td rowspan="2"><strong>NID/US</strong></td>
-          <td><div align="right">Localidade/Bairro:</div></td>
-          <td><lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.region #end"/>/<lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.subregion #end"/></td>
-        </tr>
-        <tr>
-          <td><div align="right">Célula/Quarteirão:</div></td>
-          <td><lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.neighborhoodCell #end"/></td>
-        </tr>
-        <tr>
-          <td rowspan="2"><strong>NID/HDD: <lookup expression="patient.getPatientIdentifier(2)"/></strong></td>
-          <td><div align="right">Avenida/Rua/Casa:</div></td>
-          <td><lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.address1 #end"/></td>
-        </tr>
-        <tr>
-          <td colspan="2"><strong>Pessoa de Referência</strong><br />
-            <obsgroup groupingConceptId="1609">
-            <obs conceptId="1441" labelText="Nome:" size="20"/> 
-                  <obs conceptId="1442" labelText="Apelido:" size="20"/> 
-                  <obs conceptId="1611" labelText="Tel:" size="15"/>
-              </obsgroup> </td>
-        </tr>
-        </tbody>
-      </table>
-      <br />
+      <div class="header content">
+        <div class="header-info">
+          <h3>REPÚBLICA DE MOÇAMBIQUE</h3>
+          <h3>SERVIÇO NACIONAL DE SAÚDE</h3>
+          <h3>MOD - SIS - B01</h3>
+          <p>
+            <label>NID/US:</label>
+          </p>
+          <p>
+            <label>NID/HDD:</label>
+            <lookup expression="patient.getPatientIdentifier(2)"/>
+          </p>
+        </div>
+        <div class="header-data">
+          <p>
+            <label>Nome:</label>
+            <lookup expression="patient.personName"/>
+          </p>
+          <p>
+            <label>Sexo/Data de Nasc./Idade:</label>
+            <lookup expression="patient.gender"/> - <lookup expression="patient.birthdate"/> - <lookup expression="patient.age"/>
+          </p>
+          <p>
+            <label>Nº de BI/Outra identificação:</label>
+            <lookup expression="patient.getPatientIdentifier(3)"/>/<lookup expression="patient.getPatientIdentifier(1)"/>
+          </p>
+          <p>
+            <label>Distrito/Cidade:</label>
+            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.countyDistrict #end"/>
+          </p>
+          <p>
+            <label>Localidade/Bairro:</label>
+            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.region #end"/>/<lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.subregion #end"/>
+          </p>
+          <p>
+            <label>Célula/Quarteirão:</label>
+            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.neighborhoodCell #end"/>
+          </p>
+          <p>
+            <label>Avenida/Rua/Casa:</label>
+            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.address1 #end"/>
+          </p>
+        </div>
        
+        <div class="clear"/>
+        <label >Pessoa de Referência:</label><br/>
+        <obsgroup groupingConceptId="1609">
+          <obs conceptId="1441" labelText="Nome:" size="20"/> 
+                <obs conceptId="1442" labelText="Apelido:" size="20"/> 
+                <obs conceptId="1611" labelText="Tel:" size="15"/>
+        </obsgroup>
+      </div>
+
        <div class="content">
           <div class="demo-data demo-data-partI">
             <p>
@@ -231,8 +255,12 @@
               <encounterDate id="dataConsulta"/>
             </p>
             <p>
-              <label>Identificação:</label>
-              <encounterDate id="dataConsulta"/>
+              <label>Unidade Sanitária:</label>
+              <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
+            </p>
+            <p>
+              <label>Médico:</label>
+              <encounterProvider role="Provider" type="autocomplete"/>
             </p>
             <p>
               <label>Faixa Etária:</label>
@@ -245,7 +273,7 @@
               <obs conceptId="6361"  answerConceptIds="6355,6356,6357,6358,6359,6360" answerLabels="Primeira,Segunda,Terçeira,Quarta, Quinta, Sexta"/>
             </p>
             <p>
-              <label>Idate Gestacional:</label>
+              <label>Idade Gestacional:</label>
               <obs conceptId="1279" size="10"/>
             </p>
             <p id="rdp">
