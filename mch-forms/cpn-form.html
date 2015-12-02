@@ -96,14 +96,12 @@
             padding: 0;
           }
 
-          .tabs input[type=radio] {
+          .tabs .rd-visible {
               position: absolute;
-              top: -9999px;
-              left: -999px;
+              display: none;
           }
 
           .tabs label{
-            z-index: 1;
             display: block;
             background: #EEE;
             font-weight: bold;
@@ -120,8 +118,8 @@
           }
 
         .tabs [id^=tab]:checked + label{
-              background: #fff;
-              border: none !important;
+            background: #1aac9b;
+            color: #fff;
           }
 
          .tabs [id^=tab]:checked ~ [id^=tab-content] {
@@ -129,7 +127,6 @@
           }
           
          .tabs .tab-content{
-              z-index: 2 !important;
               display: none;
               text-align: left;
               width: 100%;
@@ -293,7 +290,7 @@
           <div class="tabs">
             <ul>
               <li>
-                <input type="radio" checked="true" name="tabs" id="tab1" />
+                <input type="radio" checked="true" name="tabs" id="tab1" class="rd-visible" />
                 <label for="tab1">Nutrição</label>
                 <div id="tab-content-I" class="tab-content">
                   <div class="tab-data tab-data-I">
@@ -341,7 +338,7 @@
                 </div>
               </li>
               <li>
-                <input type="radio" name="tabs" id="tab2" />
+                <input type="radio" name="tabs" id="tab2" class="rd-visible" />
                 <label for="tab2">Exames</label>
                 <div id="tab-content-II" class="tab-content">
                   <div class="tab-data tab-data-I">
@@ -365,7 +362,7 @@
                 </div>
               </li>
               <li>
-                <input type="radio" name="tabs" id="tab3" />
+                <input type="radio" name="tabs" id="tab3" class="rd-visible"/>
                 <label for="tab3">Despiste e Tratamento da Sífilis e outras ITS's</label>
                 <div id="tab-content-III" class="tab-content">
                   <div class="tab-data tab-data-I">
@@ -402,7 +399,7 @@
                 </div>
               </li>
                <li>
-                <input type="radio" name="tabs" id="tab4" />
+                <input type="radio" name="tabs" id="tab4" class="rd-visible"/>
                 <label for="tab4">Prevenção da Transmissão Vertical de HIV</label>
                 <div id="tab-content-IV" class="tab-content">
                   <div class="tab-data tab-data-I">
@@ -435,7 +432,7 @@
                 </div>
               </li>
                <li>
-                <input type="radio" name="tabs" id="tab5" />
+                <input type="radio" name="tabs" id="tab5" class="rd-visible"/>
                 <label for="tab5">Malaria</label>
                 <div id="tab-content-V" class="tab-content">
                   <div class="tab-data tab-data-I">
