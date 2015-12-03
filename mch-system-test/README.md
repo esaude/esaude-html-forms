@@ -2,11 +2,10 @@
 
 With this project is possible to run and create funcional tests for the MCH module.
 
-The Java project was created on Maven and the functional or system tests if you prefer a based on Selenium frameworks.
+The Java project was created on Maven and the functional or system tests if you prefer are based on Selenium framework.
 
 #How create new testes?
- In the a text file or on the IDE of your choice.
- Create a text class like:
+ In the a text file or on the IDE of your choice create a text class like:
 
  public class LoginSystemTest {
 
