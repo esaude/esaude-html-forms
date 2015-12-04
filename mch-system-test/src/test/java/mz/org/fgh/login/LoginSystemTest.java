@@ -31,7 +31,7 @@ public class LoginSystemTest {
 
 		loginPage.logAsAdmin("Admin", "Openmrsadmin04");
 
-		assertTrue(loginPage.userIsLogged("Currently logged in as Super User"));
+		assertTrue(loginPage.isUserLogged("Currently logged in as Super User"));
 	}
 
 	@After

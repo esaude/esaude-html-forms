@@ -38,7 +38,7 @@ public class LoginPage {
 		this.username.submit();
 	}
 
-	public boolean userIsLogged(final String welcome) {
+	public boolean isUserLogged(final String welcome) {
 		final WebElement element = this.seleniumManager.getDriver().findElement(By.id("userLoggedInAs"));
 		return element.getText().equals(welcome);
 	}
