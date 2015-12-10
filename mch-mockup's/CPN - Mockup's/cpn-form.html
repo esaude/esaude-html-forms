@@ -1,0 +1,476 @@
+      <htmlform>
+      <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>LIVRO DE REGISTOS DE CONSULTA PRÉ-NATAL</title>
+        <style>
+            h2 { border-bottom: 3px solid red; }
+            
+            table{
+              border-color: #600;}
+              
+
+            td{
+              border-color: #600;
+              border-width: 1px 1px 0 0;
+              background-color: #B2DFEE;}
+            .style1 {
+            font-size: 14px;
+            font-weight: bold;
+          }
+          .obs{
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .content{
+            width: 960px;
+            font-size: 8pt;
+            margin: 1px auto;
+            border: 1px solid #B2DFEE;
+            padding: 5px;
+          }
+
+          .demo-data label {
+            display: inline-block;
+            width: 150px;
+          }
+
+          .demo-data p {
+            margin: 3px;
+          }
+
+          .demo-data input, .demo-data select {
+            width: 140px;
+            font-size: 10pt;
+          }
+
+          .clear {
+            clear: both;
+          }
+
+          .demo-data-partI{
+            float: left;
+          }
+
+          .demo-data-partII{
+            float: left;
+            margin-left: 100px;
+          }
+
+          #rdp input{
+            width: 0px;
+          }
+
+          #rdp label{
+            width: 30px;
+          }
+
+          #rdpI{
+            width: 150px !important;
+          }
+
+          .tabs ul {
+            width: 945px;
+            list-style: none;
+            float: none;
+            position: relative;
+            padding: 0;
+          }
+
+          .tabs input[type=radio] {
+                position: absolute;
+          }
+
+          .tabs label{
+            display: block;
+            background: #EEE;
+            font-weight: bold;
+            line-height: 10px;
+            padding: 10px 22px;
+            font-size: 8pt;
+            border: 1px solid #B2DFEE;
+            margin-left: -1px;
+            cursor: pointer;
+          }
+
+          .tabs li{
+            float: left;
+          }
+
+        .tabs [id^=tab]:checked + label{
+              background: #fff;
+              border-bottom: 1px solid #fff;
+          }
+
+         .tabs [id^=tab]:checked ~ [id^=tab-content] {
+                display: block;
+          }
+          
+         .tabs .tab-content{
+              display: none;
+              text-align: left;
+              width: 100%;
+              line-height: 140%;
+              padding-top: 10px;
+              padding: 11px;
+              left: 0;
+              position: absolute;
+              border: 1px solid #B2DFEE;
+              margin: -1px;
+              min-height: 150px;
+            }
+
+          
+          .tab-data label{
+            border: none;
+            background: #fff;
+            display: inline-block;
+            width: 170px;
+            padding: 0;
+            margin: 0;
+            font-weight: normal;
+          }
+
+          .tab-data input, .tab-data select{
+            width: 140px;
+            font-size: 10pt;
+          }
+
+          .tab-data p {
+            margin: 3px;
+          }
+
+          .tab-data-I {
+            float: left;
+          }
+          .tab-data-II {
+            float: right;
+          }
+
+          .tab-data-II label {
+            width: 300px;
+          }
+
+           
+          .rd-tab label{
+           width: 60px;
+          }
+
+          .rd-tab input{
+           width: 60px;
+           margin-top: 0px;
+          }
+
+          .last-details{
+            float: none;
+            margin: 160px auto;
+          }
+
+          </style>
+          
+      </head>
+
+      <body>
+
+      <table width="960" border="1" align="center">
+      <tbody align="left" style="font-family:verdana; font-size:12px">
+        <tr>
+          <td width="20%" rowspan="5"><div align="center">REPÚBLICA DE MOÇAMBIQUE<br />
+            SERVIÇO NACIONAL DE SAÚDE<br />
+            <br />
+            MOD - SIS - B01</div></td>
+          <td colspan="2"><div align="center" class="style1">LIVRO DE REGISTOS DE CONSULTA PRÉ-NATAL</div></td>
+        </tr>
+        <tr>
+          <td width="20%"><div align="right">Nome:</div></td>
+          <td width="25%"><lookup expression="patient.personName"/></td>
+        </tr>
+        <tr>
+          <td><div align="right">Sexo/Data de Nasc./Idade:</div></td>
+          <td><lookup expression="patient.gender"/> - <lookup expression="patient.birthdate"/> - <lookup expression="patient.age"/></td>
+        </tr>
+        <tr>
+          <td><div align="right">Nº de BI/Outra identificação:</div></td>
+          <td><lookup expression="patient.getPatientIdentifier(3)"/>/<lookup expression="patient.getPatientIdentifier(1)"/></td>
+        </tr>
+        <tr>
+          <td><div align="right">Distrito/Cidade:</div></td>
+          <td><lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.countyDistrict #end"/></td>
+        </tr>
+        <tr>
+          <td rowspan="2"><strong>NID/US</strong></td>
+          <td><div align="right">Localidade/Bairro:</div></td>
+          <td><lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.region #end"/>/<lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.subregion #end"/></td>
+        </tr>
+        <tr>
+          <td><div align="right">Célula/Quarteirão:</div></td>
+          <td><lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.neighborhoodCell #end"/></td>
+        </tr>
+        <tr>
+          <td rowspan="2"><strong>NID/HDD: <lookup expression="patient.getPatientIdentifier(2)"/></strong></td>
+          <td><div align="right">Avenida/Rua/Casa:</div></td>
+          <td><lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.address1 #end"/></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>Pessoa de Referência</strong><br />
+            <obsgroup groupingConceptId="1609">
+            <obs conceptId="1441" labelText="Nome:" size="20"/> 
+                  <obs conceptId="1442" labelText="Apelido:" size="20"/> 
+                  <obs conceptId="1611" labelText="Tel:" size="15"/>
+              </obsgroup> </td>
+        </tr>
+        </tbody>
+      </table>
+      <br />
+       
+       <div class="content">
+          <div class="demo-data demo-data-partI">
+            <p>
+              <label>Data:</label>
+              <encounterDate id="dataConsulta"/>
+            </p>
+            <p>
+              <label>Identificação:</label>
+              <encounterDate id="dataConsulta"/>
+            </p>
+            <p>
+              <label>Faixa Etária:</label>
+              <obs conceptId="6366" answerConceptIds="6362,6363,6364,6365" answerLabels="10-14,15-19,20-24,25+"/>
+            </p>
+          </div>
+          <div class="demo-data demo-data-partII">
+            <p>
+              <label>Consultas:</label>
+              <obs conceptId="6361"  answerConceptIds="6355,6356,6357,6358,6359,6360" answerLabels="Primeira,Segunda,Terçeira,Quarta, Quinta, Sexta"/>
+            </p>
+            <p>
+              <label>Idate Gestacional:</label>
+              <obs conceptId="1279" size="10"/>
+            </p>
+            <p id="rdp">
+              <label id="rdpI">+12 semanas:</label>
+              <obs conceptId="6367" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio"/>
+            </p>
+             <p id="rdp">
+              <label id="rdpI">Parceiro Presente ?</label>
+              <obs conceptId="6368" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio"/>
+            </p>
+          </div>
+          <div class="clear" />
+          <div class="tabs">
+            <ul>
+              <li>
+                <input type="radio" checked="true" name="tabs" id="tab1" />
+                <label>Nutrição</label>
+                <div id="tab-content-I" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label>Peso:</label>
+                       <obs conceptId="5089" size="10"/>
+                    </p>
+                    <p>
+                      <label>Perímetro Braquial:</label>
+                       <obs conceptId="6373" answerConceptIds="6370,6371,6372" answerLabels="˂21 cm (DAG), menor ou igual a 21cm e menor que 23 cm (DAM)s, ³ 23 cm (normal)"/>
+                    </p>
+                  </div>
+                  <div class="tab-data tab-data-II">
+                   <p >
+                      <label>Ganho ≥1.5 Kg/mês a partir 2º trimestre ?</label>
+                      <obs conceptId="6369" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
+                   </p>
+                   <p >
+                      <label>Recebeu suplementos nutricionais ?</label>
+                      <obs conceptId="2152" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
+                   </p>
+                    <p >
+                      <label>Recebeu desparasitante ?</label>
+                      <obs conceptId="6377" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
+                   </p>
+                    <p >
+                      <label>Prevenção da Anemia ?</label>
+                      <obs conceptId="6378" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
+                   </p>
+                  </div>
+                  <div class="clear" />
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label style="font-weight:bold; width:150px;">Resultado:</label>
+                    </p>
+                    <p >
+                      <label>Curado ?</label>
+                      <obs conceptId="6375" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
+                    </p>
+                    <p>
+                      <label>Abandono ?</label>
+                      <obs conceptId="6376" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <input type="radio" name="tabs" id="tab2" />
+                <label>Exames</label>
+                <div id="tab-content-II" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p >
+                      <label>Tensão Arterial (TA) ?</label>
+                      <obs conceptId="6379" answerConceptIds="1065,1066, 1118" answerLabels="Sim, Não, Não Fez"/>
+                    </p>
+                    <p>
+                      <label>Hemoglobina (HGB) ?</label>
+                      <obs conceptId="6380" answerConceptIds="1065,1066, 1118" answerLabels="Sim, Não, Não Fez"/>
+                    </p>
+                     <p>
+                      <label>Proteinúria ?</label>
+                      <obs conceptId="6381" answerConceptIds="1065,1066, 1118" answerLabels="Sim, Não, Não Fez"/>
+                    </p>
+                     <p>
+                      <label>Glicosúria ?</label>
+                      <obs conceptId="6382" answerConceptIds="1065,1066, 1118" answerLabels="Sim, Não, Não Fez"/>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <input type="radio" name="tabs" id="tab2" />
+                <label>Despiste e Tratamento da Sífilis e outras ITS's</label>
+                <div id="tab-content-III" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label>Diagnóstico de ITS:</label>
+                       <obs conceptId="1080" answerConceptIds="864,5993" answerLabels="ULCERAS GENITAIS, LEUCORREIAS"/>
+                    </p>
+                    <p>
+                      <label>Teste de Sífilis:</label>
+                      <obs conceptId="299" answerConceptIds="1228,1229,1118" answerLabels="Positivo, Negativo, Não Feito"/>
+                    </p>
+                  </div>
+                  <div class="tab-data tab-data-II">
+                   <p >
+                      <label>Tratamento Sindrómico de ITS ?</label>
+                      <obs conceptId="1975" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
+                   </p>
+                  </div>
+                  <div class="clear" />
+                  <br/>
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label style="font-weight:bold; width:150px;">Tratamento para Sífilis:</label>
+                    </p>
+                    <p >
+                      <label>Mulher ?</label>
+                      <obs conceptId="6383" answerConceptIds="1182,1183,2084" answerLabels="1ª dose,2ª dose,3ª dose"/>
+                    </p>
+                    <p>
+                      <label>Parceiro ?</label>
+                      <obs conceptId="6384" answerConceptIds="1065,1066, 1118" answerLabels="Sim, Não, Não Feito" />
+                    </p>
+                  </div>
+                </div>
+              </li>
+               <li>
+                <input type="radio" name="tabs" id="tab2" />
+                <label>Prevenção da Transmissão Vertical de HIV</label>
+                <div id="tab-content-IV" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label>Seroestado entrada a 1ª CPN:</label>
+                      <obs conceptId="6385" answerConceptIds="664,703,1067" answerLabels="Negativo, Positivo, Desconhecido"/>
+                    </p>
+                    <p>
+                      <label>Teste de HIV na CPN:</label>
+                      <obs conceptId="2079" answerConceptIds="664,703,1138,1118" answerLabels="Negativo, Positivo, Ideterminado, Não Feito"/>
+                    </p>
+                    <p>
+                      <label>Teste do Parceiro:</label>
+                      <obs conceptId="2074" answerConceptIds="664,703,1138,1118" answerLabels="Negativo, Positivo, Ideterminado, Não Feito"/>
+                    </p>
+                  </div>
+                  <div class="tab-data tab-data-II">
+                    <p>
+                      <label style="font-weight:bold; width:150px;">Profilaxias:</label>
+                    </p>
+                    <p >
+                      <label>Profilaxia CTZ:</label>
+                      <obs conceptId="6121" answerConceptIds="6386,1256,1257, 6387" answerLabels="Em CTZ a entrada,Iniciou profilaxia CTZ nesta consultae,Já está a tomar anteriormente CTZ, Mulher não recebeu CTZ"/>
+                    </p>
+                    <p>
+                      <label>Profilaxia ARV ?</label>
+                      <obs conceptId="1504" answerConceptIds="6388,631, 1801, 1256, 1257" answerLabels="Em TARV a entrada, Monoprofilaxia (NVP), Biprofilaxia, TARV Inicio, TARV Continuação" />
+                    </p>
+                  </div>
+                </div>
+              </li>
+               <li>
+                <input type="radio" name="tabs" id="tab2" />
+                <label>Malaria</label>
+                <div id="tab-content-V" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label>Prevenção da Malária :</label>
+                      <obs conceptId="6389" answerConceptIds="1182,1183,2084,2085" answerLabels="1ª, 2ª, 3ª, 4ª"/>
+                    </p>
+                  </div>
+                  <div class="tab-data tab-data-II">
+                    <p >
+                      <label>Recebeu Rede Mosquiteira?</label>
+                      <obs conceptId="1863" answerConceptIds="1065,1066" answerLabels="Sim, Não" style = "radio" class="rd-tab"/>
+                    </p>
+                    <p >
+                      <label>Testadas para Malaria:</label>
+                      <obs conceptId="6392" answerConceptIds="6390,6391" answerLabels="HTZ, TDR" style = "radio" class="rd-tab"/>
+                    </p>
+                  </div>
+                  <div class="clear" />
+                  <br/>
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label style="font-weight:bold; width:250px;">Diagnóstico e Tratamento de Malária:</label>
+                    </p>
+                    <p >
+                      <label>Resultado TDR ou HTZ:</label>
+                      <obs conceptId="32" answerConceptIds="664,703,1138,1118" answerLabels="Negativo, Positivo, Indeterminado, Não Feito"/>
+                    </p>
+                    <p>
+                      <label>Mulheres com teste de Malária Positivo e Tratadas:</label>
+                      <obs conceptId="1504" answerConceptIds="1065,1066" answerLabels="Sim, Não" />
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="clear" />
+          <div class="last-details">
+            <div class="tab-data tab-data-II">
+              <p >
+                <label>Recebeu Misoprostol?</label>
+                <obs conceptId="6351" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
+              </p>
+            </div>
+            <div class="tab-data tab-data-I">
+              <p>
+                <label>VAT:</label>
+                <obs conceptId="54" answerConceptIds="1182,1184" answerLabels="1ª dose, 2ª à 5ª dose" />
+              </p>
+              <p >
+                <label>Profilaxia de Isonazida:</label>
+                <obs conceptId="6122" answerConceptIds="1256,1257" answerLabels="Iniciou profilaxia INH, Continua a profilaxia"/>
+              </p>
+              <p>
+                <label>Tratamento para TB:</label>
+                <obs conceptId="54" answerConceptIds="1256,1257" answerLabels="Iniciou profilaxia INH, Continua a profilaxia" />
+              </p>
+            </div>
+            <div class="clear" />
+            <p>
+              <label style="font-weight:bold;">Observações:</label><br/>
+              <obs conceptId="5622" style="textarea" rows ="4" cols="100" />
+            </p>
+            <submit submitLabel="Submeter"/>
+          </div>
+       </div>
+      </body>
+      </html>
+  </htmlform> 
