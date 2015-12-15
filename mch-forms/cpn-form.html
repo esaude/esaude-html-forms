@@ -186,6 +186,10 @@
             margin-top: 170px;
           }
 
+          .rd-tab1 input{
+           width: 15px !important;
+          }
+
           </style>
           
       </head>
@@ -244,11 +248,14 @@
         <label >Pessoa de Referência:</label><br/>
         <obsgroup groupingConceptId="1609">
           <obs conceptId="1441" labelText="Nome:" size="20"/> 
-                <obs conceptId="1442" labelText="Apelido:" size="20"/> 
-                <obs conceptId="1611" labelText="Tel:" size="15"/>
+          <obs conceptId="1442" labelText="Apelido:" size="20"/> 
+          <obs conceptId="1611" labelText="Tel:" size="15"/>
         </obsgroup>
+        <p>
+          <label>Unidade Sanitária:</label><br/>
+          <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
+        </p>
       </div>
-
        <div class="content">
           <div class="demo-data demo-data-partI">
             <p>
@@ -256,23 +263,15 @@
               <encounterDate id="dataConsulta"/>
             </p>
             <p>
-              <label>Unidade Sanitária:</label>
-              <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
-            </p>
-            <p>
-              <label>Médico:</label>
-              <encounterProvider role="Provider" type="autocomplete"/>
-            </p>
-            <p>
               <label>Faixa Etária:</label>
               <obs conceptId="6366" answerConceptIds="6362,6363,6364,6365" answerLabels="10-14,15-19,20-24,25+"/>
             </p>
+             <p>
+              <label>Consultas:</label>
+              <obs conceptId="6361"  answerConceptIds="6355,6356,6357,6358,6359,6360" answerLabels="1ª,2ª,3ª,4ª,5ª,6ª"/>
+            </p>
           </div>
           <div class="demo-data demo-data-partII">
-            <p>
-              <label>Consultas:</label>
-              <obs conceptId="6361"  answerConceptIds="6355,6356,6357,6358,6359,6360" answerLabels="Primeira,Segunda,Terçeira,Quarta, Quinta, Sexta"/>
-            </p>
             <p>
               <label>Idade Gestacional:</label>
               <obs conceptId="1279" size="10"/>
@@ -363,7 +362,7 @@
               </li>
               <li>
                 <input type="radio" name="tabs" id="tab3" class="rd-visible"/>
-                <label for="tab3">Despiste e Tratamento da Sífilis e outras ITS's</label>
+                <label for="tab3">Sífilis e outras ITS's</label>
                 <div id="tab-content-III" class="tab-content">
                   <div class="tab-data tab-data-I">
                     <p>
@@ -400,7 +399,7 @@
               </li>
                <li>
                 <input type="radio" name="tabs" id="tab4" class="rd-visible"/>
-                <label for="tab4">Prevenção da Transmissão Vertical de HIV</label>
+                <label for="tab4">PTV de HIV</label>
                 <div id="tab-content-IV" class="tab-content">
                   <div class="tab-data tab-data-I">
                     <p>
@@ -468,34 +467,49 @@
                   </div>
                 </div>
               </li>
+              <li>
+                <input type="radio" name="tabs" id="tab6" class="rd-visible"/>
+                <label for="tab6">HPP e VAT</label>
+                <div id="tab-content-VI" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                   <p >
+                    <label>Recebeu Misoprostol?</label>
+                    <obs conceptId="6351" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab rd-tab1"/>
+                  </p>
+                  <p>
+                    <label>VAT:</label>
+                    <obs conceptId="54" answerConceptIds="1182,1184" answerLabels="1ª dose, 2ª à 5ª dose" />
+                  </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <input type="radio" name="tabs" id="tab7" class="rd-visible"/>
+                <label for="tab7">Tuberculose</label>
+                <div id="tab-content-VII" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p >
+                      <label>Profilaxia de Isonazida:</label>
+                      <obs conceptId="6122" answerConceptIds="1256,1257" answerLabels="Iniciou profilaxia INH, Continua a profilaxia"/>
+                    </p>
+                    <p>
+                      <label>Tratamento para TB:</label>
+                      <obs conceptId="54" answerConceptIds="1256,1257" answerLabels="Iniciou profilaxia INH, Continua a profilaxia" />
+                    </p>
+                  </div>
+                </div>
+              </li>
             </ul>
           </div>
           <div class="clear" />
           <div class="last-details">
-            <div class="tab-data tab-data-II">
-              <p >
-                <label>Recebeu Misoprostol?</label>
-                <obs conceptId="6351" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
-              </p>
-            </div>
-            <div class="tab-data tab-data-I">
-              <p>
-                <label>VAT:</label>
-                <obs conceptId="54" answerConceptIds="1182,1184" answerLabels="1ª dose, 2ª à 5ª dose" />
-              </p>
-              <p >
-                <label>Profilaxia de Isonazida:</label>
-                <obs conceptId="6122" answerConceptIds="1256,1257" answerLabels="Iniciou profilaxia INH, Continua a profilaxia"/>
-              </p>
-              <p>
-                <label>Tratamento para TB:</label>
-                <obs conceptId="54" answerConceptIds="1256,1257" answerLabels="Iniciou profilaxia INH, Continua a profilaxia" />
-              </p>
-            </div>
-            <div class="clear" />
             <p>
               <label style="font-weight:bold;">Observações:</label><br/>
               <obs conceptId="5622" style="textarea" rows ="4" cols="100" />
+            </p>
+            <p>
+              <label style="font-weight:bold;">Profissional de Saúde:</label>
+              <encounterProvider role="Provider" type="autocomplete"/>
             </p>
             <submit submitLabel="Submeter"/>
           </div>
