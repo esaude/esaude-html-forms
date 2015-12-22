@@ -1,0 +1,493 @@
+      <htmlform>
+      <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>LIVRO DE REGISTOS DE CONSULTA DA CRIANÇA EM RISCO</title>
+        <style>
+
+          .header{
+            margin-top: -2px !important;
+            margin-bottom: 10px !important;
+          }
+
+          .header label{
+            font-weight: bold;
+          }
+
+          .header-info{
+            float: right;
+            border: 1px dotted #B2DFEE;
+            padding: 0px 10px 0px 10px;
+          }
+
+          .header-info h3{
+            text-align: center;
+          }
+
+          .header-data{
+            float: left;
+            border: 1px dotted #B2DFEE;
+            margin-bottom: 10px !important;
+            padding: 0px 10px 0px 10px;
+          }
+
+          .header-box{
+            background: #1aac9b;
+            padding: 1px !important;
+            color: #fff;
+          }
+
+          .header-box h2{
+            margin-left: 10px;
+          }
+
+          .content{
+            width: 960px;
+            font-size: 8pt;
+            margin: 1px auto;
+            border: 1px solid #B2DFEE;
+            padding: 5px;
+          }
+
+          .demo-data label {
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 5px;
+          }
+
+          .demo-data p {
+            margin: 3px
+          }
+
+          .demo-data input, .demo-data select {
+            width: 140px;
+            font-size: 10pt;
+          }
+
+          .demo-data select{
+            margin-top: -2px;
+          }
+
+          .clear {
+            clear: both;
+          }
+
+          .demo-data-partI{
+            float: left;
+          }
+
+          .demo-data-partII{
+            float: left;
+            margin-left: 100px;
+          }
+
+          .demo-data-partII select{
+            width: 300px !important;
+          }
+
+          #rdp input{
+            width: 0px;
+          }
+
+          #rdp label{
+            width: 30px;
+          }
+
+          #rdpI{
+            width: 150px !important;
+          }
+
+          .tabs ul {
+            width: 945px;
+            list-style: none;
+            float: none;
+            position: relative;
+            padding: 0;
+          }
+
+          .tabs .rd-visible {
+              position: absolute;
+              display: none;
+          }
+
+          .tabs label{
+            display: block;
+            background: #EEE;
+            font-weight: bold;
+            line-height: 10px;
+            padding: 10px 22px;
+            font-size: 8pt;
+            border: 1px solid #B2DFEE;
+            margin-left: -1px;
+            cursor: pointer;
+          }
+
+          .tabs li{
+            float: left;
+          }
+
+        .tabs [id^=tab]:checked + label{
+            background: #1aac9b;
+            color: #fff;
+          }
+
+         .tabs [id^=tab]:checked ~ [id^=tab-content] {
+                display: block;
+          }
+          
+         .tabs .tab-content{
+              display: none;
+              text-align: left;
+              width: 100%;
+              line-height: 140%;
+              padding-top: 10px;
+              padding: 11px;
+              left: 0;
+              position: absolute;
+              border: 1px solid #B2DFEE;
+              margin: -1px;
+              min-height: 150px;
+            }
+
+          
+          .tab-data label{
+            border: none;
+            background: #fff;
+            display: inline-block;
+            width: 170px;
+            padding: 0;
+            margin: 0;
+            font-weight: normal;
+          }
+
+          .tab-data input, .tab-data select{
+            width: 140px;
+            font-size: 10pt;
+          }
+
+          .tab-data p {
+            margin: 3px;
+          }
+
+          .tab-data-I {
+            float: left;
+          }
+          .tab-data-II {
+            float: right;
+          }
+
+          .tab-data-II label {
+            width: 300px;
+          }
+
+
+          .rd-tab label{
+           width: 60px;
+          }
+
+          .rd-tab input{
+           width: 60px;
+           margin-top: 0px;
+          }
+
+          .last-details{
+            float: none;
+            margin-top: 220px;
+          }
+
+          .rd-tab1 input{
+           width: 15px !important;
+          }
+
+          </style>
+          
+      </head>
+
+      <body>
+      
+      <div class="header-box content">
+          <h2>LIVRO DE REGISTOS DE CONSULTA DA CRIANÇA EM RISCO</h2>
+        </div>
+
+      <div class="header content">
+        <div class="header-info">
+          <h3>REPÚBLICA DE MOÇAMBIQUE</h3>
+          <h3>SERVIÇO NACIONAL DE SAÚDE</h3>
+          <h3>MOD - SIS - B01</h3>
+          <p>
+            <label>NID/US:</label>
+          </p>
+          <p>
+            <label>NID/HDD:</label>
+            <lookup expression="patient.getPatientIdentifier(2)"/>
+          </p>
+        </div>
+        <div class="header-data">
+          <p>
+            <label>Nome:</label>
+            <lookup expression="patient.personName"/>
+          </p>
+          <p>
+            <label>Sexo/Data de Nasc./Idade:</label>
+            <lookup expression="patient.gender"/> - <lookup expression="patient.birthdate"/> - <lookup expression="patient.age"/>
+          </p>
+          <p>
+            <label>Nº de BI/Outra identificação:</label>
+            <lookup expression="patient.getPatientIdentifier(3)"/>/<lookup expression="patient.getPatientIdentifier(1)"/>
+          </p>
+          <p>
+            <label>Distrito/Cidade:</label>
+            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.countyDistrict #end"/>
+          </p>
+          <p>
+            <label>Localidade/Bairro:</label>
+            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.region #end"/>/<lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.subregion #end"/>
+          </p>
+          <p>
+            <label>Célula/Quarteirão:</label>
+            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.neighborhoodCell #end"/>
+          </p>
+          <p>
+            <label>Avenida/Rua/Casa:</label>
+            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.address1 #end"/>
+          </p>
+        </div>
+       
+        <div class="clear"/>
+        <label >Pessoa de Referência:</label><br/>
+        <obsgroup groupingConceptId="1609">
+          <obs conceptId="1441" labelText="Nome:" size="20"/> 
+          <obs conceptId="1442" labelText="Apelido:" size="20"/> 
+          <obs conceptId="1611" labelText="Tel:" size="15"/>
+        </obsgroup>
+        <p>
+          <label>Unidade Sanitária:</label><br/>
+          <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
+        </p>
+      </div>
+       <div class="content">
+          <div class="demo-data demo-data-partI">
+            <p>
+              <label>Data da Consulta:</label> <br/>
+              <encounterDate id="dataConsulta"/>
+            </p>
+          </div>
+          <div class="demo-data demo-data-partI">
+            <p>
+              <label>Consultas:</label> <br/>
+              <obs conceptId="6361"  answerConceptIds="6355,6356,6357,6358,6359,6360" answerLabels="1ª,2ª,3ª,4ª,5ª,6ª"/>
+            </p>
+          </div>
+          <div class="demo-data demo-data-partI">
+            <p>
+              <label>Idade:</label> <br/>
+              <obs conceptId="1279" size="10"/>
+            </p>
+          </div>
+          <div class="clear" />
+          <br/>
+          <div style="margin-left:3px;">
+            <label><strong>Dados da Mãe:</strong></label>
+          </div>
+          <div class="demo-data demo-data-partI">
+            <p>
+              <label>NID(CPN):</label>
+              <obs conceptId="2134" size="10" />
+            </p>
+            <p>
+              <label>NID(TARV):</label>
+              <obs conceptId="2135" size="10" />
+            </p>
+          </div>
+          <div class="demo-data demo-data-partII">
+            <p>
+              <label style="width:140px !important;">Em TARV a entrada:</label> <br/>
+              <obs conceptId="6354" answerConceptIds="6388, 1256, 1257" />
+            </p>
+          </div>
+          <div class="clear" />
+          <div class="tabs">
+            <ul>
+              <li>
+                <input type="radio" checked="true" name="tabs" id="tab1" class="rd-visible" />
+                <label for="tab1">Condição de Risco</label>
+                <div id="tab-content-I" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label>Contacto com Tuberculose:</label>
+                       <obs conceptId="1851" answersConceptIds="1065, 1066, 6403, 6404"/>
+                    </p>
+                    <p>
+                      <label>Exposição ao HIV:</label>
+                       <obs conceptId="1586" answerConceptIds="1065, 1066" style="radio" class="rd-tab rd-tab1"/>
+                    </p>
+                  </div>
+                  <div class="tab-data tab-data-II">
+                   <p>
+                    <label style="font-weight:bold; width:150px;">Desnutrição aguda:</label>
+                   </p>
+                   <p >
+                    <label>Moderada ?</label>
+                    <obs conceptId="68" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                   </p>
+                   <p >
+                    <label>Grave?</label>
+                    <obs conceptId="1844" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                   </p>
+                  </div>
+                  <div class="clear" />
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label style="font-weight:bold; margin-bottom:5px;">Outra condição em risco:</label><br/>
+                      <obs conceptId="1848" style="textarea" rows ="3" cols="80" />
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <input type="radio" name="tabs" id="tab2" class="rd-visible" />
+                <label for="tab2">Tuberculose</label>
+                <div id="tab-content-II" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label style="font-weight:bold; width:150px;">Profilaxia Isoniazida:</label>
+                    </p>
+                    <p>
+                      <label>Inicio:</label>
+                       <obs conceptId="6128"/>
+                    </p>
+                    <p >
+                     <label>Estado:</label>
+                     <obs conceptId="6122" answerConceptIds="1065, 1066, 1256, 1257, 1267" class="rd-tab rd-tab1"/>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <input type="radio" name="tabs" id="tab3" class="rd-visible"/>
+                <label for="tab3">Nutrição</label>
+                <div id="tab-content-III" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label>Tipo de aleitamento:</label>
+                       <obs conceptId="1151" answerConceptIds="5526, 5254, 6046"/>
+                    </p>
+                  </div>
+                  <div class="tab-data tab-data-II">
+                   <p>
+                      <label style="font-weight:bold; width:150px;" >Apoio Nutricional:</label>
+                    </p>
+                   <p>
+                    <label>Tratamento nutricional ATPU ?</label>
+                    <obs conceptId="1884" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                   </p>
+                   <p>
+                    <label>Tratamento nutricional CSB ?</label>
+                    <obs conceptId="2151" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                   </p>
+                   <p>
+                    <label>Internamento ?</label>
+                    <obs conceptId="5485" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                   </p>
+                  </div>
+                  <div class="clear" />
+                  <br/> 
+                </div>
+              </li>
+               <li>
+                <input type="radio" name="tabs" id="tab4" class="rd-visible"/>
+                <label for="tab4">Crianças expostas ao HIV</label>
+                <div id="tab-content-IV" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label>Profilaxia com Cotrimoxazol:</label>
+                      <obs conceptId="6121" answerConceptIds="1065, 1066, 6411, 6412, 1257" />
+                    </p>
+                  </div>
+                  <div class="clear" /><br/>
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label style="font-weight:bold; width:200px;">Teste de HIV da criança exposta:</label>
+                    </p>
+                    <p>
+                      <label style="width: 400px !important;">COLHEITA DE AMOSTRA DE PCR COM IDADE ATÉ 8 SEMANAS?</label>
+                      <obs conceptId="6414" answerConceptIds="1065, 1066" style="radio" class="rd-tab rd-tab1"/>
+                    </p>
+                    <p>
+                      <label style="width: 400px !important;">COLHEITA DE AMOSTRA DE PCR COM IDADE SUPERIOR A 8 SEMANAS?</label>
+                      <obs conceptId="6415" answerConceptIds="1065, 1066" style="radio" class="rd-tab rd-tab1"/>
+                    </p>
+                    <p>
+                      <label style="width: 400px !important;">RESULTADO DO TESTE DE PCR FEITO ATÉ 8 SEMANAS?</label>
+                      <obs conceptId="6416" answerConceptIds="664, 703" style="radio" class="rd-tab rd-tab1"/>
+                    </p>
+                    <p>
+                      <label style="width: 400px !important;">RESULTADO DO TESTE DE PCR FEITO DEPOIS DE 8 SEMANAS DE IDADE?</label>
+                      <obs conceptId="6417" answerConceptIds="664, 703" style="radio" class="rd-tab rd-tab1"/>
+                    </p>
+                    <p>
+                      <label style="width: 400px !important;">RESULTADO DEFINITIVO DE HIV PARA CRIANCA EXPOSTA?</label>
+                      <obs conceptId="6418" answerConceptIds="664, 703" style="radio" class="rd-tab rd-tab1"/>
+                    </p>
+                    <p>
+                      <label style="width: 400px !important;">RESULTADO DO TESTE RÁPIDO DE HIV PARA CRIANÇA NÃO EXPOSTA?</label>
+                      <obs conceptId="6419" answerConceptIds="664, 703, 1138, 1118" style="radio" class="rd-tab rd-tab1"/>
+                    </p>
+                  </div>
+                </div>
+              </li>
+               <li>
+                <input type="radio" name="tabs" id="tab5" class="rd-visible"/>
+                <label for="tab5">Saída da criança</label>
+                <div id="tab-content-V" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label>Prevenção da Malária :</label>
+                      <obs conceptId="6389" answerConceptIds="1182,1183,2084,2085" answerLabels="1ª, 2ª, 3ª, 4ª"/>
+                    </p>
+                  </div>
+                  <div class="tab-data tab-data-II">
+                    <p >
+                      <label>Recebeu Rede Mosquiteira?</label>
+                      <obs conceptId="1863" answerConceptIds="1065,1066" answerLabels="Sim, Não" style = "radio" class="rd-tab"/>
+                    </p>
+                    <p >
+                      <label>Testadas para Malaria:</label>
+                      <obs conceptId="6392" answerConceptIds="6390,6391" answerLabels="HTZ, TDR" style = "radio" class="rd-tab"/>
+                    </p>
+                  </div>
+                  <div class="clear" />
+                  <br/>
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label style="font-weight:bold; width:250px;">Diagnóstico e Tratamento de Malária:</label>
+                    </p>
+                    <p >
+                      <label>Resultado TDR ou HTZ:</label>
+                      <obs conceptId="32" answerConceptIds="664,703,1138,1118" answerLabels="Negativo, Positivo, Indeterminado, Não Feito"/>
+                    </p>
+                    <p>
+                      <label>Mulheres com teste de Malária Positivo e Tratadas:</label>
+                      <obs conceptId="1504" answerConceptIds="1065,1066" answerLabels="Sim, Não" />
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="clear" />
+          <div class="last-details">
+            <p>
+              <label style="font-weight:bold;">Observações:</label><br/>
+              <obs conceptId="5622" style="textarea" rows ="4" cols="100" />
+            </p>
+            <p>
+              <label style="font-weight:bold;">Profissional de Saúde:</label>
+              <encounterProvider role="Provider" type="autocomplete"/>
+            </p>
+            <submit submitLabel="Submeter"/>
+          </div>
+       </div>
+      </body>
+      </html>
+  </htmlform>   
