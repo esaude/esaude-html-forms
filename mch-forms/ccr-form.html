@@ -146,7 +146,7 @@
               position: absolute;
               border: 1px solid #B2DFEE;
               margin: -1px;
-              min-height: 150px;
+              min-height: 200px;
             }
 
           
@@ -192,7 +192,7 @@
 
           .last-details{
             float: none;
-            margin-top: 220px;
+            margin-top: 30%;
           }
 
           .rd-tab1 input{
@@ -200,6 +200,20 @@
           }
 
           </style>
+
+          <script type="text/javascript">
+            jQuery(document).ready(function(){
+              getField('exitStatus.value').live('change', function() {
+                
+                $j("#dateOfDie input").attr('disabled', true);
+
+                if(getValue("consult.value") == "6355"){
+                 $j("#dateOfDie input").attr('disabled', false);
+                }
+              });
+           });
+
+          </script>
           
       </head>
 
@@ -252,10 +266,10 @@
             <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.address1 #end"/>
           </p>
         </div>
-       
         <div class="clear"/>
         <label >Pessoa de Referência:</label><br/>
         <obsgroup groupingConceptId="1609">
+          <obs conceptId="969"  answerConceptIds="970, 971, 972, 973, 975, 5620" labelText="Tipo de acompanhante:"/>
           <obs conceptId="1441" labelText="Nome:" size="20"/> 
           <obs conceptId="1442" labelText="Apelido:" size="20"/> 
           <obs conceptId="1611" labelText="Tel:" size="15"/>
@@ -264,47 +278,29 @@
           <label>Unidade Sanitária:</label><br/>
           <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
         </p>
+        <relationship type="3" whoAmI="B"  changeExistingRelationship="true" display="search"/>
       </div>
        <div class="content">
           <div class="demo-data demo-data-partI">
             <p>
-              <label>Data da Consulta:</label> <br/>
-              <encounterDate id="dataConsulta"/>
+              <label>Consultas:</label> <br/>
+              <obs conceptId="6361" id="consult" required="true" answerConceptIds="6355,6356,6357,6358,6359,6360" answerLabels="1ª,2ª,3ª,4ª,5ª,6ª"/>
             </p>
           </div>
           <div class="demo-data demo-data-partI">
             <p>
-              <label>Consultas:</label> <br/>
-              <obs conceptId="6361"  answerConceptIds="6355,6356,6357,6358,6359,6360" answerLabels="1ª,2ª,3ª,4ª,5ª,6ª"/>
+              <label>Data da Consulta:</label> <br/>
+              <encounterDate id="dataConsulta" required="true"/>
             </p>
           </div>
           <div class="demo-data demo-data-partI">
             <p>
               <label>Idade:</label> <br/>
-              <obs conceptId="1279" size="10"/>
+              <obs conceptId="1279" size="10" required="true"/>
             </p>
           </div>
           <div class="clear" />
           <br/>
-          <div style="margin-left:3px;">
-            <label><strong>Dados da Mãe:</strong></label>
-          </div>
-          <div class="demo-data demo-data-partI">
-            <p>
-              <label>NID(CPN):</label>
-              <obs conceptId="2134" size="10" />
-            </p>
-            <p>
-              <label>NID(TARV):</label>
-              <obs conceptId="2135" size="10" />
-            </p>
-          </div>
-          <div class="demo-data demo-data-partII">
-            <p>
-              <label style="width:140px !important;">Em TARV a entrada:</label> <br/>
-              <obs conceptId="6354" answerConceptIds="6388, 1256, 1257" />
-            </p>
-          </div>
           <div class="clear" />
           <div class="tabs">
             <ul>
@@ -315,7 +311,7 @@
                   <div class="tab-data tab-data-I">
                     <p>
                       <label>Contacto com Tuberculose:</label>
-                       <obs conceptId="1851" answersConceptIds="1065, 1066, 6403, 6404"/>
+                       <obs conceptId="1851" answersConceptIds="1065, 1066" style="radio" class="rd-tab rd-tab1"/>
                     </p>
                     <p>
                       <label>Exposição ao HIV:</label>
@@ -412,10 +408,12 @@
                     <p>
                       <label style="width: 400px !important;">COLHEITA DE AMOSTRA DE PCR COM IDADE ATÉ 8 SEMANAS?</label>
                       <obs conceptId="6414" answerConceptIds="1065, 1066" style="radio" class="rd-tab rd-tab1"/>
+                      <obs conceptId="1998" labelText="DATA:" />
                     </p>
                     <p>
                       <label style="width: 400px !important;">COLHEITA DE AMOSTRA DE PCR COM IDADE SUPERIOR A 8 SEMANAS?</label>
                       <obs conceptId="6415" answerConceptIds="1065, 1066" style="radio" class="rd-tab rd-tab1"/>
+                      <obs conceptId="6424" labelText="DATA:" />
                     </p>
                     <p>
                       <label style="width: 400px !important;">RESULTADO DO TESTE DE PCR FEITO ATÉ 8 SEMANAS?</label>
@@ -426,12 +424,12 @@
                       <obs conceptId="6417" answerConceptIds="664, 703" style="radio" class="rd-tab rd-tab1"/>
                     </p>
                     <p>
-                      <label style="width: 400px !important;">RESULTADO DEFINITIVO DE HIV PARA CRIANCA EXPOSTA?</label>
-                      <obs conceptId="6418" answerConceptIds="664, 703" style="radio" class="rd-tab rd-tab1"/>
+                      <label style="width: 400px !important;">SERIOLOGIA HIV, TESTE RÁPIDO?</label>
+                      <obs conceptId="1040" answerConceptIds="664, 703, 1138, 1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
                     </p>
                     <p>
-                      <label style="width: 400px !important;">RESULTADO DO TESTE RÁPIDO DE HIV PARA CRIANÇA NÃO EXPOSTA?</label>
-                      <obs conceptId="6419" answerConceptIds="664, 703, 1138, 1118" style="radio" class="rd-tab rd-tab1"/>
+                      <label style="width: 400px !important;">RESULTADO DEFINITIVO DE HIV PARA CRIANCA EXPOSTA?</label>
+                      <obs conceptId="6418" answerConceptIds="664, 703" style="radio" class="rd-tab rd-tab1"/>
                     </p>
                   </div>
                 </div>
@@ -442,33 +440,9 @@
                 <div id="tab-content-V" class="tab-content">
                   <div class="tab-data tab-data-I">
                     <p>
-                      <label>Prevenção da Malária :</label>
-                      <obs conceptId="6389" answerConceptIds="1182,1183,2084,2085" answerLabels="1ª, 2ª, 3ª, 4ª"/>
-                    </p>
-                  </div>
-                  <div class="tab-data tab-data-II">
-                    <p >
-                      <label>Recebeu Rede Mosquiteira?</label>
-                      <obs conceptId="1863" answerConceptIds="1065,1066" answerLabels="Sim, Não" style = "radio" class="rd-tab"/>
-                    </p>
-                    <p >
-                      <label>Testadas para Malaria:</label>
-                      <obs conceptId="6392" answerConceptIds="6390,6391" answerLabels="HTZ, TDR" style = "radio" class="rd-tab"/>
-                    </p>
-                  </div>
-                  <div class="clear" />
-                  <br/>
-                  <div class="tab-data tab-data-I">
-                    <p>
-                      <label style="font-weight:bold; width:250px;">Diagnóstico e Tratamento de Malária:</label>
-                    </p>
-                    <p >
-                      <label>Resultado TDR ou HTZ:</label>
-                      <obs conceptId="32" answerConceptIds="664,703,1138,1118" answerLabels="Negativo, Positivo, Indeterminado, Não Feito"/>
-                    </p>
-                    <p>
-                      <label>Mulheres com teste de Malária Positivo e Tratadas:</label>
-                      <obs conceptId="1504" answerConceptIds="1065,1066" answerLabels="Sim, Não" />
+                      <label style="width: 50px !important;">Alta :</label>
+                      <obs conceptId="1873" id="exitStatus" answerConceptIds="6301, 1366, 1707, 1798, 6423, 1706, 1782" />
+                      <obs conceptId="6425" id="dateOfDie" labelText="DATA:" />
                     </p>
                   </div>
                 </div>
@@ -476,7 +450,12 @@
             </ul>
           </div>
           <div class="clear" />
+          
           <div class="last-details">
+            <p>
+              <label style="width: 400px !important;">RESULTADO DO TESTE RÁPIDO DE HIV PARA CRIANÇA NÃO EXPOSTA?</label>
+              <obs conceptId="6419" answerConceptIds="664, 703, 1138, 1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
+            </p>
             <p>
               <label style="font-weight:bold;">Observações:</label><br/>
               <obs conceptId="5622" style="textarea" rows ="4" cols="100" />
@@ -490,4 +469,4 @@
        </div>
       </body>
       </html>
-  </htmlform>   
+  </htmlform>
