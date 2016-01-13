@@ -47,7 +47,7 @@
             margin: 1px auto;
             border: 1px solid #B2DFEE;
             padding: 5px;
-          }
+          } 
 
           .demo-data label {
             display: inline-block;
@@ -195,8 +195,9 @@
             beforeSubmit.push(function() {
                 var sifilisPartner = getValue('sifilisPartner.value');
                 var testPartner = getValue('testPartner.value');
+                var partner = getValue('partner.value');
 
-                if (sifilisPartner != '' || testPartner != '') {
+                if ((sifilisPartner != '' || testPartner != '') &amp;&amp; partner == '') {
                     getField('partner.error').html('obrigatório').show();
                     return false;
                 }
@@ -210,15 +211,18 @@
                 }
 
                 var diagnosticITS = getValue("diagnosticITS.value");
+                var itsTreatment = getValue('itsTreatment.value')
 
-                if (diagnosticITS =="864" || diagnosticITS == "5993") {
+                if ((diagnosticITS == "864" || diagnosticITS == "5993") &amp;&amp; itsTreatment == '') {
                   getField('itsTreatment.error').html('obrigatório').show();
                   return false;
                 }
 
                 var consult = getValue('consult.value');
+                var ageRange = getValue('ageRange.value');
+                var moreThan12weeks = getValue('moreThan12weeks.value');
 
-                if (consult == "6355") {
+                if (consult == "6355" &amp;&amp; (ageRange == '' || moreThan12weeks == '')) {
                   getField("ageRange.error").html("obrigatório").show();
                   getField("moreThan12weeks.error").html("obrigatório").show();
                   return false;
@@ -417,19 +421,19 @@
                   <div class="tab-data tab-data-I">
                     <p >
                       <label>Tensão Arterial (TA) ?</label>
-                      <obs conceptId="6379" required="true" answerConceptIds="1065,1066, 1118" answerLabels="Sim, Não, Não Fez"/>
+                      <obs conceptId="6379" required="true" answerConceptIds="1065,1066,1118" answerLabels="Sim, Não, Não Fez"/>
                     </p>
                     <p>
                       <label>Hemoglobina (HGB) ?</label>
-                      <obs conceptId="6380" answerConceptIds="1065,1066, 1118" answerLabels="Sim, Não, Não Fez"/>
+                      <obs conceptId="6380" answerConceptIds="1065,1066,1118" answerLabels="Sim, Não, Não Fez"/>
                     </p>
                      <p>
                       <label>Proteinúria ?</label>
-                      <obs conceptId="6381" answerConceptIds="1065,1066, 1118" answerLabels="Sim, Não, Não Fez"/>
+                      <obs conceptId="6381" answerConceptIds="1065,1066,1118" answerLabels="Sim, Não, Não Fez"/>
                     </p>
                      <p>
                       <label>Glicosúria ?</label>
-                      <obs conceptId="6382" answerConceptIds="1065,1066, 1118" answerLabels="Sim, Não, Não Fez"/>
+                      <obs conceptId="6382" answerConceptIds="1065,1066,1118" answerLabels="Sim, Não, Não Fez"/>
                     </p>
                   </div>
                 </div>
@@ -466,7 +470,7 @@
                     </p>
                     <p>
                       <label>Parceiro ?</label>
-                      <obs conceptId="6384" id="sifilisPartner" answerConceptIds="1065,1066, 1118" answerLabels="Sim, Não, Não Feito" />
+                      <obs conceptId="6384" id="sifilisPartner" answerConceptIds="1065,1066,1118" answerLabels="Sim, Não, Não Feito" />
                     </p>
                   </div>
                 </div>
@@ -495,11 +499,11 @@
                     </p>
                     <p >
                       <label>Profilaxia CTZ:</label>
-                      <obs conceptId="6121" id="prophilaxysCZT" answerConceptIds="6386,1256,1257, 6387" answerLabels="Em CTZ a entrada,Iniciou profilaxia CTZ nesta consultae,Já está a tomar anteriormente CTZ, Mulher não recebeu CTZ"/>
+                      <obs conceptId="6121" id="prophilaxysCZT" answerConceptIds="6386,1256,1257,6387" answerLabels="Em CTZ a entrada,Iniciou profilaxia CTZ nesta consultae,Já está a tomar anteriormente CTZ, Mulher não recebeu CTZ"/>
                     </p>
                     <p>
                       <label>Profilaxia ARV ?</label>
-                      <obs conceptId="1504" id="prophilaxysARV" answerConceptIds="6388,631, 1801, 1256, 1257" answerLabels="Em TARV a entrada, Monoprofilaxia (NVP), Biprofilaxia, TARV Inicio, TARV Continuação" />
+                      <obs conceptId="1504" id="prophilaxysARV" answerConceptIds="6388,631,1801,1256,1257" answerLabels="Em TARV a entrada, Monoprofilaxia (NVP), Biprofilaxia, TARV Inicio, TARV Continuação" />
                     </p>
                   </div>
                 </div>

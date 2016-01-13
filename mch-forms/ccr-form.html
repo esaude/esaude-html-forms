@@ -192,7 +192,7 @@
 
           .last-details{
             float: none;
-            margin-top: 30%;
+            margin-top: 23%;
           }
 
           .rd-tab1 input{
@@ -207,9 +207,10 @@
                 
                 $j("#dateOfDie input").attr('disabled', true);
 
-                if(getValue("consult.value") == "6355"){
+                if(getValue("exitStatus.value") == "1366"){
                  $j("#dateOfDie input").attr('disabled', false);
                 }
+
               });
            });
 
@@ -269,13 +270,13 @@
         <div class="clear"/>
         <label >Pessoa de Referência:</label><br/>
         <obsgroup groupingConceptId="1609">
-          <obs conceptId="969"  answerConceptIds="970, 971, 972, 973, 975, 5620" labelText="Tipo de acompanhante:"/>
+          <obs conceptId="969"  answerConceptIds="970,971,972,973,975,5620" labelText="Tipo de acompanhante:"/>
           <obs conceptId="1441" labelText="Nome:" size="20"/> 
           <obs conceptId="1442" labelText="Apelido:" size="20"/> 
           <obs conceptId="1611" labelText="Tel:" size="15"/>
         </obsgroup>
         <p>
-          <label>Unidade Sanitária:</label><br/>
+          <label>Unidade Sanitária:</label>
           <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
         </p>
         <relationship type="3" whoAmI="B"  changeExistingRelationship="true" display="search"/>
@@ -293,15 +294,8 @@
               <encounterDate id="dataConsulta" required="true"/>
             </p>
           </div>
-          <div class="demo-data demo-data-partI">
-            <p>
-              <label>Idade:</label> <br/>
-              <obs conceptId="1279" size="10" required="true"/>
-            </p>
-          </div>
           <div class="clear" />
           <br/>
-          <div class="clear" />
           <div class="tabs">
             <ul>
               <li>
@@ -311,11 +305,11 @@
                   <div class="tab-data tab-data-I">
                     <p>
                       <label>Contacto com Tuberculose:</label>
-                       <obs conceptId="1851" answersConceptIds="1065, 1066" style="radio" class="rd-tab rd-tab1"/>
+                       <obs conceptId="1851" answersConceptIds="1065,1066"/>
                     </p>
                     <p>
                       <label>Exposição ao HIV:</label>
-                       <obs conceptId="1586" answerConceptIds="1065, 1066" style="radio" class="rd-tab rd-tab1"/>
+                       <obs conceptId="1586" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
                     </p>
                   </div>
                   <div class="tab-data tab-data-II">
@@ -354,7 +348,7 @@
                     </p>
                     <p >
                      <label>Estado:</label>
-                     <obs conceptId="6122" answerConceptIds="1065, 1066, 1256, 1257, 1267" class="rd-tab rd-tab1"/>
+                     <obs conceptId="6122" answerConceptIds="1065,1066,1256,1257,1267" class="rd-tab rd-tab1"/>
                     </p>
                   </div>
                 </div>
@@ -366,7 +360,7 @@
                   <div class="tab-data tab-data-I">
                     <p>
                       <label>Tipo de aleitamento:</label>
-                       <obs conceptId="1151" answerConceptIds="5526, 5254, 6046"/>
+                       <obs conceptId="1151" answerConceptIds="5526,5254,6046"/>
                     </p>
                   </div>
                   <div class="tab-data tab-data-II">
@@ -397,7 +391,7 @@
                   <div class="tab-data tab-data-I">
                     <p>
                       <label>Profilaxia com Cotrimoxazol:</label>
-                      <obs conceptId="6121" answerConceptIds="1065, 1066, 6411, 6412, 1257" />
+                      <obs conceptId="6121" answerConceptIds="1065,1066,6411,6412,1257" />
                     </p>
                   </div>
                   <div class="clear" /><br/>
@@ -407,29 +401,29 @@
                     </p>
                     <p>
                       <label style="width: 400px !important;">COLHEITA DE AMOSTRA DE PCR COM IDADE ATÉ 8 SEMANAS?</label>
-                      <obs conceptId="6414" answerConceptIds="1065, 1066" style="radio" class="rd-tab rd-tab1"/>
+                      <obs conceptId="6414" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
                       <obs conceptId="1998" labelText="DATA:" />
                     </p>
                     <p>
                       <label style="width: 400px !important;">COLHEITA DE AMOSTRA DE PCR COM IDADE SUPERIOR A 8 SEMANAS?</label>
-                      <obs conceptId="6415" answerConceptIds="1065, 1066" style="radio" class="rd-tab rd-tab1"/>
+                      <obs conceptId="6415" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
                       <obs conceptId="6424" labelText="DATA:" />
                     </p>
                     <p>
                       <label style="width: 400px !important;">RESULTADO DO TESTE DE PCR FEITO ATÉ 8 SEMANAS?</label>
-                      <obs conceptId="6416" answerConceptIds="664, 703" style="radio" class="rd-tab rd-tab1"/>
+                      <obs conceptId="6416" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
                     </p>
                     <p>
                       <label style="width: 400px !important;">RESULTADO DO TESTE DE PCR FEITO DEPOIS DE 8 SEMANAS DE IDADE?</label>
-                      <obs conceptId="6417" answerConceptIds="664, 703" style="radio" class="rd-tab rd-tab1"/>
+                      <obs conceptId="6417" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
                     </p>
                     <p>
                       <label style="width: 400px !important;">SERIOLOGIA HIV, TESTE RÁPIDO?</label>
-                      <obs conceptId="1040" answerConceptIds="664, 703, 1138, 1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
+                      <obs conceptId="1040" answerConceptIds="664,703,1138,1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
                     </p>
                     <p>
                       <label style="width: 400px !important;">RESULTADO DEFINITIVO DE HIV PARA CRIANCA EXPOSTA?</label>
-                      <obs conceptId="6418" answerConceptIds="664, 703" style="radio" class="rd-tab rd-tab1"/>
+                      <obs conceptId="6418" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
                     </p>
                   </div>
                 </div>
@@ -441,7 +435,7 @@
                   <div class="tab-data tab-data-I">
                     <p>
                       <label style="width: 50px !important;">Alta :</label>
-                      <obs conceptId="1873" id="exitStatus" answerConceptIds="6301, 1366, 1707, 1798, 6423, 1706, 1782" />
+                      <obs conceptId="1873" id="exitStatus" answerConceptIds="6301,1366,1707,1798,6423,1706,1782" />
                       <obs conceptId="6425" id="dateOfDie" labelText="DATA:" />
                     </p>
                   </div>
@@ -454,7 +448,7 @@
           <div class="last-details">
             <p>
               <label style="width: 400px !important;">RESULTADO DO TESTE RÁPIDO DE HIV PARA CRIANÇA NÃO EXPOSTA?</label>
-              <obs conceptId="6419" answerConceptIds="664, 703, 1138, 1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
+              <obs conceptId="6419" answerConceptIds="664,703,1138,1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
             </p>
             <p>
               <label style="font-weight:bold;">Observações:</label><br/>
