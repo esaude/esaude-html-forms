@@ -16,7 +16,7 @@
 
           .header-info{
             float: right;
-            border: 1px dotted #B2DFEE;
+            border: 1px dotted #1aac9b;
             padding: 0px 10px 0px 10px;
           }
 
@@ -298,10 +298,26 @@
           <br/>
           <div class="tabs">
             <ul>
-              <li>
-                <input type="radio" checked="true" name="tabs" id="tab1" class="rd-visible" />
-                <label for="tab1">Condição de Risco</label>
+                <li>
+                <input type="radio" name="tabs" id="tab1" checked="true" class="rd-visible"/>
+                <label for="tab1">Dados da Mãe</label>
                 <div id="tab-content-I" class="tab-content">
+                  <div class="tab-data tab-data-I">
+                    <p>
+                      <label>Mulher HIV + Lactante:</label>
+                       <obs conceptId="6332" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                    </p>
+                    <p>
+                      <label>Mãe lactante em TARV:</label>
+                      <obs conceptId="6354" id="exitStatus" answerConceptIds="6388,1256,1257" />
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <input type="radio" name="tabs" id="tab2" class="rd-visible" />
+                <label for="tab2">Condição de Risco</label>
+                <div id="tab-content-II" class="tab-content">
                   <div class="tab-data tab-data-I">
                     <p>
                       <label>Contacto com Tuberculose:</label>
@@ -335,9 +351,9 @@
                 </div>
               </li>
               <li>
-                <input type="radio" name="tabs" id="tab2" class="rd-visible" />
-                <label for="tab2">Tuberculose</label>
-                <div id="tab-content-II" class="tab-content">
+                <input type="radio" name="tabs" id="tab3" class="rd-visible" />
+                <label for="tab3">Tuberculose</label>
+                <div id="tab-content-III" class="tab-content">
                   <div class="tab-data tab-data-I">
                     <p>
                       <label style="font-weight:bold; width:150px;">Profilaxia Isoniazida:</label>
@@ -354,9 +370,9 @@
                 </div>
               </li>
               <li>
-                <input type="radio" name="tabs" id="tab3" class="rd-visible"/>
-                <label for="tab3">Nutrição</label>
-                <div id="tab-content-III" class="tab-content">
+                <input type="radio" name="tabs" id="tab4" class="rd-visible"/>
+                <label for="tab4">Nutrição</label>
+                <div id="tab-content-IV" class="tab-content">
                   <div class="tab-data tab-data-I">
                     <p>
                       <label>Tipo de aleitamento:</label>
@@ -385,9 +401,9 @@
                 </div>
               </li>
                <li>
-                <input type="radio" name="tabs" id="tab4" class="rd-visible"/>
-                <label for="tab4">Crianças expostas ao HIV</label>
-                <div id="tab-content-IV" class="tab-content">
+                <input type="radio" name="tabs" id="tab5" class="rd-visible"/>
+                <label for="tab5">Crianças expostas ao HIV</label>
+                <div id="tab-content-V" class="tab-content">
                   <div class="tab-data tab-data-I">
                     <p>
                       <label>Profilaxia com Cotrimoxazol:</label>
@@ -406,8 +422,7 @@
                     </p>
                     <p>
                       <label style="width: 400px !important;">COLHEITA DE AMOSTRA DE PCR COM IDADE SUPERIOR A 8 SEMANAS?</label>
-                      <obs conceptId="6415" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
-                      <obs conceptId="6424" labelText="DATA:" />
+                      <obs conceptId="6415" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1" dateLabel="DATA:" size="200"/>
                     </p>
                     <p>
                       <label style="width: 400px !important;">RESULTADO DO TESTE DE PCR FEITO ATÉ 8 SEMANAS?</label>
@@ -428,19 +443,18 @@
                   </div>
                 </div>
               </li>
-               <li>
-                <input type="radio" name="tabs" id="tab5" class="rd-visible"/>
-                <label for="tab5">Saída da criança</label>
-                <div id="tab-content-V" class="tab-content">
-                  <div class="tab-data tab-data-I">
-                    <p>
-                      <label style="width: 50px !important;">Alta :</label>
-                      <obs conceptId="1873" id="exitStatus" answerConceptIds="6301,1366,1707,1798,6423,1706,1782" />
-                      <obs conceptId="6425" id="dateOfDie" labelText="DATA:" />
-                    </p>
-                  </div>
+             <li>
+              <input type="radio" name="tabs" id="tab6" class="rd-visible"/>
+              <label for="tab6">Saída da criança</label>
+              <div id="tab-content-VI" class="tab-content">
+                <div class="tab-data tab-data-I">
+                  <p>
+                    <label style="width: 50px !important;">Alta :</label>
+                    <obs conceptId="1873" id="exitStatus" answerConceptIds="6301,1366,1707,1798,6423,1706,1782"  dateLabel="DATA:"/>
+                  </p>
                 </div>
-              </li>
+              </div>
+            </li>
             </ul>
           </div>
           <div class="clear" />
