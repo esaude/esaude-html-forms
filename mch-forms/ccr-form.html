@@ -199,6 +199,11 @@
            width: 15px !important;
           }
 
+
+          .rd-tab1 input[type="text"] {
+            width: 100px !important;
+          }
+
           </style>
 
           <script type="text/javascript">
@@ -411,7 +416,7 @@
                   <div class="tab-data tab-data-I">
                     <p>
                       <label>Profilaxia com Cotrimoxazol:</label>
-                      <obs conceptId="6121" answerConceptIds="1065,1066,6411,6412,1257" />
+                      <obs conceptId="6121" answerConceptIds="6411,1267,1257" answerLabels="INICIO,COMPLETO,CONTINUACAO"/>
                     </p>
                     <p>
                       <label>Profilaxia com ARV:</label>
@@ -425,8 +430,7 @@
                     </p>
                     <p>
                       <label style="width: 400px !important;">COLHEITA DE AMOSTRA DE PCR COM IDADE ATÉ 8 SEMANAS?</label>
-                      <obs conceptId="6414" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
-                      <obs conceptId="1998" labelText="DATA:" />
+                      <obs conceptId="6414" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1" dateLabel="DATA:"/>
                     </p>
                     <p>
                       <label style="width: 400px !important;">COLHEITA DE AMOSTRA DE PCR COM IDADE SUPERIOR A 8 SEMANAS?</label>
