@@ -51,7 +51,7 @@
 
           .demo-data label {
             display: inline-block;
-            width: 180px;
+            width: 190px;
           }
 
           .demo-data p {
@@ -351,7 +351,7 @@
           </div>
           <div class="demo-data demo-data-partII">
             <p>
-              <label>Idade Gestacional:</label>
+              <label>Idade Gestacional (em semanas):</label>
               <obs conceptId="1279" size="10" required="true"/> 
             </p>
             <p id="rdp">
@@ -372,12 +372,12 @@
                 <div id="tab-content-I" class="tab-content">
                   <div class="tab-data tab-data-I">
                     <p>
-                      <label>Peso:</label>
+                      <label>Peso(KG):</label>
                        <obs conceptId="5089" size="10" required="true" />
                     </p>
                     <p>
                       <label>Perímetro Braquial:</label>
-                       <obs conceptId="6373" id="brachialPerimeter" answerConceptIds="6370,6371,6372" answerLabels="˂21 cm (DAG), menor ou igual a 21cm e menor que 23 cm (DAM)s, ³ 23 cm (normal)"/>
+                       <obs conceptId="6373" id="brachialPerimeter" answerConceptIds="6370,6371,6372" answerLabels="˂21 cm (DAG), menor ou igual a 21cm e menor que 23 cm (DAM)s, &gt;23 cm (normal)"/>
                     </p>
                   </div>
                   <div class="tab-data tab-data-II">
@@ -394,7 +394,7 @@
                       <obs conceptId="6377" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
                    </p>
                     <p >
-                      <label>Prevenção da Anemia (Sal Ferr com Ac Fólico)?</label>
+                      <label>Sal Ferr com Ac Fólico?</label>
                       <obs conceptId="6378" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
                    </p>
                   </div>
@@ -419,12 +419,12 @@
                 <label for="tab2">Exames</label>
                 <div id="tab-content-II" class="tab-content">
                   <div class="tab-data tab-data-I">
-                    <p >
-                      <label>Tensão Arterial (TA) ?</label>
+                    <p>
+                      <label>Tensão Arterial (TA ≥ 140/90mmHg) ?</label>
                       <obs conceptId="6379" required="true" answerConceptIds="1065,1066,1118" answerLabels="Sim, Não, Não Fez"/>
                     </p>
                     <p>
-                      <label>Hemoglobina (HGB) ?</label>
+                      <label>Hemoglobina (HGB ˂11g/dL)?</label>
                       <obs conceptId="6380" answerConceptIds="1065,1066,1118" answerLabels="Sim, Não, Não Fez"/>
                     </p>
                      <p>
@@ -587,7 +587,7 @@
             </p>
             <p>
               <label style="font-weight:bold;">Profissional de Saúde:</label>
-              <encounterProvider role="Provider" type="autocomplete"/>
+              <encounterProvider role="Provider" type="autocomplete"  required="true"/>
             </p>
             <submit submitLabel="Submeter"/>
           </div>

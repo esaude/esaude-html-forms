@@ -364,12 +364,12 @@
                       <label style="font-weight:bold; width:150px;">Profilaxia Isoniazida:</label>
                     </p>
                     <p>
-                      <label>Inicio:</label>
+                      <label>Data de início:</label>
                        <obs conceptId="6128"/>
                     </p>
                     <p >
                      <label>Estado:</label>
-                     <obs conceptId="6122" answerConceptIds="1065,1066,1256,1257,1267" class="rd-tab rd-tab1"/>
+                     <obs conceptId="6122" answerConceptIds="1257,1267" answerLabels="CONTINUACAO,COMPLETO" class="rd-tab rd-tab1"/>
                     </p>
                   </div>
                 </div>
@@ -416,7 +416,7 @@
                   <div class="tab-data tab-data-I">
                     <p>
                       <label>Profilaxia com Cotrimoxazol:</label>
-                      <obs conceptId="6121" answerConceptIds="6411,1267,1257" answerLabels="INICIO,COMPLETO,CONTINUACAO"/>
+                      <obs conceptId="6121" answerConceptIds="1257" answerLabels="CONTINUACAO"/>
                     </p>
                     <p>
                       <label>Profilaxia com ARV:</label>
@@ -429,27 +429,27 @@
                       <label style="font-weight:bold; width:200px;">Teste de HIV da criança exposta:</label>
                     </p>
                     <p>
-                      <label style="width: 400px !important;">COLHEITA DE AMOSTRA DE PCR COM IDADE ATÉ 8 SEMANAS?</label>
+                      <label style="width: 400px !important;">COLHEITA DA PCR ≤ 8SEM DE IDADE?</label>
                       <obs conceptId="6414" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1" dateLabel="DATA:"/>
                     </p>
                     <p>
-                      <label style="width: 400px !important;">COLHEITA DE AMOSTRA DE PCR COM IDADE SUPERIOR A 8 SEMANAS?</label>
-                      <obs conceptId="6415" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1" dateLabel="DATA:" size="200"/>
+                      <label style="width: 400px !important;">COLHEITA DA PCR > 8SEM DE IDADE?</label>
+                      <obs conceptId="6415" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
                     </p>
                     <p>
-                      <label style="width: 400px !important;">RESULTADO DO TESTE DE PCR FEITO ATÉ 8 SEMANAS?</label>
+                      <label style="width: 400px !important;">RESULTADO PCR COLHIDA COM IDADE ≤ 8 SEMANAS?</label>
                       <obs conceptId="6416" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
                     </p>
                     <p>
-                      <label style="width: 400px !important;">RESULTADO DO TESTE DE PCR FEITO DEPOIS DE 8 SEMANAS DE IDADE?</label>
+                      <label style="width: 400px !important;">RESULTADO PCR COLHIDA COM IDADE > 8 SEMANAS?</label>
                       <obs conceptId="6417" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
                     </p>
                     <p>
-                      <label style="width: 400px !important;">SERIOLOGIA HIV, TESTE RÁPIDO?</label>
+                      <label style="width: 400px !important;">RESULTADO TESTE RÁPIDO ≥ 9MESES?</label>
                       <obs conceptId="1040" answerConceptIds="664,703,1138,1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
                     </p>
                     <p>
-                      <label style="width: 400px !important;">RESULTADO DEFINITIVO DE HIV PARA CRIANCA EXPOSTA?</label>
+                      <label style="width: 400px !important;">RESULTADO DEFINITIVO?</label>
                       <obs conceptId="6418" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
                     </p>
                   </div>
@@ -482,7 +482,7 @@
             </p>
             <p>
               <label style="font-weight:bold;">Profissional de Saúde:</label>
-              <encounterProvider role="Provider" type="autocomplete"/>
+              <encounterProvider role="Provider" type="autocomplete" required="true" />
             </p>
             <submit submitLabel="Submeter"/>
           </div>
