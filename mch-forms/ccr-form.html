@@ -484,7 +484,7 @@
               <label style="font-weight:bold;">Profissional de Saúde:</label>
               <encounterProvider role="Provider" type="autocomplete" required="true" />
             </p>
-            <submit submitLabel="Submeter"/>
+            <includeIf velocityTest="$patient.age &lt; 14 "><div align="center"><submit submitLabel="Submeter"/></div></includeIf>
           </div>
        </div>
       </body>

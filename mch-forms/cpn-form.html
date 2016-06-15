@@ -254,11 +254,8 @@
                 }
                 
               });
-           });
-
-           //serostatus validator
-           jQuery(document).ready(function(){
-
+           
+              //serostatus validator
               getField('seroStatus.value').live('change', function(){
                   $j("#hivTestCPN select").attr('disabled', false);
 
@@ -268,6 +265,41 @@
                     $j("#hivTestCPN select").attr('disabled', true);
                   }
               });
+
+              // validate HIV status if partner present
+              $j("#testPartner select").attr('disabled',true);
+
+              $j('#partner input[type="radio"]').on('click change', function(e) {                 
+                  var yesValue = $j('#partner input[type="radio"]:checked').val();
+
+                  if(yesValue === '1065'){
+                     $j("#testPartner select").attr('disabled',false);
+                     return;
+                  }
+                  
+                  $j("#testPartner select").attr('disabled',true);
+              });
+
+              //validate woman test
+              $j('#hivTestCPN select').on('change', function(e) {                 
+                  var value =  getValue('hivTestCPN.value');
+                  console.log(value);
+                  if(value === '664'){
+                    $j("#prophilaxysCZT select").attr('disabled',true);
+                    $j("#prophilaxysARV select").attr('disabled',true);
+                    return;
+                  }
+
+                  $j("#prophilaxysCZT select").attr('disabled',false);
+                  $j("#prophilaxysARV select").attr('disabled',false);
+              });
+
+
+              //validate malaria test
+              $j('#partner input[type="radio"]').on('click change', function(e) {                 
+                  
+              });
+
            });
           </script>  
       </head>
@@ -342,7 +374,7 @@
             </p>
             <p>
               <label>Consultas:</label>
-              <obs conceptId="6361  " id="consult" answerConceptIds="6355,6356,6357,6358,6359,6360" answerLabels="1ª,2ª,3ª,4ª,5ª,6ª"/>
+              <obs conceptId="6361" id="consult" answerConceptIds="6355,6356,6357,6358,6359,6360" answerLabels="1ª,2ª,3ª,4ª,5ª,6ª"/>
             </p>
             <p>
               <label>Faixa Etária:</label>
@@ -394,7 +426,7 @@
                       <obs conceptId="6377" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
                    </p>
                     <p >
-                      <label>Sal Ferr com Ac Fólico?</label>
+                      <label>Sal Ferroso com Ácido Fólico?</label>
                       <obs conceptId="6378" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
                    </p>
                   </div>
@@ -589,7 +621,7 @@
               <label style="font-weight:bold;">Profissional de Saúde:</label>
               <encounterProvider role="Provider" type="autocomplete"  required="true"/>
             </p>
-            <submit submitLabel="Submeter"/>
+            <includeIf velocityTest="$patient.age >14 &amp;&amp; $patient.gender == 'F' "><div align="center"><submit submitLabel="Submeter"/></div></includeIf>
           </div>
        </div>
       </body>
