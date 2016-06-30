@@ -1,0 +1,292 @@
+      <htmlform>
+      <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>ACONSELHAMENTO E TESTAGEM EM SAÚDE</title>
+        <style>
+
+          .header{
+            margin-top: -2px !important;
+            margin-bottom: 10px !important;
+          }
+
+          .header label{
+            font-weight: bold;
+          }
+
+          .header-info{
+            float: right;
+            border: 1px dotted #B2DFEE;
+            padding: 0px 10px 0px 10px;
+          }
+
+          .header-info h3{
+            text-align: center;
+          }
+
+          .header-data{
+            float: left;
+            border: 1px dotted #B2DFEE;
+            margin-bottom: 10px !important;
+            padding: 0px 10px 0px 10px;
+          }
+
+          .header-box{  
+            background: #1aac9b;
+            padding: 1px !important;
+            color: #fff;
+          }
+
+          .header-box h2{
+            margin-left: 10px;
+          }
+
+          .content{
+            width: 960px;
+            font-size: 8pt;
+            margin: 1px auto;
+            border: 1px solid #B2DFEE;
+            padding: 5px;
+          } 
+
+          .demo-data label {
+            display: inline-block;
+            width: 190px;
+          }
+
+          .demo-data p {
+            margin: 3px
+          }
+
+          .demo-data input, .demo-data select {
+            width: 140px;
+            font-size: 10pt;
+          }
+
+          .clear {
+            clear: both;
+          }
+
+          .demo-data-partI{
+            float: left;
+          }
+
+          .demo-data-partII{
+            float: left;
+            margin-left: 100px;
+          }
+
+          #rdp input{
+            width: 20px;
+          }
+
+          #rdp label{
+            width: 30px;
+          }
+
+          #rdpI{
+            width: 150px !important;
+          }
+
+          .tabs ul {
+            width: 945px;
+            list-style: none;
+            float: none;
+            position: relative;
+            padding: 0;
+          }
+
+          .tabs .rd-visible {
+              position: absolute;
+              display: none;
+          }
+
+          .tabs label{
+            display: block;
+            background: #EEE;
+            font-weight: bold;
+            line-height: 10px;
+            padding: 10px 22px;
+            font-size: 8pt;
+            border: 1px solid #B2DFEE;
+            margin-left: -1px;
+            cursor: pointer;
+          }
+
+          .tabs li{
+            float: left;
+          }
+
+        .tabs [id^=tab]:checked + label{
+            background: #1aac9b;
+            color: #fff;
+          }
+
+         .tabs [id^=tab]:checked ~ [id^=tab-content] {
+                display: block;
+          }
+          
+         .tabs .tab-content{
+              display: none;
+              text-align: left;
+              width: 100%;
+              line-height: 140%;
+              padding-top: 10px;
+              padding: 11px;
+              left: 0;
+              position: absolute;
+              border: 1px solid #B2DFEE;
+              margin: -1px;
+              min-height: 150px;
+            }
+
+          
+          .tab-data label{
+            border: none;
+            background: #fff;
+            display: inline-block;
+            width: 170px;
+            padding: 0;
+            margin: 0;
+            font-weight: normal;
+          }
+
+          .tab-data input, .tab-data select{
+            width: 140px;
+            font-size: 10pt;
+          }
+
+          .tab-data p {
+            margin: 3px;
+          }
+
+          .tab-data-I {
+            float: left;
+          }
+          .tab-data-II {
+            float: right;
+          }
+
+          .tab-data-II label {
+            width: 300px;
+          }
+
+           
+          .rd-tab label{
+           width: 60px;
+          }
+
+          .rd-tab input{
+           width: 60px;
+           margin-top: 0px;
+          }
+
+          .rd-tab1 input{
+           width: 15px !important;
+          }
+
+          </style>  
+      </head>
+
+      <body>
+      
+      <div class="header-box content">
+          <h2>ACONSELHAMENTO E TESTAGEM EM SAÚDE</h2>
+      </div>
+
+      <div class="header content">
+        <div class="header-info">
+          <h3>REPÚBLICA DE MOÇAMBIQUE</h3>
+          <h3>SERVIÇO NACIONAL DE SAÚDE</h3>
+        </div>
+        <div class="header-data">
+          <p>
+            <label>Nome:</label>
+            <lookup expression="patient.personName"/>
+          </p>
+          <p>
+            <label>Sexo/Data de Nasc./Idade:</label>
+            <lookup expression="patient.gender"/> - <lookup expression="patient.birthdate"/> - <lookup expression="patient.age"/>
+          </p>
+          <p>
+            <label>Nº de BI/Outra identificação:</label>
+            <lookup expression="patient.getPatientIdentifier(3)"/>/<lookup expression="patient.getPatientIdentifier(1)"/>
+          </p>
+          <p>
+            <label>Distrito/Cidade:</label>
+            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.countyDistrict #end"/>
+          </p>
+          <p>
+            <label>Unidade Sanitária:</label><br/>
+            <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
+          </p>
+        </div>
+       
+        <div class="clear"/>
+      </div>
+       <div class="content">
+          <div class="demo-data demo-data-partI">
+            <p>
+              <label>Data:</label>
+              <encounterDate id="dataConsulta"/>
+            </p>
+            <p>
+              <label>Escolaridade:</label>
+              <obs conceptId="1443" answerConceptIds="1445,1446,1447,1448"/>
+            </p>
+            <p>
+              <label>Ocupação:</label>
+              <obs conceptId="1914" answerConceptIds="1907,1175,1911,1902,1901,5622,1900,1906,1909,1910,1912,1913,1905,1908,1904,1903"/>
+            </p>
+            <p>
+              <label>Tipo de Aconselhamento:</label>
+              <obs conceptId="1981" answerConceptIds="1726,1980,1927"/>
+            </p>
+
+          </div>
+          <div class="demo-data demo-data-partII">
+            <p>
+              <label>Razão da Visita:</label>
+               <obs conceptId="6430" answerConceptIds="6427,6428"/>
+            </p>
+            <p>
+              <label>Tipo de Visita:</label>
+              <obs conceptId="6429" answerConceptIds="6355,1257" answerLabels="PRIMEIRA,SEGUIMENTO"/>
+            </p>
+             <p id="rdp">
+              <label id="rdpI" style="font-weight: bold">Nr. de Testes ?</label>
+            </p>
+            <p>
+              <label>Determine:</label>
+              <obs conceptId="6431" /> 
+            </p>
+            <p>
+              <label>Unigold:</label>
+              <obs conceptId="6432" /> 
+            </p>
+          </div>
+          <div class="demo-data demo-data-partI">
+            <p>
+              <label>Resultado do Teste de HIV:</label>
+              <obs conceptId="1326" answerConceptIds="703,664,1138,1118"/>
+            </p>
+            <p>
+              <label>Rastreio:</label>
+              <obs conceptId="6433" answerConceptIds="58,174,155,123,175,903"/>
+            </p>
+
+          </div>
+          <div class="clear" />
+          
+          <div class="clear" />
+          <div>
+            <p>
+              <label style="font-weight:bold;">Profissional de Saúde:</label>
+              <encounterProvider role="Provider" type="autocomplete"  required="true"/>
+            </p>
+           <div align="center"><submit submitLabel="Submeter"/></div>
+          </div>
+       </div>
+      </body>
+      </html>
+  </htmlform>
