@@ -369,7 +369,7 @@
        <div class="content">
           <div class="demo-data demo-data-partI">
             <p>
-              <label>Data:</label>
+              <label>Data da consulta:</label>
               <encounterDate id="dataConsulta"/>
             </p>
             <p>
@@ -379,6 +379,10 @@
             <p>
               <label>Faixa Etária:</label>
               <obs conceptId="6366" id="ageRange" answerConceptIds="6362,6363,6364,6365" answerLabels="10-14,15-19,20-24,25+"/>
+            </p>
+            <p>
+              <label>Data da última mestruação:</label>
+              <obs conceptId="e1dc0dd0-1d5f-11e0-b929-000c29ad1d07" />
             </p>
           </div>
           <div class="demo-data demo-data-partII">
@@ -390,9 +394,13 @@
               <label id="rdpI"> &lt;12 semanas:</label>
               <obs conceptId="6367" id="moreThan12weeks" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio"/>
             </p>
-             <p id="rdp">
+            <p id="rdp">
               <label id="rdpI">Parceiro Presente ?</label>
               <obs conceptId="6368" id="partner" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio"/>
+            </p>
+            <p>
+              <label id="rdpI">Data provável do parto:</label>
+              <obs conceptId="e1e76284-1d5f-11e0-b929-000c29ad1d07" size="10"/>
             </p>
           </div>
           <div class="clear" />
@@ -417,17 +425,25 @@
                       <label>Ganho ≥1.5 Kg/mês a partir 2º trimestre ?</label>
                       <obs conceptId="6369" id="lowWeight" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
                    </p>
-                   <p >
+                   <p>
                       <label>Recebeu suplementos nutricionais ?</label>
                       <obs conceptId="2152" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
+                   </p>
+                   <p>
+                      <label>Suplementos nutricionais:</label>
+                      <obs conceptId="e1e205f0-1d5f-11e0-b929-000c29ad1d07" class="rd-tab"/>
                    </p>
                     <p >
                       <label>Recebeu desparasitante ?</label>
                       <obs conceptId="6377" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
                    </p>
-                    <p >
+                   <p>
                       <label>Sal Ferroso com Ácido Fólico?</label>
                       <obs conceptId="6378" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
+                   </p>
+                   <p>
+                      <label>Quantidade de Sal Ferroso</label>
+                      <obs conceptId="d015e246-2b27-4330-8d98-fc0ea1d203f6" class="rd-tab"/>
                    </p>
                   </div>
                   <div class="clear" />
@@ -607,12 +623,26 @@
                       <obs conceptId="1268" answerConceptIds="1256,1257" answerLabels="Iniciou, Continuação" />
                     </p>
                   </div>
+                  <div class="tab-data tab-data-II">
+                    <p >
+                      <label>Data do início de tratamento de TB:</label>
+                      <obs conceptId="e1d85906-1d5f-11e0-b929-000c29ad1d07" />
+                    </p>
+                    <p>
+                      <label>Data do fim do tratamento:</label>
+                      <obs conceptId=" 0ef94b67-b202-40ad-b542-7b2016524335" />
+                    </p>
+                  </div>
                 </div>
               </li>
             </ul>
           </div>
           <div class="clear" />
           <div class="last-details">
+            <p>
+              <label style="font-weight:bold;">Saida da CPN:</label>
+              <obs conceptId="d7c0f103-0265-42f0-98d2-3251eaa6edd5" dateLabel="DATA:"/>
+            </p>
             <p>
               <label style="font-weight:bold;">Observações:</label><br/>
               <obs conceptId="5622" style="textarea" rows ="4" cols="100" />
