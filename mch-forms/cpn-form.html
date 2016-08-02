@@ -197,6 +197,7 @@
                 var testPartner = getValue('testPartner.value');
                 var partner = getValue('partner.value');
 
+
                 if ((sifilisPartner != '' || testPartner != '') &amp;&amp; partner == '') {
                     getField('partner.error').html('obrigatório').show();
                     return false;
@@ -225,6 +226,18 @@
                 if (consult == "6355" &amp;&amp; (ageRange == '' || moreThan12weeks == '')) {
                   getField("ageRange.error").html("obrigatório").show();
                   getField("moreThan12weeks.error").html("obrigatório").show();
+                  return false;
+                }
+
+                var pregnantWeeks = getValue('pregnantWeeks.value');
+                if(pregnantWeeks > 42){
+                  getField("pregnantWeeks.error").html("o valor não pode ser supererior que 42").show();
+                  return false;
+                }
+
+                var weight = getValue('weight.value');
+                if(weight > 20 || 180 > weight){
+                  getField("weight.error").html("peso invalido (20-180 kg)").show();
                   return false;
                 }
  
@@ -292,12 +305,6 @@
 
                   $j("#prophilaxysCZT select").attr('disabled',false);
                   $j("#prophilaxysARV select").attr('disabled',false);
-              });
-
-
-              //validate malaria test
-              $j('#partner input[type="radio"]').on('click change', function(e) {                 
-                  
               });
 
            });
@@ -388,7 +395,7 @@
           <div class="demo-data demo-data-partII">
             <p>
               <label>Idade Gestacional (em semanas):</label>
-              <obs conceptId="1279" size="10" required="true"/> 
+              <obs conceptId="1279" size="10" required="true" id="pregnantWeeks"/> 
             </p>
             <p id="rdp">
               <label id="rdpI"> &lt;12 semanas:</label>
@@ -413,7 +420,7 @@
                   <div class="tab-data tab-data-I">
                     <p>
                       <label>Peso(KG):</label>
-                       <obs conceptId="5089" size="10" required="true" />
+                       <obs conceptId="5089" size="10" required="true" id="weight"/>
                     </p>
                     <p>
                       <label>Perímetro Braquial:</label>
@@ -651,7 +658,7 @@
               <label style="font-weight:bold;">Profissional de Saúde:</label>
               <encounterProvider role="Provider" type="autocomplete"  required="true"/>
             </p>
-            <includeIf velocityTest="$patient.age >14 &amp;&amp; $patient.gender == 'F' "><div align="center"><submit submitLabel="Submeter"/></div></includeIf>
+            <includeIf velocityTest="$patient.age >= 9 &amp;&amp; $patient.gender == 'F'"><div align="center"><submit submitLabel="Submeter"/></div></includeIf>
           </div>
        </div>
       </body>
