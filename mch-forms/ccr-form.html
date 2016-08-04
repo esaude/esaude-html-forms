@@ -1,492 +1,918 @@
-      <htmlform>
-      <html xmlns="http://www.w3.org/1999/xhtml">
-      <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <title>LIVRO DE REGISTOS DE CONSULTA DA CRIANÇA EM RISCO</title>
-        <style>
+            <htmlform>
+            <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <title>LIVRO DE REGISTOS DE CONSULTA DA CRIANÇA EM RISCO</title>
+              <style>
 
-          .header{
-            margin-top: -2px !important;
-            margin-bottom: 10px !important;
-          }
-
-          .header label{
-            font-weight: bold;
-          }
-
-          .header-info{
-            float: right;
-            border: 1px dotted #1aac9b;
-            padding: 0px 10px 0px 10px;
-          }
-
-          .header-info h3{
-            text-align: center;
-          }
-
-          .header-data{
-            float: left;
-            border: 1px dotted #B2DFEE;
-            margin-bottom: 10px !important;
-            padding: 0px 10px 0px 10px;
-          }
-
-          .header-box{
-            background: #1aac9b;
-            padding: 1px !important;
-            color: #fff;
-          }
-
-          .header-box h2{
-            margin-left: 10px;
-          }
-
-          .content{
-            width: 960px;
-            font-size: 8pt;
-            margin: 1px auto;
-            border: 1px solid #B2DFEE;
-            padding: 5px;
-          }
-
-          .demo-data label {
-            display: inline-block;
-            width: 100px;
-            margin-bottom: 5px;
-          }
-
-          .demo-data p {
-            margin: 3px
-          }
-
-          .demo-data input, .demo-data select {
-            width: 140px;
-            font-size: 10pt;
-          }
-
-          .demo-data select{
-            margin-top: -2px;
-          }
-
-          .clear {
-            clear: both;
-          }
-
-          .demo-data-partI{
-            float: left;
-          }
-
-          .demo-data-partII{
-            float: left;
-            margin-left: 100px;
-          }
-
-          .demo-data-partII select{
-            width: 300px !important;
-          }
-
-          #rdp input{
-            width: 0px;
-          }
-
-          #rdp label{
-            width: 30px;
-          }
-
-          #rdpI{
-            width: 150px !important;
-          }
-
-          .tabs ul {
-            width: 945px;
-            list-style: none;
-            float: none;
-            position: relative;
-            padding: 0;
-          }
-
-          .tabs .rd-visible {
-              position: absolute;
-              display: none;
-          }
-
-          .tabs label{
-            display: block;
-            background: #EEE;
-            font-weight: bold;
-            line-height: 10px;
-            padding: 10px 22px;
-            font-size: 8pt;
-            border: 1px solid #B2DFEE;
-            margin-left: -1px;
-            cursor: pointer;
-          }
-
-          .tabs li{
-            float: left;
-          }
-
-        .tabs [id^=tab]:checked + label{
-            background: #1aac9b;
-            color: #fff;
-          }
-
-         .tabs [id^=tab]:checked ~ [id^=tab-content] {
-                display: block;
-          }
-          
-         .tabs .tab-content{
-              display: none;
-              text-align: left;
-              width: 100%;
-              line-height: 140%;
-              padding-top: 10px;
-              padding: 11px;
-              left: 0;
-              position: absolute;
-              border: 1px solid #B2DFEE;
-              margin: -1px;
-              min-height: 215px;
-            }
-
-          
-          .tab-data label{
-            border: none;
-            background: #fff;
-            display: inline-block;
-            width: 170px;
-            padding: 0;
-            margin: 0;
-            font-weight: normal;
-          }
-
-          .tab-data input, .tab-data select{
-            width: 140px;
-            font-size: 10pt;
-          }
-
-          .tab-data p {
-            margin: 3px;
-          }
-
-          .tab-data-I {
-            float: left;
-          }
-          .tab-data-II {
-            float: right;
-          }
-
-          .tab-data-II label {
-            width: 300px;
-          }
-
-
-          .rd-tab label{
-           width: 60px;
-          }
-
-          .rd-tab input{
-           width: 60px;
-           margin-top: 0px;
-          }
-
-          .last-details{
-            float: none;
-            margin-top: 25%;
-          }
-
-          .rd-tab1 input{
-           width: 15px !important;
-          }
-
-
-          .rd-tab1 input[type="text"] {
-            width: 100px !important;
-          }
-
-          </style>
-
-          <script type="text/javascript">
-            jQuery(document).ready(function(){
-              getField('exitStatus.value').live('change', function() {
-                
-                $j("#dateOfDie input").attr('disabled', true);
-
-                if(getValue("exitStatus.value") == "1366"){
-                 $j("#dateOfDie input").attr('disabled', false);
+                .header{
+                  margin-top: -2px !important;
+                  margin-bottom: 10px !important;
                 }
 
+                .header label{
+                  font-weight: bold;
+                }
+
+                .header-info{
+                  float: right;
+                  border: 1px dotted #1aac9b;
+                  padding: 0px 10px 0px 10px;
+                }
+
+                .header-info h3{
+                  text-align: center;
+                }
+
+                .header-data{
+                  float: left;
+                  border: 1px dotted #B2DFEE;
+                  margin-bottom: 10px !important;
+                  padding: 0px 10px 0px 10px;
+                }
+
+                .header-box{
+                  background: #1aac9b;
+                  padding: 1px !important;
+                  color: #fff;
+                }
+
+                .header-box h2{
+                  margin-left: 10px;
+                }
+
+                .content{
+                  width: 1330px;
+                  font-size: 8pt;
+                  margin: 1px auto;
+                  border: 1px solid #B2DFEE;
+                  padding: 5px;
+                }
+
+                .demo-data label {
+                  display: inline-block;
+                  width: 100px;
+                  margin-bottom: 5px;
+                }
+
+                .demo-data p {
+                  margin: 3px
+                }
+
+                .demo-data input, .demo-data select {
+                  width: 140px;
+                  font-size: 10pt;
+                }
+
+                .demo-data select{
+                  margin-top: -2px;
+                }
+
+                .clear {
+                  clear: both;
+                }
+
+                .demo-data-partI{
+                  float: left;
+                }
+
+                .demo-data-partII{
+                  float: left;
+                  margin-left: 100px;
+                }
+
+                .demo-data-partII select{
+                  width: 300px !important;
+                }
+
+                #rdp input{
+                  width: 0px;
+                }
+
+                #rdp label{
+                  width: 30px;
+                }
+
+                #rdpI{
+                  width: 150px !important;
+                }
+
+                .tabs ul {
+                  width: 1302px;
+                  list-style: none;
+                  float: none;
+                  position: relative;
+                  padding: 0;
+                }
+
+                .tabs .rd-visible {
+                    position: absolute;
+                    display: none;
+                }
+
+                .tabs label{
+                  display: block;
+                  background: #EEE;
+                  font-weight: bold;
+                  line-height: 10px;
+                  padding: 10px 22px;
+                  font-size: 8pt;
+                  border: 1px solid #B2DFEE;
+                  margin-left: -1px;
+                  cursor: pointer;
+                }
+
+                .tabs li{
+                  float: left;
+                }
+
+              .tabs [id^=tab]:checked + label{
+                  background: #1aac9b;
+                  color: #fff;
+                }
+
+               .tabs [id^=tab]:checked ~ [id^=tab-content] {
+                      display: block;
+                }
+                
+               .tabs .tab-content{
+                    display: none;
+                    text-align: left;
+                    width: 100%;
+                    line-height: 140%;
+                    padding-top: 10px;
+                    padding: 11px;
+                    left: 0;
+                    position: absolute;
+                    border: 1px solid #B2DFEE;
+                    margin: -1px;
+                    min-height: 215px;
+                  }
+
+                
+                .tab-data label{
+                  border: none;
+                  background: #fff;
+                  display: inline-block;
+                  width: 170px;
+                  padding: 0;
+                  margin: 0;
+                  font-weight: normal;
+                }
+
+                .tab-data input, .tab-data select{
+                  width: 140px;
+                  font-size: 10pt;
+                }
+
+                .tab-data p {
+                  margin: 3px;
+                }
+
+                .tab-data-I {
+                  float: left;
+                }
+                .tab-data-II {
+                  float: right;
+                }
+
+                .tab-data-II label {
+                  width: 300px;
+                }
+
+
+                .rd-tab label{
+                 width: 60px;
+                }
+
+                .rd-tab input{
+                 width: 60px;
+                 margin-top: 0px;
+                }
+
+                .last-details{
+                  float: none;
+                  margin-top: 25%;
+                }
+
+                .rd-tab1 input{
+                 width: 15px !important;
+                }
+
+
+                .rd-tab1 input[type="text"] {
+                  width: 100px !important;
+                }
+
+                </style>
+
+                <script type="text/javascript">
+
+                  jQuery(document).ready(function(){
+                    getField('exitStatus.value').live('change', function() {
+                    
+                     var motherOnTarv = getValue('motherOnTarv.value');
+
+                      $j("#dateOfDie input").attr('disabled', true);
+                      if(getValue("exitStatus.value") == "1366"){
+                       $j("#dateOfDie input").attr('disabled', false);
+                      }
+                    });
+                 });
+
+              jQuery(document).ready(function(){
+                getField('motherOnTarv.value').live('click', function() {
+                 if (getValue('motherOnTarv.value') != '' || getValue('motherOnTarv.value') == null) {
+                    $j("#motherOnTarv input").attr('disabled',true);           
+                    $j("#motherOnTarv1 input").attr('disabled',false);
+                    $j("#motherOnTarv2 input").attr('disabled',false);
+                  }
+                });
               });
-           });
 
-          </script>
-          
-      </head>
 
-      <body>
-      
-      <div class="header-box content">
-          <h2>LIVRO DE REGISTOS DE CONSULTA DA CRIANÇA EM RISCO</h2>
-        </div>
+                jQuery(document).ready(function(){
+                getField('consult.value').live('change', function() {
+                 if (getValue('consult.value') != '6355' ) {
+                    $j("#motherOnTarv input").attr('disabled',true); 
+                        $j("#ctzContinue input").attr('disabled', true);
+                        $j("#nonCtz input").attr('disabled', true);
+                  }
+                });
 
-      <div class="header content">
-        <div class="header-info">
-          <h3>REPÚBLICA DE MOÇAMBIQUE</h3>
-          <h3>SERVIÇO NACIONAL DE SAÚDE</h3>
-          <h3>MOD - SIS - B01</h3>
-          <p>
-            <label>NID/US:</label>
-          </p>
-          <p>
-            <label>NID/HDD:</label>
-            <lookup expression="patient.getPatientIdentifier(2)"/>
-          </p>
-        </div>
-        <div class="header-data">
-          <p>
-            <label>Nome:</label>
-            <lookup expression="patient.personName"/>
-          </p>
-          <p>
-            <label>Sexo/Data de Nasc./Idade:</label>
-            <lookup expression="patient.gender"/> - <lookup expression="patient.birthdate"/> - <lookup expression="patient.age"/>
-          </p>
-          <p>
-            <label>Nº de BI/Outra identificação:</label>
-            <lookup expression="patient.getPatientIdentifier(3)"/>/<lookup expression="patient.getPatientIdentifier(1)"/>
-          </p>
-          <p>
-            <label>Distrito/Cidade:</label>
-            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.countyDistrict #end"/>
-          </p>
-          <p>
-            <label>Localidade/Bairro:</label>
-            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.region #end"/>/<lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.subregion #end"/>
-          </p>
-          <p>
-            <label>Célula/Quarteirão:</label>
-            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.neighborhoodCell #end"/>
-          </p>
-          <p>
-            <label>Avenida/Rua/Casa:</label>
-            <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.address1 #end"/>
-          </p>
-        </div>
-        <div class="clear"/>
-        <label >Pessoa de Referência:</label><br/>
-        <obsgroup groupingConceptId="1609">
-          <obs conceptId="969"  answerConceptIds="970,971,972,973,975,5620" labelText="Tipo de acompanhante:"/>
-          <obs conceptId="1441" labelText="Nome:" size="20"/> 
-          <obs conceptId="1442" labelText="Apelido:" size="20"/> 
-          <obs conceptId="1611" labelText="Tel:" size="15"/>
-        </obsgroup>
-        <p>
-          <label>Unidade Sanitária:</label>
-          <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
-        </p>
-        <relationship type="3" whoAmI="B"  changeExistingRelationship="true" display="search"/>
-      </div>
-       <div class="content">
-          <div class="demo-data demo-data-partI">
-            <p>
-              <label>Consultas:</label> <br/>
-              <obs conceptId="6361" id="consult" required="true" answerConceptIds="6355,6356,6357,6358,6359,6360" answerLabels="1ª,2ª,3ª,4ª,5ª,6ª"/>
-            </p>
-          </div>
-          <div class="demo-data demo-data-partI">
-            <p>
-              <label>Data da Consulta:</label> <br/>
-              <encounterDate id="dataConsulta" required="true"/>
-            </p>
-          </div>
-          <div class="clear" />
-          <br/>
-          <div class="tabs">
-            <ul>
-                <li>
-                <input type="radio" name="tabs" id="tab1" checked="true" class="rd-visible"/>
-                <label for="tab1">Dados da Mãe</label>
-                <div id="tab-content-I" class="tab-content">
-                  <div class="tab-data tab-data-I">
-                    <p>
-                      <label>Mulher HIV + Lactante:</label>
-                       <obs conceptId="6332" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
-                    </p>
-                    <p>
-                      <label>Mãe lactante em TARV:</label>
-                      <obs conceptId="6354" id="exitStatus" answerConceptIds="6388,1256,1257" />
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <input type="radio" name="tabs" id="tab2" class="rd-visible" />
-                <label for="tab2">Condição de Risco</label>
-                <div id="tab-content-II" class="tab-content">
-                  <div class="tab-data tab-data-I">
-                    <p>
-                      <label>Contacto com Tuberculose:</label>
-                       <obs conceptId="1851" answersConceptIds="1065,1066"/>
-                    </p>
-                    <p>
-                      <label>Exposição ao HIV:</label>
-                       <obs conceptId="1586" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
-                    </p>
-                  </div>
-                  <div class="tab-data tab-data-II">
-                   <p>
-                    <label style="font-weight:bold; width:150px;">Desnutrição aguda:</label>
-                   </p>
-                   <p >
-                    <label>Moderada ?</label>
-                    <obs conceptId="68" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
-                   </p>
-                   <p >
-                    <label>Grave?</label>
-                    <obs conceptId="1844" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
-                   </p>
-                  </div>
-                  <div class="clear" />
-                  <div class="tab-data tab-data-I">
-                    <p>
-                      <label style="font-weight:bold; margin-bottom:5px;">Outra condição em risco:</label><br/>
-                      <obs conceptId="1848" style="textarea" rows ="3" cols="80" />
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <input type="radio" name="tabs" id="tab3" class="rd-visible" />
-                <label for="tab3">Tuberculose</label>
-                <div id="tab-content-III" class="tab-content">
-                  <div class="tab-data tab-data-I">
-                    <p>
-                      <label style="font-weight:bold; width:150px;">Profilaxia Isoniazida:</label>
-                    </p>
-                    <p>
-                      <label>Data de início:</label>
-                       <obs conceptId="6128"/>
-                    </p>
-                    <p >
-                     <label>Estado:</label>
-                     <obs conceptId="6122" answerConceptIds="1257,1267" answerLabels="CONTINUACAO,COMPLETO" class="rd-tab rd-tab1"/>
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <input type="radio" name="tabs" id="tab4" class="rd-visible"/>
-                <label for="tab4">Nutrição</label>
-                <div id="tab-content-IV" class="tab-content">
-                  <div class="tab-data tab-data-I">
-                    <p>
-                      <label>Tipo de aleitamento:</label>
-                       <obs conceptId="1151" answerConceptIds="5526,5254,6046"/>
-                    </p>
-                  </div>
-                  <div class="tab-data tab-data-II">
-                   <p>
-                      <label style="font-weight:bold; width:150px;" >Apoio Nutricional:</label>
-                    </p>
-                   <p>
-                    <label>Tratamento nutricional ATPU ?</label>
-                    <obs conceptId="1884" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
-                   </p>
-                   <p>
-                    <label>Tratamento nutricional CSB ?</label>
-                    <obs conceptId="2151" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
-                   </p>
-                   <p>
-                     <label>Recuperado ?</label>
-                     <obs conceptId="6301" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
-                   </p>
-                   <p>
-                    <label>Internamento ?</label>
-                    <obs conceptId="5485" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
-                   </p>
-                  </div>
-                  <div class="clear" />
-                  <br/> 
-                </div>
-              </li>
-               <li>
-                <input type="radio" name="tabs" id="tab5" class="rd-visible"/>
-                <label for="tab5">Crianças expostas ao HIV</label>
-                <div id="tab-content-V" class="tab-content">
-                  <div class="tab-data tab-data-I">
-                    <p>
-                      <label>Profilaxia com Cotrimoxazol:</label>
-                      <obs conceptId="6121" answerConceptIds="1257" answerLabels="CONTINUACAO"/>
-                    </p>
-                    <p>
-                      <label>Profilaxia com ARV:</label>
-                      <obs conceptId="6413" answerConceptIds="1065,1066" class="rd-tab rd-tab1" style="radio"/>
-                    </p>
-                  </div>
-                  <div class="clear" /><br/>
-                  <div class="tab-data tab-data-I">
-                    <p>
-                      <label style="font-weight:bold; width:200px;">Teste de HIV da criança exposta:</label>
-                    </p>
-                    <p>
-                      <label style="width: 400px !important;">COLHEITA DA PCR ≤ 8SEM DE IDADE?</label>
-                      <obs conceptId="6414" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1" dateLabel="DATA:"/>
-                    </p>
-                    <p>
-                      <label style="width: 400px !important;">COLHEITA DA PCR > 8SEM DE IDADE?</label>
-                      <obs conceptId="6415" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
-                    </p>
-                    <p>
-                      <label style="width: 400px !important;">RESULTADO PCR COLHIDA COM IDADE ≤ 8 SEMANAS?</label>
-                      <obs conceptId="6416" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
-                    </p>
-                    <p>
-                      <label style="width: 400px !important;">RESULTADO PCR COLHIDA COM IDADE > 8 SEMANAS?</label>
-                      <obs conceptId="6417" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
-                    </p>
-                    <p>
-                      <label style="width: 400px !important;">RESULTADO TESTE RÁPIDO ≥ 9MESES?</label>
-                      <obs conceptId="1040" answerConceptIds="664,703,1138,1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
-                    </p>
-                    <p>
-                      <label style="width: 400px !important;">RESULTADO DEFINITIVO?</label>
-                      <obs conceptId="6418" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
-                    </p>
-                  </div>
-                </div>
-              </li>
-             <li>
-              <input type="radio" name="tabs" id="tab6" class="rd-visible"/>
-              <label for="tab6">Saída da criança</label>
-              <div id="tab-content-VI" class="tab-content">
-                <div class="tab-data tab-data-I">
+               jQuery(document).ready(function(){
+                getField('consult.value').live('change', function() {
+                  if (getValue('consult.value') == '6355') {
+                    $j("#motherOnTarv2 input").attr('disabled',true); 
+                  }else{
+                    $j("#motherOnTarv2 input").attr('disabled',false); 
+                  }
+                });
+              });  
+
+              jQuery(document).ready(function(){
+                getField('consult.value').live('change', function() {
+                  if (getValue('consult.value') == '6355') {
+                    $j("#motherOnTarv2 input").attr('disabled',true); 
+                  }else{
+                    $j("#motherOnTarv2 input").attr('disabled',false); 
+                  }
+                });
+              });
+
+              jQuery(document).ready(function(){
+                getField('consult.value').live('change', function() {
+                  if (getValue('consult.value') == '6355') {
+                    $j("#motherOnTarv2 input").attr('disabled',true); 
+                  }else{
+                    $j("#motherOnTarv2 input").attr('disabled',false); 
+                  }
+                });
+              });
+
+             jQuery(document).ready(function(){
+                getField('motherOnTarv.value').live('change', function() {
+                  if(getValue('motherOnTarv.value') == '6388'){
+
+                    $j("#motherOnTarv1 input").attr('disabled', true);
+                    $j("#motherOnTarv2 input").attr('disabled', true);
+
+                }else{
+                    $j("#motherOnTarv1 input").attr('disabled', false);
+                    $j("#motherOnTarv2 input").attr('disabled', false);
+                }
+
+                });
+              }); 
+
+              jQuery(document).ready(function(){
+                getField('motherOnTarv1.value').live('change', function() {
+                  if(getValue('motherOnTarv1.value')=='1256'){
+
+                    $j("#motherOnTarv input").attr('disabled', true);
+                    $j("#motherOnTarv2 input").attr('disabled', true);
+                    $j("#dataInitialTarv input").attr('disabled', false);
+                }else{
+                    $j("#motherOnTarv input").attr('disabled', false);
+                    $j("#motherOnTarv2 input").attr('disabled', false);
+                    $j("#dataInitialTarv input").attr('disabled', true);
+
+                }
+
+                });
+              });
+
+              jQuery(document).ready(function(){
+                getField('motherOnTarv2.value').live('change', function() {
+                  if(getValue('motherOnTarv2.value')=='1257'){
+
+                    $j("#motherOnTarv input").attr('disabled', true);
+                    $j("#motherOnTarv1 input").attr('disabled', true);
+                }else{
+                    $j("#motherOnTarv input").attr('disabled', false);
+                    $j("#motherOnTarv1 input").attr('disabled', false);
+                }
+
+                });
+              });
+
+              jQuery(document).ready(function(){
+                getField('ctzBigEight.value').live('change', function() {
+                  if(getValue('ctzBigEight.value')=='6412'){
+                    $j("#ctzContinue input").attr('disabled', true);
+                    $j("#nonCtz input").attr('disabled', true);
+                    $j("#ctzSmallerEight input").attr('disabled', true);
+                }else{
+                    $j("#ctzContinue input").attr('disabled', false);
+                    $j("#nonCtz input").attr('disabled', false);
+                    $j("#ctzSmallerEight input").attr('disabled', true);
+                }
+
+                });
+              }); 
+
+              //  jQuery(document).ready(function(){
+              //   getField('ctzBigEight.value').on('submit', function() {
+
+              //   });
+              // }); 
+
+             jQuery(document).ready(function(){
+                getField('ctzSmallerEight.value').live('change', function() {
+                  if(getValue('ctzSmallerEight.value')=='6411'){
+                    $j("#ctzContinue input").attr('disabled', true);
+                    $j("#nonCtz input").attr('disabled', true);
+                    $j("#ctzBigEight input").attr('disabled', true);
+                }else{
+                    $j("#ctzContinue input").attr('disabled', false);
+                    $j("#nonCtz input").attr('disabled', false);
+                    $j("#ctzBigEight input").attr('disabled', false);
+                }
+
+                });
+              }); 
+
+              jQuery(document).ready(function(){
+                getField('ctzContinue.value').live('change', function() {
+                  if(getValue('ctzContinue.value')=='1257'){
+                    $j("#ctzSmallerEight input").attr('disabled', true);
+                    $j("#nonCtz input").attr('disabled', true);
+                    $j("#ctzBigEight input").attr('disabled', true);
+                }else{
+                    $j("#ctzSmallerEight input").attr('disabled', false);
+                    $j("#nonCtz input").attr('disabled', false);
+                    $j("#ctzBigEight input").attr('disabled', false);
+                }
+
+                });
+              }); 
+
+            jQuery(document).ready(function(){
+                getField('nonCtz.value').live('change', function() {
+                  if(getValue('nonCtz.value')=='6387'){
+                    $j("#ctzSmallerEight input").attr('disabled', true);
+                    $j("#ctzSmallerEight input").attr('disabled', true);
+                    $j("#ctzBigEight input").attr('disabled', true);
+                }else{
+                    $j("#ctzSmallerEight input").attr('disabled', false);
+                    $j("#ctzSmallerEight input").attr('disabled', false);
+                    $j("#ctzBigEight input").attr('disabled', false);
+                }
+
+                });
+              }); 
+             
+
+             // jQuery(document).ready(function(){
+             //    getField('profaxiaCTZ.value').live('change', function(){
+
+             //          var dataNascimento = new Date(Date.parse("<lookup expression="patient.birthdate"/>"));
+             //          var ONE_DAY = 1000 * 60 * 60 * 24;
+             //          var difference_ms = Math.abs(Date.now() - dataNascimento.getTime());
+             //          var days = Math.round(difference_ms/ONE_DAY);
+             //          console.log(days);
+             //          if(getValue('profaxiaCTZ.value')=='1066'){
+             //            $j("#ctzSmallerEight input").attr('disabled', true);
+             //            $j("#ctzBigEight input").attr('disabled', true);
+             //            $j("#ctzContinue input").attr('disabled', true);
+             //            $j("#nonCtz input").attr('disabled', true);
+             //          }else{
+             //            $j("#ctzSmallerEight input").attr('disabled', false);
+             //            $j("#ctzBigEight input").attr('disabled', false);
+                      
+             //          if(days == 21){
+             //            $j("#ctzSmallerEight input").attr('disabled', true);
+             //            console.log(days);
+             //          }
+             //          if(days >= 21){
+             //            $j("#ctzBigEight input").attr('disabled', true);
+             //            console.log(days);
+             //          }
+             //        }
+             //    });
+             //    });
+                }); 
+              </script>
+                
+            </head>
+
+            <body>
+            
+            <div class="header-box content">
+                <h2>LIVRO DE REGISTOS DE CONSULTA DA CRIANÇA EM RISCO</h2>
+              </div>
+
+            <div class="header content">
+              <div class="header-info">
+                <h3>REPÚBLICA DE MOÇAMBIQUE</h3>
+                <h3>SERVIÇO NACIONAL DE SAÚDE</h3>
+                <h3>MOD - SIS - B01</h3>
+                <p>
+                  <label>NID/US:</label>
+                </p>
+                <p>
+                  <label>NID/HDD:</label>
+                  <lookup expression="patient.getPatientIdentifier(3)"/>
+                </p>
+                 <p>
+                  <label>NID/HDD:</label>
+                  <lookup expression="patient.getPatientIdentifier(3)"/>
+                </p>
+              </div>
+              <div class="header-data">
+                <p>
+                  <label>Nome:</label>
+                  <lookup expression="patient.personName"/>
+                </p>
+                <p>
+                  <label>Sexo/Data de Nasc./Idade:</label>
+                  <lookup expression="patient.gender"/> - <lookup expression="patient.birthdate"/> - <lookup expression="patient.age"/>
+                </p>
+                <p>
+                  <label>Nº de BI/Outra identificação:</label>
+                  <lookup expression="patient.getPatientIdentifier(3)"/>/<lookup expression="patient.getPatientIdentifier(1)"/>
+                </p>
+                <p>
+                  <label>Distrito/Cidade:</label>
+                  <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.countyDistrict #end"/>
+                </p>
+                <p>
+                  <label>Localidade/Bairro:</label>
+                  <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.region #end"/>/<lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.subregion #end"/>
+                </p>
+                <p>
+                  <label>Célula/Quarteirão:</label>
+                  <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.neighborhoodCell #end"/>
+                </p>
+                <p>
+                  <label>Avenida/Rua/Casa:</label>
+                  <lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.address1 #end"/>
+                </p>
+              </div>
+              <div class="clear"/>
+              <label >Pessoa de Referência:</label><br/>
+              <obsgroup groupingConceptId="1609">
+                <obs conceptId="969"  answerConceptIds="970,971,972,973,975,5620" labelText="Tipo de acompanhante:"/>
+                <obs conceptId="1441" labelText="Nome:" size="20"/> 
+                <obs conceptId="1442" labelText="Apelido:" size="20"/> 
+                <obs conceptId="1611" labelText="Tel:" size="15"/>
+              </obsgroup>
+              <p>
+                <label>Unidade Sanitária:</label>
+                <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
+              </p>
+              <relationship type="3" whoAmI="B"  changeExistingRelationship="true" display="search"/>
+            </div>
+             <div class="content">
+                <div class="demo-data demo-data-partI">
                   <p>
-                    <label style="width: 50px !important;">Alta :</label>
-                    <obs conceptId="1873" id="exitStatus" answerConceptIds="1366,1707,1798,6423,1706,1782"  dateLabel="DATA:"/>
+                    <label>Consultas:</label> <br/>
+                    <obs conceptId="6361" id="consult" required="true" answerConceptIds="6355,6356,6357,6358,6359,6360" answerLabels="1ª,2ª,3ª,4ª,5ª,6ª"/>
                   </p>
                 </div>
-              </div>
-            </li>
-            </ul>
-          </div>
-          <div class="clear" />
-          
-          <div class="last-details">
-            <p>
-              <label style="width: 400px !important;">RESULTADO DO TESTE RÁPIDO DE HIV PARA CRIANÇA NÃO EXPOSTA?</label>
-              <obs conceptId="6419" answerConceptIds="664,703,1138,1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
-            </p>
-            <p>
-              <label style="font-weight:bold;">Observações:</label><br/>
-              <obs conceptId="5622" style="textarea" rows ="4" cols="100" />
-            </p>
-            <p>
-              <label style="font-weight:bold;">Profissional de Saúde:</label>
-              <encounterProvider role="Provider" type="autocomplete" required="true" />
-            </p>
-            <includeIf velocityTest="$patient.age &lt; 14 "><div align="center"><submit submitLabel="Submeter"/></div></includeIf>
-          </div>
-       </div>
-      </body>
-      </html>
-  </htmlform>
+                <div class="demo-data demo-data-partI">
+                  <p>
+                    <label>Data da Consulta:</label> <br/>
+                    <encounterDate id="dataConsulta" required="true"/>
+                  </p>
+                </div>
+      
+                  <div class="demo-data demo-data demo-data-partI">
+                    <p>
+                    <label>Peso actual (kg) :</label> <br/>
+                      <obs conceptId="5089" style="numeric" />
+                  </p>
+                  </div>
+                  <div class="demo-data demo-data demo-data-partI">
+                    <p>
+                    <label>Estatura :</label> <br/>
+                      <obs conceptId="5090" style="numeric" />
+                  </p>
+                  </div>
+                  <div class="demo-data demo-data demo-data-partI">
+                    <p>
+                    <label>Peso/Estatura (DP):</label> <br/>
+                      <obs conceptId="1888" style="numeric" />
+                  </p>
+                  </div>
+                 <div class="demo-data demo-data demo-data-partI">
+                    <p>
+                    <label>Perímetro Craniano</label> <br/>
+                      <obs conceptId="5314" style="numeric" />
+                  </p>
+                  </div>
+
+                <div class="clear" />
+                <br/>
+                  <p>
+                    <label style="width: 400px !important;">Vacinas Em Dia</label>
+                    <obs conceptId="1889" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                    <label style="width: 400px !important;" >Vitamina A Em Dia</label>
+                    <obs conceptId="6395" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                    <label style="width: 400px !important;">Desparasitação Em Dia </label>
+                    <obs conceptId="6396" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                  </p>
+                <div class="tabs">
+                  <ul>
+                      <li>
+                      <input type="radio" name="tabs" id="tab1" checked="true" class="rd-visible"/>
+                      <label for="tab1">Dados da Mãe</label>
+                      <div id="tab-content-I" class="tab-content">
+                        <div class="tab-data tab-data-I">
+                         <p>
+                            <label>Mãe lactante em TARV:</label>
+                            <!-- <obs conceptId="6354" id="motherOnTarv" answerConceptIds="6388,1256,1257" /> -->
+                            <p>
+                            <obs conceptId="6354" id="motherOnTarv"  answerConceptId="6388"  answerLabel="TARV CPN"/>
+                            </p>
+                            <p>
+                            <obs conceptId="6354" id="motherOnTarv1" answerConceptId="1256" answerLabel="INCIAR"/>
+                            </p>
+                            <p>
+                            <obs conceptId="6354" id="motherOnTarv2" answerConceptId="1257" answerLabel="CONTINUCÃO"/>
+                            </p>
+                            <br/>
+                          </p>
+                          <p>
+                            <label>Data de Início TARV:</label>
+                             <obs id="dataInitialTarv" conceptId="1190"/>
+                          </p>
+                          <p>
+                            <label>Mulher HIV + Lactante:</label>
+                             <obs conceptId="6332" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                          </p>
+        
+                           <p>
+                            <label>PTV Mãe:</label>
+                              <obs conceptId="6394" id="exitStatus" answerConceptIds="1107,6276" />
+                          </p>
+                          <p>
+                            <label>Nome do Pai:</label>
+                            <obs conceptId="1485" style="text"/>
+                          </p>
+                           <p>
+                            <label>Contacto Telefónico:</label>
+                            <obs conceptId="1485" style="text"/>
+                          </p>
+                          <p>
+                            <label>Local do Parto:</label>
+                            <obs conceptId="1581" answerConceptIds="1818,1817,5622,1831" />
+                          </p>
+                          <p>
+                            <label>Tipo de Parto:</label>
+                            <obs conceptId="5630" answerConceptIds="1170,1171,1172,5622,1826,1115" />
+                          </p>
+                          <p>
+                            <label>Peso ao Nascimento (kg):</label>
+                            <obs conceptId="5916" style="text" />
+                          </p>
+                        </div>
+                      </div>
+                     </li>
+
+                    <li>
+                      <input type="radio" name="tabs" id="tab2" class="rd-visible" />
+                      <label for="tab2">Condição de Risco</label>
+                      <div id="tab-content-II" class="tab-content">
+                        <div class="tab-data tab-data-I">
+                          <p>
+                            <label>Contacto com Tuberculose:</label>
+                             <obs conceptId="1851" answersConceptIds="1065,1066"/>
+                          </p>
+                          <p>
+                            <label style="margin-bottom:40px;">Exposição ao HIV:</label>
+                             <obs conceptId="1586" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                          </p>
+                           <p>
+                            <label style="font-weight:bold; margin-bottom:10px;">Outra condição em risco:</label><br/>
+                            <obs conceptId="1848" style="textarea" rows ="3" cols="80" />
+                          </p>
+                        </div>
+                        <div class="tab-data tab-data-II">
+                         <p>
+                            <obs conceptId="1874" answerConceptId="1842" answerLabel="Prematuridade" style="checkbox"/>
+                          </p>
+                           <p>
+                            <obs conceptId="1874" answerConceptId="6397" answerLabel="Peso ao nascer inferior a 2,5 kg" style="checkbox"/>
+                          <p>
+                            <obs conceptId="1874" answerConceptId="5050" answerLabel="Crescimento insuficiente" style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1874" answerConceptId="1844" answerLabel="Desnutrição aguda grave" style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1874" answerConceptId="68" answerLabel="Desnutrição aguda moderada" style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1874" answerConceptId="1586" answerLabel="Exposição ao HIV" style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1874" answerConceptId="1586" answerLabel="Mãe falecida/ausente" style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1874" answerConceptId="1845" answerLabel="Contacto com Tuberculose" style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1874" answerConceptId="1846" answerLabel="Gémeos" style="checkbox"/>
+                          </p>
+                           <p>
+                            <obs conceptId="1874" answerConceptId="1843" answerLabel="Desmame brusco ou aleitamento artificial exclusivo" style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1874" answerConceptId="6409" answerLabel="Migração recente da familia" style="checkbox"/>
+                          </p>
+                          </p>
+                        </div>
+                         <div class="clear"/>
+                        <div class="tab-data tab-data-I">
+
+                        </div>
+                      </div>
+                    </li>
+
+                    <li>
+                      <input type="radio" name="tabs" id="tab3" class="rd-visible" />
+                      <label for="tab3">Tuberculose</label>
+                      <div id="tab-content-III" class="tab-content">
+                        <div class="tab-data tab-data-I">
+                          <p>
+                            <label style="font-weight:bold; width:150px;">Profilaxia Isoniazida:</label>
+                          </p>
+                          <p>
+                            <label>Data de início:</label>
+                             <obs conceptId="6128"/>
+                          </p>
+                          <p >
+                           <label>Estado:</label>
+                           <obs conceptId="6122" answerConceptIds="1257,1267" answerLabels="CONTINUACAO,COMPLETO" class="rd-tab rd-tab1"/>
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <input type="radio" name="tabs" id="tab4" class="rd-visible"/>
+                      <label for="tab4">Nutrição</label>
+                      <div id="tab-content-IV" class="tab-content">
+                        <div class="tab-data tab-data-I">
+                          <p>
+                            <label>Tipo de aleitamento:</label>
+                             <obs conceptId="1151" answerConceptIds="5526,5254,6046"/>
+                          </p>
+                        </div>
+                        <div class="tab-data tab-data-II">
+                         <p>
+                            <label style="font-weight:bold; width:150px;" >Apoio Nutricional:</label>
+                          </p>
+                         <p>
+                          <label>Tratamento nutricional ATPU ?</label>
+                          <obs conceptId="1884" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                         </p>
+                         <p>
+                          <label>Tratamento nutricional CSB ?</label>
+                          <obs conceptId="2151" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                         </p>
+                         <p>
+                           <label>Recuperado ?</label>
+                           <obs conceptId="6301" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                         </p>
+                         <p>
+                          <label>Internamento ?</label>
+                          <obs conceptId="5485" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                         </p>
+                        </div>
+                        <div class="clear" />`
+                        <br/> 
+                      </div>
+                    </li>
+                     <li>
+                      <input type="radio" name="tabs" id="tab5" class="rd-visible"/>
+                      <label for="tab5">Crianças expostas ao HIV</label>
+                      <div id="tab-content-V" class="tab-content">
+                        <div class="tab-data tab-data-I">
+  <!--                       <label>Profilaxia CTZ</label>
+   --><!--                       <obs id="profaxiaCTZ" conceptId="6121" answerConceptIds="1065,1066"/>
+   -->                        <p>
+                            <obs id="ctzSmallerEight" conceptId="6121" answerConceptId="6411" answerLabel="INICIO CTZ ≤ 8 SEMANAS" style="checkbox"/>
+                          
+                            <obs  id="ctzBigEight" conceptId="6121" answerConceptId="6412" answerLabel="INICIO CTZ > 8 SEMANAS" style="checkbox"/>
+                           
+                            <obs id="ctzContinue" conceptId="6121" answerConceptId="1257" answerLabel="CTZ CONTINUACAO" style="checkbox"/>
+                            
+                            <obs id="nonCtz" conceptId="6121" answerConceptId="6387" answerLabel="SEM CTZ NA US" style="checkbox"/>
+                          </p>
+                          <br/>
+                          <p>
+                            <label>Profilaxia com ARV:</label>
+                            <obs conceptId="6413" answerConceptIds="1065,1066" class="rd-tab rd-tab1" style="radio"/>
+                          </p>
+                        </div>
+                        <div class="clear" /><br/>
+                        <div class="tab-data tab-data-I">
+                          <p>
+                            <label style="font-weight:bold; width:200px;">Teste de HIV da criança exposta:</label>
+                          </p>
+                          <p>
+                            <label style="width: 400px !important;">COLHEITA DA PCR ≤ 8SEM DE IDADE?</label>
+                            <obs id="pcrSmallerEight" name ="pcrSmallerEight" conceptId="6414"  answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1" dateLabel="DATA:"/>
+                          </p>
+                          <p>
+                            <label style="width: 400px !important;">COLHEITA DA PCR > 8SEM DE IDADE?</label>
+                            <obs conceptId="6415" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                          </p>
+                          <p>
+                            <label style="width: 400px !important;">RESULTADO PCR COLHIDA COM IDADE ≤ 8 SEMANAS?</label>
+                            <obs conceptId="6416" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
+                          </p>
+                          <p>
+                            <label style="width: 400px !important;">RESULTADO PCR COLHIDA COM IDADE > 8 SEMANAS?</label>
+                            <obs conceptId="6417" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
+                          </p>
+                          <p>
+                            <label style="width: 400px !important;">RESULTADO TESTE RÁPIDO ≥ 9MESES?</label>
+                            <obs conceptId="1040" answerConceptIds="664,703,1138,1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
+                          </p>
+                          <p>
+                            <label style="width: 400px !important;">RESULTADO DEFINITIVO?</label>
+                            <obs conceptId="6418" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
+                          </p>
+                          <p>
+                            <label>MANTOUX (DATA /RESULTADO):</label>
+                            <obs conceptId="1772" style="text" answerLabels="NEGATIVO, POSITIVO, INDETERM,NAO FEZ."/>
+                          </p>
+                           <p>
+                            <label>HEMOGLOBINA (MG/DL)</label>
+                            <obs conceptId="1692" style="text"/>
+                          </p>
+                          <p>
+                            <label>PLASMÓDIO (TDR)</label>
+                            <obs conceptId="32" style="text"/>
+                          </p>
+                          <p>
+                            <label>DIAGNÓSTICO</label>
+                            <obs conceptId="1649" style="text"/>
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                   <li>
+                    <input type="radio" name="tabs" id="tab6" class="rd-visible"/>
+                    <label for="tab6">Saída da criança</label>
+                    <div id="tab-content-VI" class="tab-content">
+                      <div class="tab-data tab-data-I">
+                        <p>
+                          <label style="width: 50px !important;">Alta :</label>
+                          <obs conceptId="1873" id="exitStatus" answerConceptIds="1366,1707,1798,6423,1706,1782"  dateLabel="DATA:"/>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <input type="radio" name="tabs" id="tab7" class="rd-visible"/>
+                      <label for="tab7">Avaliação Clínica</label>
+                      <div id="tab-content-VII" class="tab-content">
+                        <div class="tab-data tab-data-VII">
+                            <p>
+                            <obs conceptId="1880" answerConceptId="6398" answerLabel="Sinais de perigo" style="checkbox"/>
+                          </p>
+                           <p>
+                             <obs conceptId="1880" answerConceptId="1879" answerLabel="Palidez palmar" style="checkbox"/>
+                          </p>
+                          <p>
+                             <obs conceptId="1880" answerConceptId="991" answerLabel="Desidratação" style="checkbox"/>
+                          </p>
+                           <p>
+                             <obs conceptId="1880" answerConceptId="6399" answerLabel="Respiração rápida" style="checkbox"/>
+                          </p>
+                           <p>
+                             <obs conceptId="1880" answerConceptId="460" answerLabel="Edema" style="checkbox"/>
+                          </p>
+                          <p>
+                             <obs conceptId="1880" answerConceptId="119" answerLabel="Dermatite" style="checkbox"/>
+                          </p>
+                          <p>
+                             <obs conceptId="1880" answerConceptId="1877" answerLabel="Adenomegalias" style="checkbox"/>
+                          </p>
+                           <p>
+                             <obs conceptId="1880" answerConceptId="1878" answerLabel="Secreção do ouvido" style="checkbox"/>
+                          </p>
+                           <p>
+                             <obs conceptId="1880" answerConceptId="265" answerLabel="Atraso no desenvolvimento psicomotor" style="checkbox"/>
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li>
+                    <input type="radio" name="tabs" id="tab9" class="rd-visible"/>
+                      <label for="tab9">Tratamento</label>
+                      <div id="tab-content-IX" class="tab-content">
+                        <div class="tab-data tab-data-IX">
+                          <p>
+                            <obs conceptId="1719" answerConceptId="265" answerLabel="Amoxacilina" style="checkbox"/>
+                          </p>
+                           <p>
+                            <obs conceptId="1719" answerConceptId="919" answerLabel="Nistatina" style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1719"  answerConceptId="919" answerLabel="Antimaláricos" style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1719" answerConceptId="244" answerLabel="Mebendazol" style="checkbox"/>
+                          </p>
+                           <p>
+                            <obs conceptId="1719" answerConceptId="461" answerLabel="Multivitaminas" style="checkbox"/>
+                          </p>
+                           <p>
+                            <obs conceptId="1719" answerConceptId="351" answerLabel="SRO" style="checkbox"/>
+                          </p>
+                           <p>
+                            <obs conceptId="1719" answerConceptId="6420" answerLabel="Zinco" style="checkbox"/>
+                          </p>             
+                        </div>
+                      </div>
+                    </li>
+
+                    <li>
+                    <input type="radio" name="tabs" id="tab10" class="rd-visible"/>
+                      <label for="tab10">Alimentação Infantil</label>
+                      <div id="tab-content-X" class="tab-content">
+                        <div class="tab-data tab-data-X">
+                          <p>
+                            <label>Aleitamento Materno :</label>
+                            <obs conceptId="1485" style="text"/>
+                          </p>
+                           <p>
+                            <label>NID TARV :</label>
+                            <obs conceptId="1485" style="text"/>
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li>
+                    <input type="radio" name="tabs" id="tab11" class="rd-visible"/>
+                      <label for="tab11">Historico Actual</label>
+                      <div id="tab-content-XI" class="tab-content">
+                        <div class="tab-data tab-data-XI">
+                          <p>
+                            <obs conceptId="1610" answerConceptId="16" answerLabel="Diarreia" style="checkbox"/>
+                          </p>
+                           <p>
+                            <obs conceptId="1610" answerConceptId="107" answerLabel="Tosse" style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1610" answerConceptId="5945" answerLabel="Febre" style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1610" answerConceptId="1845" answerLabel="Tuberculose na familia " style="checkbox"/>
+                          </p>
+                          <p>
+                            <obs conceptId="1610" answerConceptId="1863" answerLabel="Dorme sob rede mosquiteira " style="checkbox"/>
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+
+                  </ul>
+                </div>
+                <div class="clear" />
+                
+                <div class="last-details">
+                  <p>
+                    <label style="width: 500px !important; ">RESULTADO DO TESTE RÁPIDO DE HIV PARA CRIANÇA NÃO EXPOSTA?</label>
+                    <obs conceptId="6419" answerConceptIds="664,703,1138,1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
+                  </p>
+                  <p>
+                    <label style="font-weight:bold;margin-bottom:5px">Observações:</label><br/>
+                    <obs conceptId="5622" style="textarea" rows ="4" cols="100" />
+                  </p>
+                  <p>
+                    <label style="font-weight:bold;">Profissional de Saúde:</label>
+                    <encounterProvider role="Provider" type="autocomplete" required="true" />
+                  </p>
+                  <includeIf velocityTest="$patient.age &lt; 14 "><div align="center"><submit submitLabel="Submeter"/></div></includeIf>
+                </div>
+             </div>
+            </body>
+            </html>
+        </htmlform>   
