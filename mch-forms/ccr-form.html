@@ -210,9 +210,9 @@
 
                    beforeSubmit.push(function() {
 
-                      var dataNascimento = new Date(Date.parse("<lookup expression="patient.birthdate"/>"));
+                      var birth = new Date(Date.parse("<lookup expression="patient.birthdate"/>"));
                       var ONE_DAY = 1000 * 60 * 60 * 24;
-                      var difference_ms = Math.abs(Date.now() - dataNascimento.getTime());
+                      var difference_ms = Math.abs(Date.now() - birth.getTime());
                       var days = Math.round(difference_ms/ONE_DAY);
                       console.log(days);
                      
@@ -417,34 +417,6 @@
                 });
               }); 
 
-             // jQuery(document).ready(function(){
-             //    getField('profaxiaCTZ.value').live('change', function(){
-
-             //          var dataNascimento = new Date(Date.parse("<lookup expression="patient.birthdate"/>"));
-             //          var ONE_DAY = 1000 * 60 * 60 * 24;
-             //          var difference_ms = Math.abs(Date.now() - dataNascimento.getTime());
-             //          var days = Math.round(difference_ms/ONE_DAY);
-             //          console.log(days);
-             //          if(getValue('profaxiaCTZ.value')=='1066'){
-             //            $j("#ctzSmallerEight input").attr('disabled', true);
-             //            $j("#ctzBigEight input").attr('disabled', true);
-             //            $j("#ctzContinue input").attr('disabled', true);
-             //            $j("#nonCtz input").attr('disabled', true);
-             //          }else{
-             //            $j("#ctzSmallerEight input").attr('disabled', false);
-             //            $j("#ctzBigEight input").attr('disabled', false);
-                      
-             //          if(days == 21){
-             //            $j("#ctzSmallerEight input").attr('disabled', true);
-             //            console.log(days);
-             //          }
-             //          if(days >= 21){
-             //            $j("#ctzBigEight input").attr('disabled', true);
-             //            console.log(days);
-             //          }
-             //        }
-             //    });
-             //    });
                 }); 
               </script>
                 
