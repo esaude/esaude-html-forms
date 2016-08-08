@@ -208,6 +208,47 @@
 
                 <script type="text/javascript">
 
+                   beforeSubmit.push(function() {
+
+                      var dataNascimento = new Date(Date.parse("<lookup expression="patient.birthdate"/>"));
+                      var ONE_DAY = 1000 * 60 * 60 * 24;
+                      var difference_ms = Math.abs(Date.now() - dataNascimento.getTime());
+                      var days = Math.round(difference_ms/ONE_DAY);
+                      console.log(days);
+                     
+                      if(getValue('ctzSmallerEight.value') != null &amp;&amp; days > 21){
+                       
+                        console.log(days);
+                        getField("ctzSmallerEight.error").html("O INICIO CTZ ≤ 8 SEMANAS NAO E VALIDO PARA IDADE DA CRIANCA").show();
+                         return false;
+                    }
+                      if(getValue('ctzBigEight.value') != null &amp;&amp; 21  >= days){
+                        console.log(days);
+                        getField("ctzBigEight.error").html("O INICIO CTZ > 8 SEMANAS NAO E VALIDO PARA IDADE DA CRIANCA").show();
+                         return false;
+                    }
+
+                      if(getValue('pcr1.value') != null &amp;&amp; days > 21){
+                        console.log(days);
+                        getField("pcr1.error").html("PCR ≤ 8SEM DE IDADE NAO E VALIDO PARA IDADE DA CRIANCA").show();
+                         return false;
+                    }
+
+                    if(getValue('pcr2.value') != null &amp;&amp; 21 >= days){
+                        console.log(days);
+                        getField("pcr2.error").html("PCR > 8SEM DE IDADE? > NAO E VALIDO PARA IDADE DA CRIANCA").show();
+                         return false;
+                    }
+
+                    if(getValue('pcr4.value') != null &amp;&amp; 280 >= days){
+                        console.log(days);
+                        getField("pcr4.error").html("RESULTADO TESTE RÁPIDO ≥ 9MESES? NAO E VALIDO PARA IDADE DA CRIANCA").show();
+                         return false;
+                    }
+                          return true;
+                  
+                    });
+
                   jQuery(document).ready(function(){
                     getField('exitStatus.value').live('change', function() {
                     
@@ -331,12 +372,6 @@
                 });
               }); 
 
-              //  jQuery(document).ready(function(){
-              //   getField('ctzBigEight.value').on('submit', function() {
-
-              //   });
-              // }); 
-
              jQuery(document).ready(function(){
                 getField('ctzSmallerEight.value').live('change', function() {
                   if(getValue('ctzSmallerEight.value')=='6411'){
@@ -381,7 +416,6 @@
 
                 });
               }); 
-             
 
              // jQuery(document).ready(function(){
              //    getField('profaxiaCTZ.value').live('change', function(){
@@ -709,9 +743,7 @@
                       <label for="tab5">Crianças expostas ao HIV</label>
                       <div id="tab-content-V" class="tab-content">
                         <div class="tab-data tab-data-I">
-  <!--                       <label>Profilaxia CTZ</label>
-   --><!--                       <obs id="profaxiaCTZ" conceptId="6121" answerConceptIds="1065,1066"/>
-   -->                        <p>
+                          <p>
                             <obs id="ctzSmallerEight" conceptId="6121" answerConceptId="6411" answerLabel="INICIO CTZ ≤ 8 SEMANAS" style="checkbox"/>
                           
                             <obs  id="ctzBigEight" conceptId="6121" answerConceptId="6412" answerLabel="INICIO CTZ > 8 SEMANAS" style="checkbox"/>
@@ -733,15 +765,15 @@
                           </p>
                           <p>
                             <label style="width: 400px !important;">COLHEITA DA PCR ≤ 8SEM DE IDADE?</label>
-                            <obs id="pcrSmallerEight" name ="pcrSmallerEight" conceptId="6414"  answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1" dateLabel="DATA:"/>
+                            <obs id="pcr1" conceptId="6414"  answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1" dateLabel="DATA:"/>
                           </p>
                           <p>
                             <label style="width: 400px !important;">COLHEITA DA PCR > 8SEM DE IDADE?</label>
-                            <obs conceptId="6415" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                            <obs conceptId="6415" id="pcr2" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
                           </p>
                           <p>
                             <label style="width: 400px !important;">RESULTADO PCR COLHIDA COM IDADE ≤ 8 SEMANAS?</label>
-                            <obs conceptId="6416" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
+                            <obs conceptId="6416"  answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
                           </p>
                           <p>
                             <label style="width: 400px !important;">RESULTADO PCR COLHIDA COM IDADE > 8 SEMANAS?</label>
@@ -749,7 +781,7 @@
                           </p>
                           <p>
                             <label style="width: 400px !important;">RESULTADO TESTE RÁPIDO ≥ 9MESES?</label>
-                            <obs conceptId="1040" answerConceptIds="664,703,1138,1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
+                            <obs conceptId="1040" id="pcr4" answerConceptIds="664,703,1138,1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>
                           </p>
                           <p>
                             <label style="width: 400px !important;">RESULTADO DEFINITIVO?</label>
