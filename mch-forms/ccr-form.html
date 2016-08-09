@@ -253,7 +253,6 @@
                     getField('exitStatus.value').live('change', function() {
                     
                      var motherOnTarv = getValue('motherOnTarv.value');
-
                       $j("#dateOfDie input").attr('disabled', true);
                       if(getValue("exitStatus.value") == "1366"){
                        $j("#dateOfDie input").attr('disabled', false);
@@ -262,11 +261,14 @@
                  });
 
               jQuery(document).ready(function(){
-                getField('motherOnTarv.value').live('click', function() {
-                 if (getValue('motherOnTarv.value') != '' || getValue('motherOnTarv.value') == null) {
-                    $j("#motherOnTarv input").attr('disabled',true);           
+                getField('motherOnTarv.value').live('change', function() {
+                 if (getValue('motherOnTarv.value') != null) {
+                    // $j("#motherOnTarv input").attr('disabled',true);           
                     $j("#motherOnTarv1 input").attr('disabled',false);
                     $j("#motherOnTarv2 input").attr('disabled',false);
+                  }else{
+                    $j("#motherOnTarv1 input").attr('disabled',true);
+                    $j("#motherOnTarv2 input").attr('disabled',true);
                   }
                 });
               });
@@ -314,7 +316,6 @@
              jQuery(document).ready(function(){
                 getField('motherOnTarv.value').live('change', function() {
                   if(getValue('motherOnTarv.value') == '6388'){
-
                     $j("#motherOnTarv1 input").attr('disabled', true);
                     $j("#motherOnTarv2 input").attr('disabled', true);
 
@@ -366,7 +367,8 @@
                 }else{
                     $j("#ctzContinue input").attr('disabled', false);
                     $j("#nonCtz input").attr('disabled', false);
-                    $j("#ctzSmallerEight input").attr('disabled', true);
+                    $j("#ctzSmallerEight input").attr('disabled', false);
+
                 }
 
                 });
@@ -410,7 +412,7 @@
                     $j("#ctzBigEight input").attr('disabled', true);
                 }else{
                     $j("#ctzSmallerEight input").attr('disabled', false);
-                    $j("#ctzSmallerEight input").attr('disabled', false);
+                    $j("#ctzBigEight input").attr('disabled', false);
                     $j("#ctzBigEight input").attr('disabled', false);
                 }
 
