@@ -307,6 +307,17 @@
                   $j("#prophilaxysARV select").attr('disabled',false);
               });
 
+              $j('#sifilisTest select').on('change', function(e) {                 
+                  var value =  getValue('sifilisTest.value');
+                  console.log(value);
+                  if(value === '1228'){
+                    $j("#womanSifilisTest select").attr('disabled',false);
+                    return;
+                  }
+
+                  $j("#womanSifilisTest select").attr('disabled',true);
+              });
+
            });
           </script>  
       </head>
@@ -504,7 +515,7 @@
                     </p>
                     <p>
                       <label>Teste de Sífilis:</label>
-                      <obs conceptId="299" answerConceptIds="1228,1229,1118" answerLabels="Positivo, Negativo, Não Feito"/>
+                      <obs conceptId="299" id="sifilisTest" answerConceptIds="1228,1229,1118" answerLabels="Positivo, Negativo, Não Feito"/>
                     </p>
                   </div>
                   <div class="tab-data tab-data-II">
@@ -521,7 +532,7 @@
                     </p>
                     <p >
                       <label>Mulher ?</label>
-                      <obs conceptId="6383" answerConceptIds="1182,2084" answerLabels="1ª dose,3ª dose"/>
+                      <obs conceptId="6383" id="womanSifilisTest" answerConceptIds="1182,2084" answerLabels="1ª dose,3ª dose"/>
                     </p>
                     <p>
                       <label>Parceiro ?</label>
