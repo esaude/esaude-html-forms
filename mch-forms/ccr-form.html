@@ -519,27 +519,35 @@
                   </div>
                   <div class="demo-data demo-data demo-data-partI">
                     <p>
-                    <label>Peso/Estatura (DP):</label> <br/>
+                    <label>Peso/Estatura(DP):</label> <br/>
                       <obs conceptId="1888" style="numeric" />
                   </p>
                   </div>
                  <div class="demo-data demo-data demo-data-partI">
                     <p>
-                    <label>Perímetro Craniano</label> <br/>
+                    <label>Perímet. Craneano</label> <br/>
                       <obs conceptId="5314" style="numeric" />
                   </p>
                   </div>
 
                 <div class="clear" />
-                <br/>
+                <div>
                   <p>
                     <label style="width: 400px !important;">Vacinas Em Dia</label>
                     <obs conceptId="1889" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                  </p>
+                  
+                  <p>
                     <label style="width: 400px !important;" >Vitamina A Em Dia</label>
                     <obs conceptId="6395" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
+                  </p>
+                  
+                  <p>
                     <label style="width: 400px !important;">Desparasitação Em Dia </label>
                     <obs conceptId="6396" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
                   </p>
+                </div> 
+                <div class="clear" />
                 <div class="tabs">
                   <ul>
                       <li>
@@ -780,18 +788,6 @@
                         </div>
                       </div>
                     </li>
-                   <li>
-                    <input type="radio" name="tabs" id="tab6" class="rd-visible"/>
-                    <label for="tab6">Saída da criança</label>
-                    <div id="tab-content-VI" class="tab-content">
-                      <div class="tab-data tab-data-I">
-                        <p>
-                          <label style="width: 50px !important;">Alta :</label>
-                          <obs conceptId="1873" id="exitStatus" answerConceptIds="1366,1707,1798,6423,1706,1782"  dateLabel="DATA:"/>
-                        </p>
-                      </div>
-                    </div>
-                  </li>
                   <li>
                     <input type="radio" name="tabs" id="tab7" class="rd-visible"/>
                       <label for="tab7">Avaliação Clínica</label>
@@ -904,6 +900,10 @@
                 <div class="clear" />
                 
                 <div class="last-details">
+                  <p>
+                    <label style="width: 50px !important;">Saida da Criança:</label>
+                    <obs conceptId="1873" id="exitStatus" answerConceptIds="1366,1707,1798,6423,1706,1782"  dateLabel="DATA:"/>
+                  </p>
                   <p>
                     <label style="width: 500px !important; ">RESULTADO DO TESTE RÁPIDO DE HIV PARA CRIANÇA NÃO EXPOSTA?</label>
                     <obs conceptId="6419" answerConceptIds="664,703,1138,1118" style="radio" class="rd-tab rd-tab1" answerLabels="NEGATIVO, POSITIVO, INDETERM., NAO FEZ"/>

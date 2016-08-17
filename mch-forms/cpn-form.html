@@ -223,7 +223,7 @@
                 var ageRange = getValue('ageRange.value');
                 var moreThan12weeks = getValue('moreThan12weeks.value');
 
-                if (consult == "6355" &amp;&amp; (ageRange == '' || moreThan12weeks == '')) {
+                if (consult === "6355" &amp;&amp; (ageRange === '' || moreThan12weeks === '')) {
                   getField("ageRange.error").html("obrigatório").show();
                   getField("moreThan12weeks.error").html("obrigatório").show();
                   return false;
@@ -236,7 +236,12 @@
                 }
 
                 var weight = getValue('weight.value');
-                if(weight > 20 || 180 > weight){
+                if(20 > weight){
+                  getField("weight.error").html("peso invalido (20-180 kg)").show();
+                  return false;
+                }
+
+                if(weight > 180){
                   getField("weight.error").html("peso invalido (20-180 kg)").show();
                   return false;
                 }
@@ -461,7 +466,7 @@
                    </p>
                    <p>
                       <label>Quantidade de Sal Ferroso</label>
-                      <obs conceptId="d015e246-2b27-4330-8d98-fc0ea1d203f6" class="rd-tab"/>
+                      <obs conceptId="94389a55-bd9e-4497-b5e9-052ee4fb41a3" class="rd-tab"/>
                    </p>
                   </div>
                   <div class="clear" />
@@ -659,7 +664,7 @@
           <div class="last-details">
             <p>
               <label style="font-weight:bold;">Saida da CPN:</label>
-              <obs conceptId="d7c0f103-0265-42f0-98d2-3251eaa6edd5" dateLabel="DATA:"/>
+              <obs conceptId="b0439805-e29c-474d-9645-a161825cc99d" dateLabel="DATA:"/>
             </p>
             <p>
               <label style="font-weight:bold;">Observações:</label><br/>
