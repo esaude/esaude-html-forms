@@ -214,38 +214,32 @@
                       var ONE_DAY = 1000 * 60 * 60 * 24;
                       var difference_ms = Math.abs(Date.now() - birth.getTime());
                       var days = Math.round(difference_ms/ONE_DAY);
-                      console.log(days);
                      
-                      if(getValue('ctzSmallerEight.value') != null &amp;&amp; days > 21){
-                       
-                        console.log(days);
+                    if(getValue('ctzSmallerEight.value') != null &amp;&amp; days > 21){
                         getField("ctzSmallerEight.error").html("O INICIO CTZ ≤ 8 SEMANAS NAO E VALIDO PARA IDADE DA CRIANCA").show();
-                         return false;
+                        return false;
                     }
-                      if(getValue('ctzBigEight.value') != null &amp;&amp; 21  >= days){
-                        console.log(days);
+                    
+                    if(getValue('ctzBigEight.value') != null &amp;&amp; 21  >= days){
                         getField("ctzBigEight.error").html("O INICIO CTZ > 8 SEMANAS NAO E VALIDO PARA IDADE DA CRIANCA").show();
-                         return false;
+                        return false;
                     }
 
-                      if(getValue('pcr1.value') != null &amp;&amp; days > 21){
-                        console.log(days);
+                    if(getValue('pcr1.value') &amp;&amp; days > 21){
                         getField("pcr1.error").html("PCR ≤ 8SEM DE IDADE NAO E VALIDO PARA IDADE DA CRIANCA").show();
-                         return false;
+                        return false;
                     }
 
                     if(getValue('pcr2.value') != null &amp;&amp; 21 >= days){
-                        console.log(days);
                         getField("pcr2.error").html("PCR > 8SEM DE IDADE? > NAO E VALIDO PARA IDADE DA CRIANCA").show();
-                         return false;
+                        return false;
                     }
 
                     if(getValue('pcr4.value') != null &amp;&amp; 280 >= days){
-                        console.log(days);
                         getField("pcr4.error").html("RESULTADO TESTE RÁPIDO ≥ 9MESES? NAO E VALIDO PARA IDADE DA CRIANCA").show();
-                         return false;
+                        return false;
                     }
-                          return true;
+                        return true;
                   
                     });
 
