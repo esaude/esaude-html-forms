@@ -193,6 +193,7 @@
             </style>
             <script type="text/javascript">
               beforeSubmit.push(function() {
+
                   var sifilisPartner = getValue('sifilisPartner.value');
                   var testPartner = getValue('testPartner.value');
                   var partner = getValue('partner.value');     
@@ -249,6 +250,14 @@
 
                   if(consult == lastConsult){
                     getField("consult.error").html("Consulta já existente").show();
+                    return false;
+                  }
+
+                  var startDateTB = new Date(getValue('startDateTB.value'));
+                  var endDateTB = new Date(getValue('endDateTB.value'));
+
+                  if(startDateTB > endDateTB){
+                    getField("endDateTB.error").html("A data de fim não pode ser inferior a de inicio").show();
                     return false;
                   }
 
@@ -357,6 +366,19 @@
                     return;
                   }
                 });
+
+               //Validate sal ferouse
+                $j('#ferouseOpt input[type="radio"]').on('click change', function(e) {    
+                    var yesValue = $j('#ferouseOpt input[type="radio"]:checked').val();
+
+                    if(yesValue === '1066'){
+                       $j("#ferouseQtd input").attr('disabled',true);
+                       return;
+                    }
+                    
+                    $j("#ferouseQtd input").attr('disabled',false);
+                });
+
              });
             </script>  
         </head>
@@ -496,11 +518,11 @@
                      </p>
                      <p>
                         <label>Sal Ferroso com Ácido Fólico?</label>
-                        <obs conceptId="6378" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
+                        <obs conceptId="6378" id="ferouseOpt" answerConceptIds="1065,1066" answerLabels="Sim, Não" style="radio" class="rd-tab"/>
                      </p>
                      <p>
                         <label>Quantidade de Sal Ferroso</label>
-                        <obs conceptId="d015e246-2b27-4330-8d98-fc0ea1d203f6" class="rd-tab"/>
+                        <obs conceptId="d015e246-2b27-4330-8d98-fc0ea1d203f6" id="ferouseQtd" class="rd-tab"/>
                      </p>
                     </div>
                     <div class="clear" />
@@ -708,11 +730,11 @@
                     <div class="tab-data tab-data-II">
                       <p >
                         <label>Data do início de tratamento de TB:</label>
-                        <obs conceptId="e1d85906-1d5f-11e0-b929-000c29ad1d07" />
+                        <obs conceptId="e1d85906-1d5f-11e0-b929-000c29ad1d07" id="startDateTB" />
                       </p>
                       <p>
                         <label>Data do fim do tratamento:</label>
-                        <obs conceptId=" 0ef94b67-b202-40ad-b542-7b2016524335" />
+                        <obs conceptId=" 0ef94b67-b202-40ad-b542-7b2016524335" id="endDateTB" />
                       </p>
                     </div>
                   </div>
