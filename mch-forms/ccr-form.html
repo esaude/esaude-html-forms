@@ -1,4 +1,4 @@
-            <htmlform>
+<htmlform>
             <html xmlns="http://www.w3.org/1999/xhtml">
             <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -42,7 +42,7 @@
                 }
 
                 .content{
-                  width: 1330px;
+                  width: 1230px;
                   font-size: 8pt;
                   margin: 1px auto;
                   border: 1px solid #B2DFEE;
@@ -98,7 +98,7 @@
                 }
 
                 .tabs ul {
-                  width: 1302px;
+                  width: 1200px;
                   list-style: none;
                   float: none;
                   position: relative;
@@ -146,9 +146,8 @@
                     position: absolute;
                     border: 1px solid #B2DFEE;
                     margin: -1px;
-                    min-height: 215px;
+                    min-height: 225px;
                   }
-
                 
                 .tab-data label{
                   border: none;
@@ -192,7 +191,7 @@
 
                 .last-details{
                   float: none;
-                  margin-top: 25%;
+                  margin-top: 32%;
                 }
 
                 .rd-tab1 input{
@@ -204,44 +203,48 @@
                   width: 100px !important;
                 }
 
+                .separation label{
+                  width: 200px !important;
+                }
+
                 </style>
 
                 <script type="text/javascript">
 
                    beforeSubmit.push(function() {
 
-                      var birth = new Date(Date.parse("<lookup expression="patient.birthdate"/>"));
-                      var ONE_DAY = 1000 * 60 * 60 * 24;
-                      var difference_ms = Math.abs(Date.now() - birth.getTime());
-                      var days = Math.round(difference_ms/ONE_DAY);
+                    //   var birth = new Date(Date.parse("<lookup expression="patient.birthdate"/>"));
+                    //   var ONE_DAY = 1000 * 60 * 60 * 24;
+                    //   var difference_ms = Math.abs(Date.now() - birth.getTime());
+                    //   var days = Math.round(difference_ms/ONE_DAY);
                      
-                    if(getValue('ctzSmallerEight.value') != null &amp;&amp; days > 21){
-                        getField("ctzSmallerEight.error").html("O INICIO CTZ ≤ 8 SEMANAS NAO E VALIDO PARA IDADE DA CRIANCA").show();
-                        return false;
-                    }
+                    // if(getValue('ctzSmallerEight.value') != null &amp;&amp; days > 21){
+                    //     getField("ctzSmallerEight.error").html("O INICIO CTZ ≤ 8 SEMANAS NAO E VALIDO PARA IDADE DA CRIANCA").show();
+                    //     return false;
+                    // }
                     
-                    if(getValue('ctzBigEight.value') != null &amp;&amp; 21  >= days){
-                        getField("ctzBigEight.error").html("O INICIO CTZ > 8 SEMANAS NAO E VALIDO PARA IDADE DA CRIANCA").show();
-                        return false;
-                    }
+                    // if(getValue('ctzBigEight.value') != null &amp;&amp; 21  >= days){
+                    //     getField("ctzBigEight.error").html("O INICIO CTZ > 8 SEMANAS NAO E VALIDO PARA IDADE DA CRIANCA").show();
+                    //     return false;
+                    // }
 
-                    if(getValue('pcr1.value') &amp;&amp; days > 21){
-                        getField("pcr1.error").html("PCR ≤ 8SEM DE IDADE NAO E VALIDO PARA IDADE DA CRIANCA").show();
-                        return false;
-                    }
+                    // if(getValue('pcr1.value') &amp;&amp; days > 21){
+                    //     getField("pcr1.error").html("PCR ≤ 8SEM DE IDADE NAO E VALIDO PARA IDADE DA CRIANCA").show();
+                    //     return false;
+                    // }
 
-                    if(getValue('pcr2.value') != null &amp;&amp; 21 >= days){
-                        getField("pcr2.error").html("PCR > 8SEM DE IDADE? > NAO E VALIDO PARA IDADE DA CRIANCA").show();
-                        return false;
-                    }
+                    // if(getValue('pcr2.value') != null &amp;&amp; 21 >= days){
+                    //     getField("pcr2.error").html("PCR > 8SEM DE IDADE? > NAO E VALIDO PARA IDADE DA CRIANCA").show();
+                    //     return false;
+                    // }
 
-                    if(getValue('pcr4.value') != null &amp;&amp; 280 >= days){
-                        getField("pcr4.error").html("RESULTADO TESTE RÁPIDO ≥ 9MESES? NAO E VALIDO PARA IDADE DA CRIANCA").show();
-                        return false;
-                    }
-                        return true;
+                    // if(getValue('pcr4.value') != null &amp;&amp; 280 >= days){
+                    //     getField("pcr4.error").html("RESULTADO TESTE RÁPIDO ≥ 9MESES? NAO E VALIDO PARA IDADE DA CRIANCA").show();
+                    //     return false;
+                    // }
+                    //     return true;
                   
-                    });
+                    // });
 
                   jQuery(document).ready(function(){
                     getField('exitStatus.value').live('change', function() {
@@ -525,19 +528,19 @@
                   </div>
 
                 <div class="clear" />
-                <div>
+                <div class="tab-data tab-data-I">
                   <p>
-                    <label style="width: 400px !important;">Vacinas Em Dia</label>
+                    <label>Vacinas Em Dia</label>
                     <obs conceptId="1889" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
                   </p>
                   
                   <p>
-                    <label style="width: 400px !important;" >Vitamina A Em Dia</label>
+                    <label>Vitamina A Em Dia</label>
                     <obs conceptId="6395" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
                   </p>
                   
                   <p>
-                    <label style="width: 400px !important;">Desparasitação Em Dia </label>
+                    <label>Desparasitação Em Dia </label>
                     <obs conceptId="6396" answerConceptIds="1065,1066" style="radio" class="rd-tab rd-tab1"/>
                   </p>
                 </div> 
@@ -551,7 +554,6 @@
                         <div class="tab-data tab-data-I">
                          <p>
                             <label>Mãe lactante em TARV:</label>
-                            <!-- <obs conceptId="6354" id="motherOnTarv" answerConceptIds="6388,1256,1257" /> -->
                             <p>
                             <obs conceptId="6354" id="motherOnTarv"  answerConceptId="6388"  answerLabel="TARV CPN"/>
                             </p>
@@ -632,9 +634,6 @@
                           </p>
                           <p>
                             <obs conceptId="1874" answerConceptId="68" answerLabel="Desnutrição aguda moderada" style="checkbox"/>
-                          </p>
-                          <p>
-                            <obs conceptId="1874" answerConceptId="1586" answerLabel="Exposição ao HIV" style="checkbox"/>
                           </p>
                           <p>
                             <obs conceptId="1874" answerConceptId="1586" answerLabel="Mãe falecida/ausente" style="checkbox"/>
@@ -723,9 +722,9 @@
                             <obs id="ctzSmallerEight" conceptId="6121" answerConceptId="6411" answerLabel="INICIO CTZ ≤ 8 SEMANAS" style="checkbox"/>
                           
                             <obs  id="ctzBigEight" conceptId="6121" answerConceptId="6412" answerLabel="INICIO CTZ > 8 SEMANAS" style="checkbox"/>
-                           
+                          </p>
+                          <p>
                             <obs id="ctzContinue" conceptId="6121" answerConceptId="1257" answerLabel="CTZ CONTINUACAO" style="checkbox"/>
-                            
                             <obs id="nonCtz" conceptId="6121" answerConceptId="6387" answerLabel="SEM CTZ NA US" style="checkbox"/>
                           </p>
                           <br/>
@@ -764,19 +763,19 @@
                             <obs conceptId="6418" answerConceptIds="664,703" style="radio" class="rd-tab rd-tab1"/>
                           </p>
                           <p>
-                            <label>MANTOUX (DATA /RESULTADO):</label>
+                            <label style="width: 400px !important;">MANTOUX (DATA /RESULTADO):</label>
                             <obs conceptId="1772" style="text" answerLabels="NEGATIVO, POSITIVO, INDETERM,NAO FEZ."/>
                           </p>
                            <p>
-                            <label>HEMOGLOBINA (MG/DL)</label>
+                            <label style="width: 400px !important;">HEMOGLOBINA (MG/DL)</label>
                             <obs conceptId="1692" style="text"/>
                           </p>
                           <p>
-                            <label>PLASMÓDIO (TDR)</label>
+                            <label style="width: 400px !important;">PLASMÓDIO (TDR)</label>
                             <obs conceptId="32" style="text"/>
                           </p>
                           <p>
-                            <label>DIAGNÓSTICO</label>
+                            <label style="width: 400px !important;">DIAGNÓSTICO</label>
                             <obs conceptId="1649" style="text"/>
                           </p>
                         </div>
@@ -806,7 +805,7 @@
                              <obs conceptId="1880" answerConceptId="119" answerLabel="Dermatite" style="checkbox"/>
                           </p>
                           <p>
-                             <obs conceptId="1880" answerConceptId="1877" answerLabel="Adenomegalias" style="checkbox"/>
+                             <obs conceptId="1880" answerConceptId="1877" answerLabel="Adenomegalias" style="checkbox" />
                           </p>
                            <p>
                              <obs conceptId="1880" answerConceptId="1878" answerLabel="Secreção do ouvido" style="checkbox"/>
@@ -844,23 +843,6 @@
                            <p>
                             <obs conceptId="1719" answerConceptId="6420" answerLabel="Zinco" style="checkbox"/>
                           </p>             
-                        </div>
-                      </div>
-                    </li>
-
-                    <li>
-                    <input type="radio" name="tabs" id="tab10" class="rd-visible"/>
-                      <label for="tab10">Alimentação Infantil</label>
-                      <div id="tab-content-X" class="tab-content">
-                        <div class="tab-data tab-data-X">
-                          <p>
-                            <label>Aleitamento Materno :</label>
-                            <obs conceptId="1485" style="text"/>
-                          </p>
-                           <p>
-                            <label>NID TARV :</label>
-                            <obs conceptId="1485" style="text"/>
-                          </p>
                         </div>
                       </div>
                     </li>
@@ -915,4 +897,4 @@
              </div>
             </body>
             </html>
-        </htmlform>   
+</htmlform>   
