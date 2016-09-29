@@ -236,12 +236,12 @@
                   }
 
                   var weight = getValue('weight.value');
-                  if(20 > weight){
+                  if(20 > weight &amp;&amp; weight != 0){
                     getField("weight.error").html("peso invalido (20-180 kg)").show();
                     return false;
                   }
 
-                  if(weight > 180){
+                  if(weight > 180 &amp;&amp; weight != 0){
                     getField("weight.error").html("peso invalido (20-180 kg)").show();
                     return false;
                   }
@@ -492,7 +492,7 @@
                     <div class="tab-data tab-data-I">
                       <p>
                         <label>Peso(KG):</label>
-                         <obs conceptId="5089" size="10" required="true" id="weight"/>
+                         <obs conceptId="5089" size="10" id="weight"/>
                       </p>
                       <p>
                         <label>Perímetro Braquial:</label>
@@ -522,7 +522,7 @@
                      </p>
                      <p>
                         <label>Quantidade de Sal Ferroso</label>
-                        <obs conceptId="94389a55-bd9e-4497-b5e9-052ee4fb41a3" id="ferouseQtd" class="rd-tab"/>
+                        <obs conceptId="35fba30b-a7da-4f39-a7e0-2cef36a06348" id="ferouseQtd" class="rd-tab"/>
                      </p>
                     </div>
                     <div class="clear" />
@@ -734,7 +734,7 @@
                       </p>
                       <p>
                         <label>Data do fim do tratamento:</label>
-                        <obs conceptId=" 0ef94b67-b202-40ad-b542-7b2016524335" id="endDateTB" />
+                        <obs conceptId="0ef94b67-b202-40ad-b542-7b2016524335" id="endDateTB" />
                       </p>
                     </div>
                   </div>
@@ -745,7 +745,7 @@
             <div class="last-details">
               <p>
                 <label style="font-weight:bold;">Saida da CPN:</label>
-                <obs conceptId="b0439805-e29c-474d-9645-a161825cc99d" dateLabel="DATA:"/>
+                <obs conceptId="34cad5ae-9bf2-4cc8-859a-9ba4d68a7b5c" dateLabel="DATA:"/>
               </p>
               <p>
                 <label style="font-weight:bold;">Observações:</label><br/>
