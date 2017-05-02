@@ -246,12 +246,12 @@
                     return false;
                   }
 
-                  var lastConsult = parseInt("<lookup expression="fn.latestObs('6361').valueCoded"/>");
+                  // var lastConsult = parseInt("<lookup expression="fn.latestObs('6361').valueCoded"/>");
 
-                  if(consult == lastConsult){
-                    getField("consult.error").html("Consulta já existente").show();
-                    return false;
-                  }
+                  // if(consult == lastConsult){
+                  //   getField("consult.error").html("Consulta já existente").show();
+                  //   return false;
+                  // }
 
                   var startDateTB = new Date(getValue('startDateTB.value'));
                   var endDateTB = new Date(getValue('endDateTB.value'));
@@ -443,6 +443,10 @@
           <p>
             <label>Unidade Sanitária:</label><br/>
             <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
+          </p>
+          <p>
+            <obs conceptId="a26e8692-d65c-47c7-9284-8e78eb86802f" labelText="Número do Livro:" size="20"/> |==|
+            <obs conceptId="9fdb2c0b-e33a-42c1-9ade-6c57c702c284" labelText="Número da página:" size="20" />
           </p>
         </div>
          <div class="content">
