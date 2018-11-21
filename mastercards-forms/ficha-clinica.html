@@ -1,0 +1,739 @@
+<htmlform>
+            <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <title>FICHA CLÍNICA</title>
+              
+              <style>
+
+                .main{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    font-size: 9pt;
+                    width: 100%;
+                }
+
+                .header{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .header-box{
+                    width: 75%;
+                    background: #1aac9b;
+                    padding: 1px !important;
+                    color: #fff;
+                    box-shadow: 0 0 .3em #000;
+                    margin-bottom: 10px;
+                }
+
+                .header-box h2{
+                   padding-left: 10px;
+                   text-shadow: 0 0 .3em #000;
+                }
+
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 75%;
+                    border: 1px solid #1aac9b;
+                    box-shadow: 0 0 .3em #000;
+                }
+
+                .header-info{
+                  float: right;
+                  border: 1px solid #1aac9b;
+                  padding: 0px 10px 0px 10px;
+                  box-shadow: 0 0 .1em #000;
+                  margin: 10px 10px;
+                  background: #dedede
+                }
+
+                .header-info h3{
+                  text-align: center;
+                }
+
+                .header-data{
+                  float: left;
+                  border: 1px solid #1aac9b;
+                  margin-bottom: 10px !important;
+                  padding: 0px 10px 0px 10px;
+                  box-shadow: 0 0 .1em #000;
+                  margin: 10px 10px;
+                  background: #dedede
+                }
+
+                input[type="text"]{
+                    width: 150px;
+                }
+
+                .input-size input[type="text"]{
+                    width: 50px !important;
+                }
+
+                .input-size-2 input[type="text"]{
+                    width: 70px !important;
+                }
+
+                p select {
+                    width: 150px;
+                }
+
+                .content-inline {
+                    display: flex;
+                    margin-left: 15px;
+                }
+
+                .content-box {
+                    display:flex; 
+                    flex-direction:column;
+                }
+                .content-box label {
+                    flex: 1;
+                }
+
+                .content-box p input[type="text"]{
+                    margin-bottom: 5px
+                }
+
+                .content-box p select {
+                    margin-bottom: 5px;
+                }
+
+                .key-population{
+                    margin-left: 15px;
+                }
+
+                .submit-btn {
+                    flex: 1;
+                    margin: 10px 15px;
+                }
+
+                 .submit-btn input{
+                   color: #fff;
+                   background: #1aac9b;
+                   padding: 8px;
+                   width: 12.8em;
+                   font-weight: bold;
+                   text-shadow: 0 0 .3em black;
+                   font-size: 9pt;
+                   border-radius: 5px 5px;
+                }
+
+                .label-tag {
+                   color: #fff;
+                   background: #1aac9b;
+                   padding: 7px;
+                   font-weight: bold;
+                   text-shadow: 0 0 .3em black;
+                   font-size: 9pt;
+                   border-radius: 5px 5px;
+                }
+
+                 .label-tag-2 {
+                   color: #fff;
+                   padding: 7px;
+                   font-weight: bold;
+                   text-shadow: 0 0 .3em black;
+                   font-size: 9pt;
+                   border-radius: 5px 5px;
+                }
+
+                </style>
+
+                <script type="text/javascript">
+                  jQuery(document).ready(function(){
+                    getField('exitStatus.value').live('change', function() {
+                    
+                     var motherOnTarv = getValue('motherOnTarv.value');
+                      $j("#dateOfDie input").attr('disabled', true);
+                      if(getValue("exitStatus.value") == "1366"){
+                       $j("#dateOfDie input").attr('disabled', false);
+                      }
+                    });
+                 });
+              </script>
+                
+            </head>
+            <body>
+                
+            <div class="main">
+                
+                <div class="header-box">
+                    <h2>FICHA CLÍNICA</h2>
+                </div>
+
+                <div class="content">
+
+                    <div class="header">
+                        
+                        <div class="header-data">
+                            <p>
+                                <label>Nome:</label>
+                                <lookup expression="patient.personName"/>
+                            </p>
+
+                            <p>
+                                <label>Género/Data de Nasc./Idade:</label>
+                                <lookup expression="patient.gender"/> - <lookup expression="patient.birthdate"/> - <lookup expression="patient.age"/>
+                            </p>
+                        </div>
+
+                        <div class="header-info">
+                            <h3>REPÚBLICA DE MOÇAMBIQUE</h3>
+                            <h3>SERVIÇO NACIONAL DE SAÚDE</h3>
+                            <p>
+                                <label>NID/US:</label>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="key-population">
+
+                        <p>
+                            <label>Unidade Sanitária:</label>
+                            <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
+                        </p>
+
+                        <p>
+                            <label >População Chave:</label>
+                            <obs conceptId="c7c0b430-bbc1-4042-a365-ad78a13aef56"  answerConceptIds="e1daa454-1d5f-11e0-b929-000c29ad1d07, 5bdb7ec1-908a-11e6-a98e-000c29db4475, 58021703-908a-11e6-a98e-000c29db4475, e1df1296-1d5f-11e0-b929-000c29ad1d07, e1e783ea-1d5f-11e0-b929-000c29ad1d07"/>
+
+                            <label style="margin-left:30px">População Chave Outro:</label>
+                            <obs conceptId="e1e783ea-1d5f-11e0-b929-000c29ad1d07"/>
+                        </p>
+                    
+                    </div>
+
+                    <div class="content-inline">
+                        
+                        <div>
+                            <p>
+                                <label  class="label-tag">População Vulnerável:</label>
+                                <p>
+                                    <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="95f393be-3853-4d63-8640-4a505f9ea81b" /><br/>
+                                    <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="2ccb7192-7321-4156-b25a-f656e065dcbc" /><br/>
+                                    <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="e1e06ac4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="e1e051a6-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="e1d8dffc-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+                            </p>
+                        </div>
+
+                        <div style="margin-left:15px;">
+                            <p>
+                                <label  class="label-tag-2"></label>
+                                <p>
+                                    <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="cbb0baba-688d-4c7b-afb1-7d5be5d9a084" /><br/>
+                                    <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="e1df3a8c-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="e1df209c-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="e1df2204-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+                            </p>
+                        </div>    
+
+                    </div>
+
+                    <div class="content-inline">
+                        <div>
+                            <p>
+                                <label>Consulta Actual / Outros:</label><br/>
+                                <encounterDate id="dataConsulta" required="true" />
+                            </p>  
+                            
+                            <p>
+                                <label>Proxima Consulta:</label><br/>
+                                <obs conceptId="e1dae630-1d5f-11e0-b929-000c29ad1d07" required="true"/>
+                            </p>     
+                        </div>
+                        
+                        <div style="margin-left:15px;">                    
+                            <p class="input-size" >
+                                <label>Tensão Arterial:</label><br/>
+                                <obs conceptId="e1e2e3d0-1d5f-11e0-b929-000c29ad1d07"/> / <obs conceptId="e1e2e4e8-1d5f-11e0-b929-000c29ad1d07"/>
+                            </p>     
+
+                            <p>
+                                <label>Gravidez</label><br/>
+                                <obs conceptId="e1e056a6-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1dc0dd0-1d5f-11e0-b929-000c29ad1d07" answerLabels="Gestante"/>
+                            </p>  
+                        </div> 
+
+                        <div style="margin-left:15px;">                    
+                            
+                            <p>
+                                <label>Data. última mestruação:</label><br/>
+                                <obs conceptId="e1dc0dd0-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>Lactante:</label><br/>
+                                <obs conceptId="bc4fe755-fc8f-49b8-9956-baf2477e8313" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07"/>
+                            </p>   
+                        </div> 
+
+                        <div style="margin-left:15px;"> 
+                            
+                            <label class="label-tag">Planeamento Familiar:</label><br/>                   
+                            <p>
+                                <obs conceptId="e1d1a6d8-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cff2ac-1d5f-11e0-b929-000c29ad1d07" answerLabel="Preservativo" /><br/>
+                                <obs conceptId="e1d1a6d8-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1d5c786-1d5f-11e0-b929-000c29ad1d07" answerLabel="Contraceptivo Oral" /><br/>
+                                <obs conceptId="e1d1a6d8-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1e492ca-1d5f-11e0-b929-000c29ad1d07" answerLabel="Injectável" /><br/>
+                                <obs conceptId="e1d1a6d8-1d5f-11e0-b929-000c29ad1d07" answerConceptId="b69a31ae-ef74-4daa-b7fe-5a153948a2cd" answerLabel="Implante" /><br/>
+                            </p>
+                        </div>
+
+                        <div style="margin-left:15px;"> 
+                            
+                                <label class="label-tag-2"></label><br/>                   
+                                <p>
+                                    <obs conceptId="e1d1a6d8-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1e485fa-1d5f-11e0-b929-000c29ad1d07" answerLabel="Dispositivo Intra-uterino" /><br/>
+                                    <obs conceptId="e1d1a6d8-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1e486f4-1d5f-11e0-b929-000c29ad1d07" answerLabel="Laqueação das Trompas" /><br/>
+                                    <obs conceptId="e1d1a6d8-1d5f-11e0-b929-000c29ad1d07" answerConceptId="0b9a8904-3c82-4b9a-9f15-50a2509cacf9" answerLabel="Vasectomia" /><br/>
+                                    <obs conceptId="e1d1a6d8-1d5f-11e0-b929-000c29ad1d07" answerConceptId="908967c6-57be-4fa8-859c-51ad614e4307" answerLabel="Método Amenorreia Lactacional"/><br/>
+                                    
+                                    <label>Outro:</label>
+                                    <obs conceptId="20ba316b-ef66-4f39-a1af-1e978aa02d18"/>
+                                </p>
+                            </div> 
+
+                        <div style="margin-left:15px;">                    
+                            <p>
+                                <label>Estadio OMS:</label><br/>
+                                <obs conceptId="e1e53c02-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d9055e-1d5f-11e0-b929-000c29ad1d07, e1d9066c-1d5f-11e0-b929-000c29ad1d07, e1d9077a-1d5f-11e0-b929-000c29ad1d07, e1d90888-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>Criança Edemas:</label><br/>
+                                <obs conceptId="4de87b19-68b3-4efb-b591-769f11611247" answerConceptIds="fa1768bf-0d59-45f6-8673-187e45f68bbc, 6e5f36df-42c0-42d5-aeb5-f447e76288c4, dc3faae7-be20-4919-b51f-3643650d49f9, 68c97735-5a99-4c0f-8ffc-d19674a39146" />
+                            </p>   
+                        </div> 
+
+                        <div style="margin-left:15px;">                    
+                            <p class="input-size-2">
+                                <label>Peso:</label><br/>
+                                <obs conceptId="e1e2e826-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p class="input-size-2">
+                                <label>Comprimento <br/> ou Altura:</label><br/>
+                                <obs conceptId="e1e2e934-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>   
+                        </div> 
+
+                        <div style="margin-left:15px;">                    
+                            <p class="input-size-2">
+                                <label>PB:</label><br/>
+                                <obs conceptId="e1da53be-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p class="input-size-2">
+                                <label>IMC:</label><br/>
+                                <obs conceptId="e1da52ba-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>   
+                        </div> 
+                    </div>
+
+                    <div class="content-inline">
+
+                        <div class="content-box">
+                            <label></label>                    
+                            <p>
+                                <label>Ava. Nutric. Indicador:</label><br/>
+                                <obs conceptId="4b4280d6-976d-4b0d-90b3-e28adb431f61" answerConceptIds="98d34752-3034-4d22-81d5-2ab0c646406e, d33778f5-9bc2-4e04-aa5a-0af6002c540a, e1da52ba-1d5f-11e0-b929-000c29ad1d07, e1da53be-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>Ava. Nutric. Grau:</label><br/>
+                                <obs conceptId="e1da52ba-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>   
+                        </div> 
+
+                        <div class="content-box" style="margin-left:15px;">  
+                            <label></label>                  
+                            <p>
+                                <label>Apoio/Educação Nutric.:</label><br/>
+                                <obs conceptId="e1e205f0-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07, 014b76fb-c7ee-404c-b913-9795a108015e, e1e204ec-1d5f-11e0-b929-000c29ad1d07, e1deefd2-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>Quantidade:</label><br/>
+                                <obs conceptId="28eaa9c2-2519-4937-bd3c-ba52b2b49f2f" />
+                            </p>   
+                        </div> 
+
+                        <div  class="content-box" style="margin-left:15px;"> 
+                            <label class="label-tag">Tuberculose:</label>                   
+                            <p>
+                                <label>Tem Sintomas?</label><br/>
+                                <obs conceptId="e1e205f0-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <label class="label-tag">Quais sintomas:</label>
+                            <p>
+                                <obs conceptId="e1de6d1e-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1de6878-1d5f-11e0-b929-000c29ad1d07" answerLabel="Febre"/><br/>
+                                <obs conceptId="e1de6d1e-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1de6a12-1d5f-11e0-b929-000c29ad1d07" answerLabel="Emagrecimento"/><br/>
+                                <obs conceptId="e1de6d1e-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1de66e8-1d5f-11e0-b929-000c29ad1d07" answerLabel="Sudorese Nocturnna"/><br/>
+                            </p>   
+                        </div>
+
+                        <div  class="content-box" style="margin-left:15px;"> 
+                            <label class="label-tag-2"></label>
+                            <p>
+                                <obs conceptId="e1de6d1e-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1de63d2-1d5f-11e0-b929-000c29ad1d07" answerLabel="Tosse a mais de 2 semanas"/><br/>
+                                <obs conceptId="e1de6d1e-1d5f-11e0-b929-000c29ad1d07" answerConceptId="44b63d4c-341b-48f0-baa0-ce88ed7afc71" answerLabel="Astenia"/><br/>
+                                <obs conceptId="e1de6d1e-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1de6b98-1d5f-11e0-b929-000c29ad1d07" answerLabel="Contacto com TB"/><br/>
+                                <obs conceptId="e1de6d1e-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cfd43e-1d5f-11e0-b929-000c29ad1d07" answerLabel="Adenopatia Cervical Indolor"/>
+                            </p>   
+                        </div>
+
+                        <div  class="content-box" style="margin-left:15px;">
+                            <label></label>                   
+                            <p>
+                                <label>Diagnótico TB activo</label><br/>
+                                <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p class="input-size-2">
+                                <label>Tratamento TB:</label><br/>
+                                <obs conceptId="e1d9fbda-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07"  dateLabel="Data:"/>
+                            </p>   
+                        </div> 
+
+                        <div  class="content-box" style="margin-left:15px;">
+                            <label class="label-tag">Profilaxia:</label>                   
+                            <p>
+                                <label>INH</label><br/>
+                                <obs conceptId="be4a76ca-662a-4c39-903b-71983f5f67c9" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>CTZ:</label><br/>
+                                <obs conceptId="2616b3c9-9a99-4b9a-b673-10871f4a4c71" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>   
+                        </div> 
+
+                        <div  class="content-box" style="margin-left:15px;">
+                            <label class="label-tag">Efeitos Secundários:</label>                   
+                            <p>
+                                <label>INH</label><br/>
+                                <obs conceptId="01ce78dd-074b-407c-ba30-27ec9336e0f8" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>CTZ:</label><br/>
+                                <obs conceptId="689cd895-eb45-4712-9b41-8756bc0514ed" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>   
+                        </div> 
+
+                    </div>
+
+                    <div class="content-inline">
+
+                            <div class="content-box">
+                                <label class="label-tag">ITS</label>                    
+                                <p>
+                                    <label>Tem sintomas?</label><br/>
+                                    <obs conceptId="4b4280d6-976d-4b0d-90b3-e28adb431f61" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+                                
+                                <label class="label-tag">Diagnóstico ITS:</label>
+                                <p>
+                                    <obs conceptId="e1cfe1e0-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1d01584-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Sifilis (SIF)"/><br/>
+                                    <obs conceptId="e1cfe1e0-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1eb356c-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Corrimento Vaginal (CV)"/><br/>
+                                    <obs conceptId="e1cfe1e0-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1eb3792-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Corrimento Uretral (CUM)"/><br/>
+                                    <obs conceptId="e1cfe1e0-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1d62cee-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Úlcera Genital (UG)"/><br/>
+                                    <obs conceptId="e1cfe1e0-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1d689d2-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Dor no Baixo Ventre (DIP)"/><br/>
+                                    <obs conceptId="e1cfe1e0-1d5f-11e0-b929-000c29ad1d07" answerConceptId="29c0b8c9-9086-11e6-a98e-000c29db4475"  answerLabel="Escroto Inchado (ESI)"/><br/>
+                                    <obs conceptId="e1cfe1e0-1d5f-11e0-b929-000c29ad1d07" answerConceptId="99fd3825-9082-11e6-a98e-000c29db4475"  answerLabel="Budão Inguinal (BI)"/>
+                                </p>   
+                            </div>
+
+                            <div class="content-box" style="margin-left:15px;">
+                                <label class="label-tag">Infecções oportunistas <br/> incluindo Sarcoma de <br/> Kaposi e outras doenças:</label>           
+                                <p>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cdc68a-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Hepatite"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cde840-1d5f-11e0-b929-000c29ad1d07"  answerLabel="TB"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="d4d5e9e8-9082-11e6-a98e-000c29db4475"  answerLabel="Criptococose"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cfe2ee-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Diabetes"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1d69314-1d5f-11e0-b929-000c29ad1d07"  answerLabel="HTA"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1d2984a-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Sarcome de Kaposi"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cf5270-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Malária"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cda114-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Anemia"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cdb97e-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Diarreia"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1eafbce-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Febre"/>
+                                </p>
+                            </div>
+
+                            <div class="content-box" style="margin-left:15px;">
+                                <label class="label-tag">Investigações - Pedidos Laboratoriais:</label>                    
+                                <p>
+                                    <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1d6247e-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Carga Viral"/><br/>
+                                    <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1dd5ab4-1d5f-11e0-b929-000c29ad1d07"  answerLabel="CD4"/><br/>
+                                    <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1dd574e-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Homoglobina (HB)"/><br/>
+                                    <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1dd5942-1d5f-11e0-b929-000c29ad1d07"  answerLabel="ALT"/><br/>
+                                    <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1dd5848-1d5f-11e0-b929-000c29ad1d07"  answerLabel="AST"/>
+                                </p>
+                            </div> 
+
+                            <div class="content-box" style="margin-left:15px;"> 
+                                <label class="label-tag-2"></label>
+                                <p>
+                                    <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1d64968-1d5f-11e0-b929-000c29ad1d07"  answerLabel="GL"/><br/>
+                                    <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1d7e19c-1d5f-11e0-b929-000c29ad1d07"  answerLabel="CR"/><br/>
+                                    <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1da20e2-1d5f-11e0-b929-000c29ad1d07"  answerLabel="AM"/><br/>
+                                    <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="106c484c-a5a3-4c8b-9586-09b1f22c324d"  answerLabel="TB BK"/><br/>
+                                    <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="b08eb89b-c609-4d15-ab81-53ad7c745332"  answerLabel="TB GeneXpert"/><br/>
+                                    <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="a73de314-89fa-4feb-9085-c81e95c7d0dd"  answerLabel="Exame de Cultura"/>
+                                </p>
+                            </div> 
+
+                            <div class="content-box" style="margin-left:15px;">
+                                    <label class="label-tag">Investigações - Resultados Laboratoriais:</label>                    
+                                    <p class="input-size">
+                                        <obs conceptId="e1d6247e-1d5f-11e0-b929-000c29ad1d07" labelText="Carga Viral"/><br/>
+                                        <obs conceptId="e1dd5ab4-1d5f-11e0-b929-000c29ad1d07" labelText="CD4"/><br/>
+                                        <obs conceptId="e1d48fba-1d5f-11e0-b929-000c29ad1d07" labelText="CD4%"/><br/>
+                                        <obs conceptId="e1dd574e-1d5f-11e0-b929-000c29ad1d07" labelText="Hemoglobina (Hb)"/><br/>
+                                        <obs conceptId="e1dd5942-1d5f-11e0-b929-000c29ad1d07" labelText="ALT"/><br/>
+                                        <obs conceptId="e1dd5848-1d5f-11e0-b929-000c29ad1d07" labelText="AST"/>
+                                    </p>
+                                </div> 
+    
+                                <div class="content-box" style="margin-left:15px;"> 
+                                    <label></label> 
+                                    <p class="input-size">
+                                        <obs conceptId="e1d64968-1d5f-11e0-b929-000c29ad1d07" labelText="Glicemia(GL)"/><br/>
+                                        <obs conceptId="e1d7e19c-1d5f-11e0-b929-000c29ad1d07" labelText="Creatina (CR)"/><br/>
+                                        <obs conceptId="e1da20e2-1d5f-11e0-b929-000c29ad1d07" labelText="Amilase (AM)"/><br/>
+                                        <obs conceptId="106c484c-a5a3-4c8b-9586-09b1f22c324d" labelText="TB BK" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07"/><br/>
+                                        <obs conceptId="b08eb89b-c609-4d15-ab81-53ad7c745332" labelText="TB GeneXpert" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07"/><br/>
+                                        <obs conceptId="a73de314-89fa-4feb-9085-c81e95c7d0dd" labelText="Exame de Cultura" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07"/>
+                                    </p>
+                                </div> 
+                    </div>   
+                    
+                    <div class="content-inline">
+
+                        <div class="content-box">
+                            <label class="label-tag">TARV</label>                    
+                            <p>
+                                <label>Linha TARV</label><br/>
+                                <obs conceptId="fdff0637-b36f-4dce-90c7-fe9f1ec586f0" />
+                            </p>
+
+                            <p>
+                                <label>Tipo de Dispensa</label><br/>
+                                <obs conceptId="cadc1c2a-cd22-43dc-8404-4ce4c8a7242d" />
+                            </p> 
+
+                        </div>
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <label></label>                    
+                            <p>
+                                <label>Regime</label><br/>
+                                <obs conceptId="e1d83d4a-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>Posologia de cada dose:</label><br/>
+                                <obs conceptId="e1de28ae-1d5f-11e0-b929-000c29ad1d07" answers="1-0-1,0-0-1,1-0-0,2-0-2,3-0-3,0-0-3,1-0-2" answerLabels="1-0-1,0-0-1,1-0-0,2-0-2,3-0-3,0-0-3,1-0-2"/>
+                            </p>   
+
+                            <p><label>Nr. de dose / dia:</label><br/>
+                                <obs conceptId="38dd7e76-cf33-4e36-9429-86067338a12f" />
+                            </p>   
+                                
+                        </div>
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <label></label>                    
+                            <p>
+                                <label>Alternativa ou <br/>mudança de linha</label><br/>
+                                <obs conceptId="331dfc54-8bc7-40d7-aa47-474c8cd36f5f" />
+                            </p>
+
+                            <p>
+                                <label>Motivo:</label><br/>
+                                <obs conceptId="e1de8862-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>   
+                                
+                        </div>
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <label class="label-tag">Efeitos Secundários</label>                    
+                            <p>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cfc94e-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Dor Abdominal (DA)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="44d63565-9087-11e6-a98e-000c29db4475"  answerLabel="Náuseas, Vómitos (NV)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cdb97e-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Diarreia (DIA)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="48328d2d-350b-432a-9621-7f91a7325575"  answerLabel="Neuropsiquiatrico / Comportamento (PSIQ)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1d5f8be-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Neuropatia Periferica (NEUP)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="740dff18-9085-11e6-a98e-000c29db4475"  answerLabel="Erupção cutânea (EC)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="63aa3de4-9087-11e6-a98e-000c29db4475"  answerLabel="Hiperglicemia (HG)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="1fc95721-0c2a-41c5-ba05-8f8ca484fc2f"  answerLabel="Dislipidemia (DL)"/>
+                            </p>
+
+                            <p>
+                                <label>Adesão:</label><br/>
+                                <obs conceptId="983773e6-d42c-4ad3-89a7-9191a8b8d52b" />
+                            </p>   
+                                
+                        </div>
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <p></p>
+                            <p>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="06637aa6-aeda-4b15-b86c-bd555f69c9af"  answerLabel="Lipodrostofia (LPD)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="b9fe8ecb-a41d-49d3-b6f6-2c381715262d"  answerLabel="Citopenia (CIT)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="20627f0d-858e-4465-a1e1-04f83a962224"  answerLabel="Pancretite (PAN)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="8956c7ea-847a-4f70-91e8-e1cf325b85df"  answerLabel="Nefrotoxicidade (NFT)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cdc68a-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Hepatite (HEP)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="d0d485d3-3082-4b1b-a450-6cad31eb56b3"  answerLabel="Sindrome de Stevens Johnnson (SSJ)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="833aba0d-430a-4537-b202-94c32e9a1317"  answerLabel="Hipersensibilidade a ABC/RAL (HIP)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="c7089026-9135-4cd8-af18-596e14e4c512"  answerLabel="Acidose láctica (ACL)"/><br/>
+                                <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" answerConceptId="da3dea8e-9b35-4025-ad5e-cd9aad7707aa"  answerLabel="Esteatose hepática c/ hiperiactemia (ESH)"/>
+                            </p>
+                        </div>
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <label></label>                    
+                            <p>
+                                <label>Mudança de Estado <br/> de Permanência TARV</label><br/>
+                                <obs conceptId="a7d3b5c9-8b8e-4f29-b332-8db47466fed3" answerConceptIds="e1de1fee-1d5f-11e0-b929-000c29ad1d07, e1de1df0-1d5f-11e0-b929-000c29ad1d07, e1de1bfc-1d5f-11e0-b929-000c29ad1d07, e1de1cf6-1d5f-11e0-b929-000c29ad1d07, e1da766e-1d5f-11e0-b929-000c29ad1d07" answerLabels="Suspensão, Abandono, Reinicio, Transferido Para, Óbito"/>
+                            </p>
+
+                            <p>
+                                <label>Outras prescrições:</label><br/>
+                                <obs conceptId="e1de3092-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>   
+                                
+                        </div>
+
+                    </div> 
+
+                    <div class="content-inline">
+
+                        <div class="content-box">
+                            <label class="label-tag">Referência para:</label>                    
+                           
+                            <p>
+                                <label>Sectores:</label><br/>
+                                <obs conceptId="e1da001c-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>Outro:</label><br/>
+                                <obs conceptId="e1e0a278-1d5f-11e0-b929-000c29ad1d07" />
+                            </p> 
+
+                        </div>
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <label class="label-tag">Referência para Grupos de Apoio:</label>                    
+                           
+                            <p>
+                                <label>Crianças Reveladas(CR):</label><br/>
+                                <obs conceptId="70cb2221-d0bd-4e30-bbd5-7da8a3ba01ab" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>Pais e Cuidadores (PC):</label><br/>
+                                <obs conceptId="7a72cf0c-5f43-436d-92d9-6f04cbb0a0b9" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p> 
+
+                            <p>
+                                <label>Adolescentes rev. (AR):</label><br/>
+                                <obs conceptId="230c81e9-961f-478a-987d-3af637e83e5e" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>Mãe para Mãe (MPM):</label><br/>
+                                <obs conceptId="ae8d45d0-14b9-460e-888d-f883de83be26" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p> 
+
+                            <p>
+                                <label>Outro grupo de Apoio:</label><br/>
+                                <obs conceptId="f22a9436-4ed4-401c-84ea-0c7dbf910639" />
+                            </p> 
+
+                        </div>
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <label class="label-tag">Modelos Diferenciados de Cuidados (MDC):</label>                    
+                           
+                            <p>
+                                <label>Gaac (GA)</label><br/>
+                                <obs conceptId="f46bfb16-240d-4bd3-a497-d23afd377f4f" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>Abordagem Familiar (AF):</label><br/>
+                                <obs conceptId="d2380393-3621-421f-83fc-846d2d332904" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p> 
+
+                            <p>
+                                <label>Clubes de adesão (CA):</label><br/>
+                                <obs conceptId="5d82b491-2ca2-41ea-b091-16ffc5169aa1" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>Paragem Única (PU):</label><br/>
+                                <obs conceptId="f1f6956f-e2e2-4c37-8c4a-ce4a1c381088" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p> 
+
+                        </div>
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <label></label>
+                            <p>
+                                <label>Fluxo rápido (FR):</label><br/>
+                                <obs conceptId="1fb0de79-31c6-4a31-a832-0c29f3c01e93" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07"/>
+                            </p>                     
+                            
+                            <p>
+                                <label>Dispensa Trimestral (DT):</label><br/>
+                                <obs conceptId="b5c31d5e-165a-4618-aa62-113a0751a400" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+
+                            <p>
+                                <label>Dispensa Comunitária (DC):</label><br/>
+                                <obs conceptId="2e7b0a2a-dae3-460f-b2db-fc8b8d3e9909" answerConceptIds="e1d9ef28-1d5f-11e0-b929-000c29ad1d07, e1d9f036-1d5f-11e0-b929-000c29ad1d07, e1d9facc-1d5f-11e0-b929-000c29ad1d07" />
+                            </p> 
+
+                            <p>
+                                <label>Outro Modelo:</label><br/>
+                                <obs conceptId="815b9762-329d-42c8-9158-d42016c49b85"  />
+                            </p>
+                        </div>
+
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <label></label>
+                            <p>
+                                <label>Elegivel ao Grupo <br/> de Apoio:</label><br/>
+                                <obs conceptId="d4f186d3-4ea4-4da9-aa6b-3ad658c25d18" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>                     
+                            
+                            <p>
+                                <label>Elegivel ao Modelo <br/> diferenciado de cuidados:</label><br/>
+                                <obs conceptId="01533658-e014-493b-9d52-4f49f50ec68b" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>
+                        </div>
+                    </div> 
+
+                    <div class="submit-btn">
+                        <submit submitLabel="Submeter"/>
+                    </div>
+
+                </div>   
+
+            </div>
+        </body>
+    </html>
+</htmlform>
