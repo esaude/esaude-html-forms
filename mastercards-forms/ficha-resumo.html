@@ -1,0 +1,432 @@
+<htmlform>
+            <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <title>FICHA CLÍNICA</title>
+              
+              <style>
+
+                .main{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    font-size: 9pt;
+                    width: 100%;
+                }
+
+                .header{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .header-box{
+                    width: 75%;
+                    background: #1aac9b;
+                    padding: 1px !important;
+                    color: #fff;
+                    box-shadow: 0 0 .3em #000;
+                    margin-bottom: 10px;
+                }
+
+                .header-box h2{
+                   padding-left: 10px;
+                   text-shadow: 0 0 .3em #000;
+                }
+
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 75%;
+                    border: 1px solid #1aac9b;
+                    box-shadow: 0 0 .3em #000;
+                }
+
+                .header-info{
+                  float: right;
+                  border: 1px solid #1aac9b;
+                  padding: 0px 10px 0px 10px;
+                  box-shadow: 0 0 .1em #000;
+                  margin: 10px 10px;
+                  background: #dedede
+                }
+
+                .header-info h3{
+                  text-align: center;
+                }
+
+                .header-data{
+                  float: left;
+                  border: 1px solid #1aac9b;
+                  margin-bottom: 10px !important;
+                  padding: 0px 10px 0px 10px;
+                  box-shadow: 0 0 .1em #000;
+                  margin: 10px 10px;
+                  background: #dedede
+                }
+
+                input[type="text"]{
+                    width: 150px;
+                }
+
+                .input-size input[type="text"]{
+                    width: 50px !important;
+                }
+
+                .input-size-2 input[type="text"]{
+                    width: 70px !important;
+                }
+
+                p select {
+                    width: 150px;
+                }
+
+                .content-inline {
+                    display: flex;
+                    margin-left: 15px;
+                }
+
+                .content-box {
+                    display:flex; 
+                    flex-direction:column;
+                }
+                
+                .content-box label {
+                    flex: 1;
+                }
+
+                .box-inline{
+                    display:flex; 
+                    flex-direction:row;
+                }
+
+                .content-box p input[type="text"]{
+                    margin-bottom: 5px
+                }
+
+                .content-box p select {
+                    margin-bottom: 5px;
+                }
+
+                .key-population{
+                    margin-left: 15px;
+                }
+
+                .submit-btn {
+                    flex: 1;
+                    margin: 10px 15px;
+                }
+
+                 .submit-btn input{
+                   color: #fff;
+                   background: #1aac9b;
+                   padding: 8px;
+                   width: 12.8em;
+                   font-weight: bold;
+                   text-shadow: 0 0 .3em black;
+                   font-size: 9pt;
+                   border-radius: 5px 5px;
+                }
+
+                .label-tag {
+                   color: #fff;
+                   background: #1aac9b;
+                   padding: 7px;
+                   font-weight: bold;
+                   text-shadow: 0 0 .3em black;
+                   font-size: 9pt;
+                   border-radius: 5px 5px;
+                }
+
+                 .label-tag-2 {
+                   color: #fff;
+                   padding: 7px;
+                   font-weight: bold;
+                   text-shadow: 0 0 .3em black;
+                   font-size: 9pt;
+                   border-radius: 5px 5px;
+                }
+
+                </style>
+
+                <script type="text/javascript">
+                  jQuery(document).ready(function(){
+                    getField('exitStatus.value').live('change', function() {
+                    
+                     var motherOnTarv = getValue('motherOnTarv.value');
+                      $j("#dateOfDie input").attr('disabled', true);
+                      if(getValue("exitStatus.value") == "1366"){
+                       $j("#dateOfDie input").attr('disabled', false);
+                      }
+                    });
+                 });
+              </script>
+                
+            </head>
+            <body>
+                
+            <div class="main">
+                
+                <div class="header-box">
+                    <h2>FICHA RESUMO</h2>
+                </div>
+
+                <div class="content">
+
+                    <div class="header">
+                        
+                        <div class="header-data">
+                            <p>
+                                <label>Nome:</label>
+                                <lookup expression="patient.personName"/>
+                            </p>
+
+                            <p>
+                                <label>Género/Data de Nasc./Idade:</label>
+                                <lookup expression="patient.gender"/> - <lookup expression="patient.birthdate"/> - <lookup expression="patient.age"/>
+                            </p>
+                        </div>
+
+                        <div class="header-info">
+                            <h3>REPÚBLICA DE MOÇAMBIQUE</h3>
+                            <h3>SERVIÇO NACIONAL DE SAÚDE</h3>
+                            <p>
+                                <label>NID/US:</label>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="content-inline">
+
+                        <div class="content-box">
+                            <label class="label-tag">Livros: Pré-TARV</label>   
+
+                            <p class="input-size-2">
+                                <obs conceptId="c02181e6-8f9f-4387-9cf6-9a3d0f45b7fc" labelText="Página:" /><br/>
+                                <obs conceptId="bf958c27-fa29-4b95-a055-a9d2d162ef76" labelText="Linha:" />
+                            </p>
+
+                        </div>
+
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <label class="label-tag">Livros: TARV</label>   
+
+                            <p class="input-size-2">
+                                <obs conceptId="c02181e6-8f9f-4387-9cf6-9a3d0f45b7fc" labelText="Página:" /><br/>
+                                <obs conceptId="bf958c27-fa29-4b95-a055-a9d2d162ef76" labelText="Linha:" />
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="key-population">
+
+                        <p>
+                            <label>Unidade Sanitária:</label>
+                            <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
+                        </p>
+
+                    </div>
+
+                    <div class="content-inline">
+
+                        <div class="content-box">
+                            <p>
+                                <label>Data Abertura da Ficha:</label><br/>
+                                <encounterDate id="dataConsulta" required="true" />
+                            </p>  
+                        </div>
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <p>
+                                <label>Profissão:</label><br/>
+                                <obs conceptId="e1dc07c2-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>  
+                        </div>
+
+                        <div class="content-box" style="margin-left:15px;">
+                            <p>
+                                <label>Nível de Escolaridade:</label><br/>
+                                <obs conceptId="e1db0700-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1db08fe-1d5f-11e0-b929-000c29ad1d07, e1db09f8-1d5f-11e0-b929-000c29ad1d07, e1db0af2-1d5f-11e0-b929-000c29ad1d07, e1db0bf6-1d5f-11e0-b929-000c29ad1d07" />
+                            </p>  
+                        </div>
+                        
+                    </div>
+
+                    <div class="content-inline">
+                        
+                        <div class="content-box">
+                            <label class="label-tag">Confidente:</label>   
+
+                            <p>
+                                <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" labelText="Nome:" />
+                                <obs conceptId="e1de479e-1d5f-11e0-b929-000c29ad1d07" labelText="Parentesco:" /> <br/>
+                                <obs conceptId="e1dcb3ca-1d5f-11e0-b929-000c29ad1d07" labelText="Telefone Celular (1):" />
+                            </p>
+
+                        </div>
+                    
+                    </div>
+
+                    <div class="content-inline">
+                        
+                        <div class="content-box">
+                            
+                            <label class="label-tag">Situação da família:</label>
+                            
+                            <div class="box-inline">
+                               
+                                <p>
+                                    <strong>Nome:</strong><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;">
+                                    <strong>Parentesco:</strong><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;" class="input-size-2">
+                                    <strong>Idade:</strong><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;">
+                                    <strong>Teste de HIV</strong><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;">
+                                    <strong>Cuidades de HIV</strong><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;">
+                                    <strong>Em CCR</strong><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;">
+                                    <strong>NID:</strong><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+        
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="content-inline">
+                    
+                        <div class="content-box">
+                            
+                            <label class="label-tag">Cuidados de HIV</label>
+                            
+                            <div class="box-inline">
+                                
+                                <p>
+                                    <strong>Nome:</strong><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;">
+                                    <strong>Parentesco:</strong><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;" class="input-size-2">
+                                    <strong>Idade:</strong><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;">
+                                    <strong>Teste de HIV</strong><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;">
+                                    <strong>Cuidades de HIV</strong><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;">
+                                    <strong>Em CCR</strong><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="63b15479-5a05-4bdc-a6e5-eab175743122" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+
+                                <p style="margin-left:10px;">
+                                    <strong>NID:</strong><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" />
+                                </p>
+        
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="submit-btn">
+                        <submit submitLabel="Submeter"/>
+                    </div>
+
+                </div>   
+
+            </div>
+        </body>
+    </html>
+</htmlform>
