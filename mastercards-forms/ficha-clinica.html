@@ -15,7 +15,7 @@
                 }
 
                 .header-box{
-                    width: 80%;
+                    width: 85%;
                     background: #1aac9b;
                     padding: 1px !important;
                     color: #fff;
@@ -26,7 +26,7 @@
                 .content {
                     display: flex;
                     flex-flow: row wrap;
-                    width: 80%;
+                    width: 85%;
                     border: 1px solid #1aac9b;
                     box-shadow: 0 0 .3em #000;
                 }
@@ -197,7 +197,7 @@
                         
                         <p>
                             <label>Proxima Consulta:</label><br/>
-                            <obs conceptId="e1dae630-1d5f-11e0-b929-000c29ad1d07" />
+                            <obs conceptId="e1dae630-1d5f-11e0-b929-000c29ad1d07" allowFutureDates="true" required="true"/>
                         </p>     
                     </div>
 
@@ -228,7 +228,7 @@
 
                     <div class="base-margin">
                             
-                        <label class="label-tag">3.Planeamento Familiar:</label>
+                        <label class="label-tag">Planeamento Familiar:</label>
 
                         <div class="space-between">
 
@@ -311,7 +311,7 @@
                         <label></label>                  
                         <p>
                             <label>Apoio/Educação Nutric.:</label><br/>
-                            <obs conceptId="e1e205f0-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07, 014b76fb-c7ee-404c-b913-9795a108015e, e1e204ec-1d5f-11e0-b929-000c29ad1d07, e1deefd2-1d5f-11e0-b929-000c29ad1d07" />
+                            <obs conceptId="e1e205f0-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07, 014b76fb-c7ee-404c-b913-9795a108015e, e1e204ec-1d5f-11e0-b929-000c29ad1d07"  answerLabels="Não, Educação, ATPU, Soja" />
                         </p>
 
                         <p>
@@ -321,12 +321,12 @@
                     </div>
 
                      <div class="base-margin">
-                        <label class="label-tag">9.Tuberculose:</label>
+                        <label class="label-tag">Tuberculose:</label>
                         
                         <div class="space-between">
                             <p>
                                 <label>Tem Sintomas?</label><br/>
-                                <obs conceptId="e1e205f0-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" />
+                                <obs conceptId="2eab4e55-d0d0-4fa8-8d23-b40eaaee44c8" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" answerLabels="Sim, Não" />
                             </p>
 
                             <div class="base-margin">         
@@ -396,7 +396,7 @@
                     <div class="line-break"></div>
 
                     <div class="base-margin">
-                        <label class="label-tag">13.ITS</label>                    
+                        <label class="label-tag">ITS</label>                    
                         <p>
                             <label>Tem sintomas?</label><br/>
                             <obs conceptId="4b4280d6-976d-4b0d-90b3-e28adb431f61" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" />
@@ -415,7 +415,7 @@
                     </div>
 
                     <div class="base-margin">
-                        <label class="label-tag">14.Infecções oportunistas <br/> incluindo Sarcoma de <br/> Kaposi e outras doenças:</label>           
+                        <label class="label-tag">Infecções oportunistas <br/> incluindo Sarcoma de <br/> Kaposi e outras doenças:</label>           
                         <p>
                             <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1cda114-1d5f-11e0-b929-000c29ad1d07, 
                                                                                                     e1cff5d6-1d5f-11e0-b929-000c29ad1d07, 
@@ -616,33 +616,34 @@
                                                                                             Tuberculose Extrapulmonar,
                                                                                             Tuberculose Pulmonar,
                                                                                             Varicela"/><br/>
+                        </p>
+                        <p>
+                            <obs conceptId="e1dd2d50-1d5f-11e0-b929-000c29ad1d07" labelText="Outro:"/>
                         </p>
                     </div>
 
 
                     <div class="base-margin">
-                        <label class="label-tag">16.Investigações - Pedidos Laboratoriais:</label>  
+                        <label class="label-tag">Investigações - Pedidos Laboratoriais:</label>  
                         <p>
                             <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1d6247e-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Carga Viral"/><br/>
                             <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1dd5ab4-1d5f-11e0-b929-000c29ad1d07"  answerLabel="CD4"/><br/>
-                            <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1dd574e-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Homoglobina (HB)"/><br/>
+                            <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1dd574e-1d5f-11e0-b929-000c29ad1d07"  answerLabel="Hemoglobina (HB)"/><br/>
                             <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1dd5942-1d5f-11e0-b929-000c29ad1d07"  answerLabel="ALT"/><br/>
                             <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1dd5848-1d5f-11e0-b929-000c29ad1d07"  answerLabel="AST"/><br/>
                             <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1d64968-1d5f-11e0-b929-000c29ad1d07"  answerLabel="GL"/><br/>
                             <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1d7e19c-1d5f-11e0-b929-000c29ad1d07"  answerLabel="CR"/><br/>
                             <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="e1da20e2-1d5f-11e0-b929-000c29ad1d07"  answerLabel="AM"/><br/>
-                            <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="106c484c-a5a3-4c8b-9586-09b1f22c324d"  answerLabel="TB BK"/><br/>
-                            <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="b08eb89b-c609-4d15-ab81-53ad7c745332"  answerLabel="TB GeneXpert"/><br/>
-                            <obs conceptId="92653c45-9eb2-486d-90c0-3e00569e99c0" answerConceptId="a73de314-89fa-4feb-9085-c81e95c7d0dd"  answerLabel="Exame de Cultura"/>
+                            <obs conceptId="46aa1c36-2170-4972-8622-7ddd726cbb1f" labelText="Outro:"/>
                         </p>
                     </div>
 
                     <div class="base-margin">
-                        <label class="label-tag">16.Investigações - Resultados Laboratoriais:</label>
+                        <label class="label-tag">Investigações - Resultados Laboratoriais:</label>
                         <div class="space-between">
                             <div>
                                 <p class="input-size">
-                                    <obs conceptId="e1d6247e-1d5f-11e0-b929-000c29ad1d07" labelText="Carga Viral"/><br/>
+                                    <obs conceptId="e1d6247e-1d5f-11e0-b929-000c29ad1d07" labelText="Carga Viral"/> | <obs conceptId="e1da2704-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1da2812-1d5f-11e0-b929-000c29ad1d07, cc8ef88c-6ab6-4404-a036-d415bc42cc1c" answerLabels="Nivel baixo de detenção, Indetectável" /> <br/>
                                     <obs conceptId="e1dd5ab4-1d5f-11e0-b929-000c29ad1d07" labelText="CD4"/><br/>
                                     <obs conceptId="e1d48fba-1d5f-11e0-b929-000c29ad1d07" labelText="CD4%"/><br/>
                                     <obs conceptId="e1dd574e-1d5f-11e0-b929-000c29ad1d07" labelText="Hemoglobina (Hb)"/><br/>
@@ -650,24 +651,17 @@
                                     <obs conceptId="e1dd5848-1d5f-11e0-b929-000c29ad1d07" labelText="AST"/><br/>
                                     <obs conceptId="e1d64968-1d5f-11e0-b929-000c29ad1d07" labelText="Glicemia(GL)"/><br/>
                                     <obs conceptId="e1d7e19c-1d5f-11e0-b929-000c29ad1d07" labelText="Creatina (CR)"/><br/>
-                                    <obs conceptId="e1da20e2-1d5f-11e0-b929-000c29ad1d07" labelText="Amilase (AM)"/><br/>
-                                    
+                                    <obs conceptId="e1da20e2-1d5f-11e0-b929-000c29ad1d07" labelText="Amilase (AM)"/><br/> 
+                                    <obs conceptId="e1dd2d50-1d5f-11e0-b929-000c29ad1d07" labelText="Outro"/><br/>
                                 </p>
                             </div>
-
-                            <p class="input-size">
-                                <obs conceptId="106c484c-a5a3-4c8b-9586-09b1f22c324d" labelText="TB BK" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07"/><br/>
-                                <obs conceptId="b08eb89b-c609-4d15-ab81-53ad7c745332" labelText="TB GeneXpert" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07"/><br/>
-                                <obs conceptId="a73de314-89fa-4feb-9085-c81e95c7d0dd" labelText="Exame de Cultura" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07"/>
-                            </p>
-
                         </div>                   
                     </div>
 
                     <div class="line-break"></div>
 
                     <div class="base-margin">
-                        <label class="label-tag">17.TARV</label> 
+                        <label class="label-tag">TARV</label> 
                         
                         <div class="space-between">
 
@@ -718,7 +712,7 @@
                     </div>
 
                     <div class="base-margin">
-                        <label class="label-tag">18.Efeitos Secundários</label> 
+                        <label class="label-tag">Efeitos Secundários</label> 
 
                         <div class="space-between">
                             <div>
@@ -762,7 +756,7 @@
 
                         <p>
                             <label>Mudança de Estado <br/> de Permanência TARV</label><br/>
-                            <obs conceptId="a7d3b5c9-8b8e-4f29-b332-8db47466fed3" answerConceptIds="e1de1fee-1d5f-11e0-b929-000c29ad1d07, e1de1df0-1d5f-11e0-b929-000c29ad1d07, e1de1bfc-1d5f-11e0-b929-000c29ad1d07, e1de1cf6-1d5f-11e0-b929-000c29ad1d07, e1da766e-1d5f-11e0-b929-000c29ad1d07" answerLabels="Suspensão, Abandono, Reinicio, Transferido Para, Óbito"/>
+                            <obs conceptId="a7d3b5c9-8b8e-4f29-b332-8db47466fed3" answerConceptIds="e1de1fee-1d5f-11e0-b929-000c29ad1d07, e1de1df0-1d5f-11e0-b929-000c29ad1d07, e1de1bfc-1d5f-11e0-b929-000c29ad1d07, e1de1cf6-1d5f-11e0-b929-000c29ad1d07, e1da766e-1d5f-11e0-b929-000c29ad1d07" answerLabels="Suspensão (S), Abandono (A), Reinicio (R), Transferido Para (T), Óbito (O"/>
                         </p>
 
                         <p>
@@ -777,7 +771,7 @@
                     <div class="line-break"></div>
 
                     <div class="base-margin">
-                        <label class="label-tag">23.Referência para:</label>                    
+                        <label class="label-tag">Referência para:</label>                    
                         
                         <p>
                             <label>Sectores:</label><br/>
@@ -792,7 +786,12 @@
                     </div>
 
                     <div class="base-margin">
-                        <label class="label-tag">24.Referência para Grupos de Apoio:</label>                    
+                        <label class="label-tag">Referência para Grupos de Apoio:</label>  
+                        
+                        <p>
+                            <label>Elegivel ao Grupo de <br/> Apoio:</label><br/>
+                            <obs conceptId="d4f186d3-4ea4-4da9-aa6b-3ad658c25d18" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" answerLabels="Sim, Não"/>
+                        </p> 
                         
                         <p>
                             <label>Crianças Reveladas(CR):</label><br/>
@@ -822,15 +821,11 @@
                     </div>
 
                     <div class="base-margin">
-                        <label class="label-tag">24.Modelos Diferenciados de Cuidados (MDC):</label> 
+                        <label class="label-tag">Modelos Diferenciados de Cuidados (MDC):</label> 
 
                         <div class="space-between">
 
-                            <div>
-                                <p>
-                                    <label>Elegivel ao Grupo de <br/> Apoio:</label><br/>
-                                    <obs conceptId="d4f186d3-4ea4-4da9-aa6b-3ad658c25d18" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" answerLabels="Sim, Não"/>
-                                </p>                     
+                            <div>                    
                                 
                                 <p>
                                     <label>Elegivel ao Modelo <br/> diferenciado de cuidados:</label><br/>
@@ -882,6 +877,17 @@
 
                         </div>
 
+                    </div>
+
+                    <div class="line-break"></div>
+
+                    <div class="base-margin">
+
+                        <p>
+                            <label>Provedor:</label>
+                            <encounterProvider role="Provider" type="autocomplete"/>
+                        </p>
+                        
                     </div>
 
                     <div class="line-break"></div>

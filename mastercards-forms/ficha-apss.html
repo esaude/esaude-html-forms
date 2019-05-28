@@ -7,24 +7,53 @@
 	<style>
 			h2 { border-bottom: 3px solid red; }
 			p { border: 1px solid black; }
+			
+			
 			table{
-				border-color: #600;}
-				
+				border: 3px solid #1aac9b;
+				border-collapse: collapse;
+			}
 
-			td{
-				border-color: #600;
-				border-width: 1px 1px 0 0;
-				background-color: #B2DFEE;
-border:1px solid #ddd;
-}
+			tr:first-child {
+				background-color: #1aac9b;
+			}
+
+			tr:first-child label {
+				padding: 4px !important;
+                color: #fff;
+				font-weight: bold;
+				margin: 4px !important;
+			}
+
+			td {
+				border: 1px solid #1aac9b;
+			}
+				
     	.style1 {
 			font-size: 14px;
 			font-weight: bold;
 		}
+
 		.obs{
 			font-size: 14px;
 			font-weight: bold;
 		}
+
+		.submit-btn {
+                    flex: 1;
+                    margin: 10px 15px;
+                }
+
+		.submit-btn input{
+		color: #fff;
+		background: #1aac9b;
+		padding: 8px;
+		width: 12.8em;
+		font-weight: bold;
+		text-shadow: 0 0 .3em black;
+		font-size: 9pt;
+		border-radius: 5px 5px;
+	}
     </style>
 </style>
 </head>
@@ -38,7 +67,7 @@ border:1px solid #ddd;
 	<colgroup width="310"></colgroup>
 	<colgroup width="45"></colgroup>
 	<tr>
-		<td colspan="6" rowspan="4" height="76" align="center" valign="middle">Ministério da Saúde<br/>Direcção Nacional de Assistência Médica<br/>Programa Nacional de Controle de ITS - HIV e SIDA<br/>FICHA DE AVALIAÇÃO PSICOSSOCIAL E DE PREVENÇÃO POSITIVA</td>
+		<td colspan="6" rowspan="4" height="76" align="center" valign="middle"> <label> Ministério da Saúde<br/>Direcção Nacional de Assistência Médica<br/>Programa Nacional de Controle de ITS - HIV e SIDA<br/>FICHA DE AVALIAÇÃO PSICOSSOCIAL E DE PREVENÇÃO POSITIVA</label></td>
 		</tr>
 	<tr>
 		</tr>
@@ -46,6 +75,12 @@ border:1px solid #ddd;
 		</tr>
 	<tr>
 		</tr>
+	<tr>
+		</tr>
+	<tr>
+		<td colspan="5" align="right" valign="middle">Unidade Sanitária:</td>
+		<td valign="middle"><encounterLocation id="localConsulta" default="GlobalProperty:default_location"/></td>
+	</tr>
 	<tr>
 		<td colspan="4" rowspan="5" height="98" align="center" valign="middle">
 NID: <lookup expression="patient.getPatientIdentifier(2)"/><br/>Nº do Livro TARV:<lookup expression="fn.latestObs(6264).valueCoded.name"/>Pag: <lookup expression="fn.latestObs(6266).valueCoded.name"/>
@@ -53,16 +88,16 @@ Linha: <lookup expression="fn.latestObs(6268).valueCoded.name"/><br/>Nome:<looku
   
 </td>
 		<td rowspan="2" align="right" valign="middle">Populacao chave:</td>
-		<td rowspan="2" align="center" valign="middle"><obs conceptId="c7c0b430-bbc1-4042-a365-ad78a13aef56"  answerConceptIds="e1daa454-1d5f-11e0-b929-000c29ad1d07, 5bdb7ec1-908a-11e6-a98e-000c29db4475, 58021703-908a-11e6-a98e-000c29db4475, e1df1296-1d5f-11e0-b929-000c29ad1d07, e1e783ea-1d5f-11e0-b929-000c29ad1d07"/></td>
+		<td rowspan="2" valign="middle"><obs conceptId="c7c0b430-bbc1-4042-a365-ad78a13aef56"  answerConceptIds="e1daa454-1d5f-11e0-b929-000c29ad1d07, 5bdb7ec1-908a-11e6-a98e-000c29db4475, 58021703-908a-11e6-a98e-000c29db4475, e1df1296-1d5f-11e0-b929-000c29ad1d07, e1e783ea-1d5f-11e0-b929-000c29ad1d07"/></td>
 	</tr>
-	<tr>
-		</tr>
+	<tr>	
+	</tr>
 	<tr>
 		<td colspan="2" align="center" valign="middle">População vulnerável (Especifique):</td>
 		</tr>
 	<tr>
 		<td colspan="2" rowspan="2" align="left" valign="middle">
-<obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="95f393be-3853-4d63-8640-4a505f9ea81b" />
+<obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="95f393be-3853-4d63-8640-4a505f9ea81b" /><br/>
 <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="2ccb7192-7321-4156-b25a-f656e065dcbc" /><br/>
 <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="e1e06ac4-1d5f-11e0-b929-000c29ad1d07" /><br/>
 <obs conceptId="814a2be7-43db-49e5-a870-2ca1fedacb69" answerConceptId="e1e051a6-1d5f-11e0-b929-000c29ad1d07" /><br/>
@@ -285,7 +320,7 @@ e1d6f070-1d5f-11e0-b929-000c29ad1d07,e1d6f264-1d5f-11e0-b929-000c29ad1d07"/></td
 	</tr>
 	<tr>
 		<td height="20" align="left">Data:<obs conceptId="cf9090e1-790a-4c9b-b81d-ece91dc3f6d8"/></td>
-		<td colspan="2" align="left" valign="middle">O paciente/ cuidador concorda em ser contactado, se necessario?<obs conceptId="6321" labelText="" answerConceptIds="1065,1066" answerLabels="Sim,Não" style="radio"/></td>
+		<td colspan="2" align="left" valign="middle">O paciente/ cuidador concorda em ser contactado, se necessario?<br/><obs conceptId="6321" labelText="" answerConceptIds="1065,1066" answerLabels="Sim,Não" style="radio"/></td>
 		<td  colspan="2" align="left" valign="middle">Contacto:<obs conceptId="6309" answerConceptId="6307" labelText="" answerLabel="Telefone"/><obs conceptId="6309" answerConceptId="23719" labelText="" answerLabel="SMS"/><obs conceptId="6309" answerConceptId="2071" labelText="" answerLabel="Domiciliar"/></td>
 		<td  align="center" valign="middle"><br/><obs conceptId="c5c3fc4b-1786-433d-a1e9-1935bf4187c4"/></td>
 	</tr>
@@ -296,7 +331,7 @@ e1d6f070-1d5f-11e0-b929-000c29ad1d07,e1d6f264-1d5f-11e0-b929-000c29ad1d07"/></td
 		<td  align="center" valign="middle"><obs conceptId="528a7bd8-4c98-4167-ab9e-22f505c52a89"/></td>
 	</tr>
     <tr>
-        <td colspan="6"><div align="center"><submit submitLabel="Submeter"/></div></td>
+        <td colspan="6"><div align="center"><div class="submit-btn"><submit submitLabel="Submeter"/></div></div></td>
     </tr>
 </table>
 </body>
