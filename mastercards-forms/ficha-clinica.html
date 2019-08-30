@@ -173,7 +173,7 @@
                     <div class="base-margin">
                         <p>
                             <label>Unidade Sanitária:</label>
-                            <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
+                            <encounterLocation id="localConsulta" default="GlobalProperty:default_location" type="autocomplete"/>
                         </p>
 
                         <p>
@@ -298,7 +298,7 @@
                     <div class="base-margin">  
                         <p>
                             <label>Ava. Nutric. Indicador:</label><br/>
-                            <obs conceptId="4b4280d6-976d-4b0d-90b3-e28adb431f61" answerConceptIds="98d34752-3034-4d22-81d5-2ab0c646406e, d33778f5-9bc2-4e04-aa5a-0af6002c540a, e1da52ba-1d5f-11e0-b929-000c29ad1d07, e1da53be-1d5f-11e0-b929-000c29ad1d07" />
+                            <obs conceptId="4b4280d6-976d-4b0d-90b3-e28adb431f61" answerConceptIds="98d34752-3034-4d22-81d5-2ab0c646406e, d33778f5-9bc2-4e04-aa5a-0af6002c540a, e1da52ba-1d5f-11e0-b929-000c29ad1d07, e1da53be-1d5f-11e0-b929-000c29ad1d07" answerLabels="IMC/IDADE, P/E, IMC, PB" />
                         </p>
 
                         <p>
@@ -643,7 +643,7 @@
                         <div class="space-between">
                             <div>
                                 <p class="input-size">
-                                    <obs conceptId="e1d6247e-1d5f-11e0-b929-000c29ad1d07" labelText="Carga Viral"/> | <obs conceptId="e1da2704-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1da2812-1d5f-11e0-b929-000c29ad1d07, cc8ef88c-6ab6-4404-a036-d415bc42cc1c" answerLabels="Nivel baixo de detenção, Indetectável" /> <br/>
+                                    <obs conceptId="e1d6247e-1d5f-11e0-b929-000c29ad1d07" labelText="Carga Viral"/> | <obs conceptId="e1da2704-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1da2812-1d5f-11e0-b929-000c29ad1d07, cc8ef88c-6ab6-4404-a036-d415bc42cc1c, 78a76661-50c0-41cf-b566-de275f17b648, ae6c048f-8b04-46cb-903e-51d5670db525, 1321eeac-5832-4076-88e9-b1f2cd351ada, d6eb4797-2c01-4b6e-b43f-be15cd2fdcc2, 7c8e0a9b-3606-4a72-b8cc-89566521fac2" answerLabels="Nivel baixo de detenção, Indetectável, Menor que 10 copias/ml, Menor que 20 copias/ml, Menor que 40 copias/ml, Menor que 40 copias/ml, Menor que 839 copias/ml" /> <br/>
                                     <obs conceptId="e1dd5ab4-1d5f-11e0-b929-000c29ad1d07" labelText="CD4"/><br/>
                                     <obs conceptId="e1d48fba-1d5f-11e0-b929-000c29ad1d07" labelText="CD4%"/><br/>
                                     <obs conceptId="e1dd574e-1d5f-11e0-b929-000c29ad1d07" labelText="Hemoglobina (Hb)"/><br/>
@@ -673,12 +673,63 @@
         
                                 <p>
                                     <label>Tipo de Dispensa</label><br/>
-                                    <obs conceptId="cadc1c2a-cd22-43dc-8404-4ce4c8a7242d" />
+                                    <obs conceptId="cadc1c2a-cd22-43dc-8404-4ce4c8a7242d" answerConceptIds="e1d848f8-1d5f-11e0-b929-000c29ad1d07, f53848d5-3521-4cc8-ac72-d63adef281a1, 3069be5c-cd02-4ddb-aa1f-bdd71d3dd6be" answerLabels="DM, DT, DS"/>
                                 </p> 
         
                                 <p>
                                     <label>Regime</label><br/>
-                                    <obs conceptId="e1d83d4a-1d5f-11e0-b929-000c29ad1d07" />
+                                    <obs id="regime" conceptId="e1d83d4a-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="
+                                            e1de19fe-1d5f-11e0-b929-000c29ad1d07,
+                                            28b28521-b6cd-454e-9ec5-f2c6c9c58468,
+                                            e1dd2f44-1d5f-11e0-b929-000c29ad1d07,
+                                            9dc17c1b-7b6d-488e-a38d-505a7b65ec82,
+                                            2e44e77e-eac4-4f64-84d2-73d32abf94d5,
+                                            78419317-cdda-42e9-92a3-13cb0cbf0020,
+                                            e3f6bb60-e2cf-46cb-a9da-27d634ba8607,
+                                            af15246d-30b8-4aff-8391-ca2b58e2c88b,
+                                            3e7f46c7-a971-4c0c-82aa-a65589fd518e,
+                                            cf05347e-063c-4896-91a4-097741cf6be6,
+                                            e11be52e-0da1-4d32-ab5c-e0feb9b6abd6,
+                                            f8c5d365-7636-4449-9acd-c83c4fd2ea01,
+                                            d5f9d629-67bc-4f60-9e12-629e6d2c1d08,
+                                            7bf5a88d-6db6-4899-a01a-bfd14ce77b53,
+                                            e8b741b3-463c-46b1-8423-a16f736af8d4,
+                                            ba25f2b5-4216-4605-9e6b-1f591033dc3e,
+                                            7d18d08c-d1a8-4dc8-8d65-02197b42acf7,
+                                            c22c4431-a27e-4054-92bb-a1563482003e,
+                                            c4a56680-ac6e-4538-8126-e3097b7b4789,
+                                            8f9c4e58-0d70-4b09-a109-e776d325e9fd,
+                                            9cb63f72-4c08-4543-878a-537dcabe5670,
+                                            46b8a2ab-36a7-4072-ab62-0af9b3b58e72,
+                                            552dd71f-d1de-426a-a19c-49b8706a4a7f,
+                                            f32e013c-38c8-483a-8012-88596e8b13da,
+                                            c30f826d-9433-4e63-ac91-dbbc158686ff,
+                                            e1e59e0e-1d5f-11e0-b929-000c29ad1d07" labelText="" answerLabels="AZT+3TC+EFV,
+                                                                                                            AZT+3TC+LPV/r,
+                                                                                                            AZT+3TC+NVP,
+                                                                                                            TDF+3TC+EFV,
+                                                                                                            TDF+3TC+NVP,
+                                                                                                            ABC+3TC+EFV,
+                                                                                                            TDF+3TC+DTG,
+                                                                                                            ABC+3TC+DTG,
+                                                                                                            AZT+3TC+ABC,
+                                                                                                            ABC+3TC+LPV/r,
+                                                                                                            ABC+3TC+NVP,
+                                                                                                            TDF+3TC+LPV/r,
+                                                                                                            TDF+3TC+LPV/r+RTV,
+                                                                                                            TDF+3TC+ATV/r,
+                                                                                                            ABC+3TC+ATV/r,
+                                                                                                            AZT+3TC+ATV/r,
+                                                                                                            ABC+3TC+ATV/r+RAL,
+                                                                                                            TDF+3TC+ATV/r+RAL,
+                                                                                                            AZT+3TC+RAL,
+                                                                                                            AZT+3TC+DRV/r,
+                                                                                                            AZT+3TC+DTG,
+                                                                                                            TDF+3TC+RAL+DRV/r,
+                                                                                                            ABC+3TC++RAL+DRV/r,
+                                                                                                            3TC+RAL+DRV/r,
+                                                                                                            AZT+3TC+RAL+DRV/r,
+                                                                                                            OUTRO"/>
                                 </p>     
                             </div>
 

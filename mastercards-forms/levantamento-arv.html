@@ -1,0 +1,132 @@
+<htmlform>
+
+        <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>FILA</title>
+            
+        <style>
+                h2 { border-bottom: 3px solid red; }
+                p { border: 1px solid black; }
+                
+                
+                table{
+                    border: 3px solid #1aac9b;
+                    border-collapse: collapse;
+                }
+    
+                tr:first-child {
+                    background-color: #1aac9b;
+                }
+    
+                tr:first-child label {
+                    padding: 4px !important;
+                    color: #fff;
+                    font-weight: bold;
+                    margin: 4px !important;
+                    text-shadow: 0 0 .3em black;
+                    font-size: 12pt;
+                }
+    
+                td {
+                    border: 1px solid #1aac9b;
+                }
+                    
+            .style1 {
+                font-size: 14px;
+                font-weight: bold;
+            }
+    
+            .obs{
+                font-size: 14px;
+                font-weight: bold;
+            }
+    
+            .submit-btn {
+                        flex: 1;
+                        margin: 10px 15px;
+                    }
+    
+            .submit-btn input{
+                color: #fff;
+                background: #1aac9b;
+                padding: 8px;
+                width: 12.8em;
+                font-weight: bold;
+                text-shadow: 0 0 .3em black;
+                font-size: 9pt;
+                border-radius: 5px 5px;
+            }
+        </style>
+        </head>
+        <body>
+        <table width="900" border="1" align="center">
+          <tbody align="left" style="font-family:verdana; font-size:12px">
+          <tr>
+            <td width="285" rowspan="4" align="center">REPÚBLICA DE MOÇAMBIQUE<br/>Serviço Nacional de Saúde <br/><br/> NID: <lookup expression="patient.getPatientIdentifier(2)"/></td>
+            <td colspan="2"  height="30" ><div align="center" class="style1"><label>Registo de Levantamento de ARVs Master Card</label></div></td>
+          </tr>
+          
+          <tr>
+            <td width="245"><div align="right">Nome:</div></td>
+            <td width="348"><lookup expression="patient.personName"/></td>
+          </tr>
+          <tr>
+            <td><div align="right">Contacto:</div></td>
+            <td><lookup expression="patient.getAttribute(9)"/></td>
+          </tr>
+          <tr>
+            <td><div align="right">Endereço:</div></td>
+            <td><lookup complexExpression="#foreach( $addr in $patient.addresses ) $!addr.subregion #end"/></td>
+          </tr>
+          
+          </tbody>
+        </table>
+        
+        <br/>
+        
+        <table width="900" border="1" align="center">
+          <tbody align="left" style="font-family:verdana; font-size:12px">
+          
+          <tr>
+            <td><div align="right">Unidade Sanitária:</div></td>
+            <td>
+        <encounterLocation id="localConsulta" default="GlobalProperty:default_location" type="autocomplete"/>	
+            </td>
+          </tr>  
+            
+          <tr style="display: none;">
+            <td><div align="right">Recepcionista:</div></td>
+            <td><encounterProvider role="Provider" default="generic.provider"/></td>
+          </tr>
+          
+          <tr>
+            <td><div align="right">Data de Registo:</div></td>
+            <td><encounterDate id="encounterDate"  widget="hidden" default="today"/></td>
+          </tr>
+          
+          
+          <tr>
+            <td><div align="right">Levantou ARV:</div></td>
+            <td>
+                <obs conceptId="e07fb227-7a5a-4edf-93e8-7633c9fd1ea0" labelText="" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07,e1d81c70-1d5f-11e0-b929-000c29ad1d07" answerLabels="S, N" style="radio" required="true"/>
+                
+            </td>
+          </tr> 
+          <tr>
+            <td><div align="right">Data do Levantamento:</div></td>
+            <td>	
+                <obs id="dataLevantamento" conceptId="74f6c17f-9819-41da-ba34-5910f67d24d0" labelText="" allowFutureDates="true" required="true"/>	
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2"><div align="center">
+                <div class="submit-btn"><submit submitLabel="Submeter"/></div>
+            </div></td>
+          </tr>
+          </tbody>
+        </table>
+        
+        </body>
+        </html>
+        </htmlform>

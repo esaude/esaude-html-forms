@@ -1,615 +1,884 @@
 <htmlform>
-            <html xmlns="http://www.w3.org/1999/xhtml">
-            <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <title>FICHA RESUMO</title>
-              
-              <style>
+        <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>FICHA RESUMO</title>
+          
+          <style>
+    
+            .main{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                font-size: .9em;
+                width: 100%;
+            }
+    
+            .header-box{
+                width: 80%;
+                background: #1aac9b;
+                padding: 1px !important;
+                color: #fff;
+                box-shadow: 0 0 .3em #000;
+                margin-bottom: 10px;
+            }
+            
+            .content {
+                display: flex;
+                flex-flow: row wrap;
+                width: 80%;
+                border: 1px solid #1aac9b;
+                box-shadow: 0 0 .3em #000;
+            }
+    
+            .line-break {
+                width: 100%;
+            }
+    
+            .header, .space-between{
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                align-content: space-between;
+                width: 100%
+            }
+    
+            .header-data{
+              border: 1px solid #1aac9b;
+              margin-bottom: 10px !important;
+              padding: 0px 10px 0px 10px;
+              box-shadow: 0 0 .1em #000;
+              margin: 10px 10px;
+              background: #dedede
+            }
+    
+            .header-info{
+              border: 1px solid #1aac9b;
+              padding: 0px 10px 0px 10px;
+              box-shadow: 0 0 .1em #000;
+              margin: 10px 10px;
+              background: #dedede
+            }
+    
+            .header-box h2{
+               padding-left: 10px;
+               text-shadow: 0 0 .3em #000;
+            }
+    
+    
+            .header-info h3{
+              text-align: center;
+            }
+    
+            input[type="text"]{
+                width: 150px;
+                margin-bottom: 4px;
+            }
+    
+            .input-size input[type="text"]{
+                width: 50px !important;
+            }
+    
+            .input-size-2 input[type="text"]{
+                width: 70px !important;
+            }
+    
+            p select {
+                width: 150px;
+                margin-bottom: 4px;
+            }
+    
+            .base-margin {
+                margin-left: 15px;
+            }
+    
+            .submit-btn {
+                flex: 1;
+                margin: 10px 15px;
+            }
+    
+             .submit-btn input{
+               color: #fff;
+               background: #1aac9b;
+               padding: 8px;
+               width: 12.8em;
+               font-weight: bold;
+               text-shadow: 0 0 .3em black;
+               font-size: 9pt;
+               border-radius: 5px 5px;
+            }
+    
+            .label-tag {
+               color: #fff;
+               background: #1aac9b;
+               padding: 7px;
+               font-weight: bold;
+               text-shadow: 0 0 .3em black;
+               font-size: 9pt;
+               border-radius: 5px 5px;
+               width: 100%;
+               display: inline-block;
+            }
+    
+            .input-with-size input[type="text"]{
+                width : 50px !important;
+            }
+    
+            .input-with-size-lg input[type="text"]{
+                width : 400px !important;
+            }
+    
+            .hasDatepicker{
+                width : 80px !important;
+            }
 
-                .main{
-                    display: flex;
-                    align-items: center;
-                    flex-direction: column;
-                    font-size: .9em;
-                    width: 100%;
-                }
+            .boder-in {
+                margin-top: -14px;
+                margin-bottom: -22px;
+            }
 
-                .header-box{
-                    width: 80%;
-                    background: #1aac9b;
-                    padding: 1px !important;
-                    color: #fff;
-                    box-shadow: 0 0 .3em #000;
-                    margin-bottom: 10px;
-                }
+           .space-justify {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content:baseline;;
+                align-content: flex-start;
+                width: 100%
+            }
+
+            .base-width {
+                width: 152px;
+            }
+
+            .space-justify label {
+                font-weight: bold;
+            }
+
+            #sociais select {
+                width: 289px;
+            }
+    
+            </style>
+    
+            <script type="text/javascript">
+              jQuery(document).ready(function(){
+                getField('exitStatus.value').live('change', function() {
                 
-                .content {
-                    display: flex;
-                    flex-flow: row wrap;
-                    width: 80%;
-                    border: 1px solid #1aac9b;
-                    box-shadow: 0 0 .3em #000;
-                }
-
-                .line-break {
-                    width: 100%;
-                }
-
-                .header, .space-between{
-                    display: flex;
-                    flex-flow: row wrap;
-                    justify-content: space-between;
-                    align-content: space-between;
-                    width: 100%;
-                }
-
-                .header-data{
-                  border: 1px solid #1aac9b;
-                  margin-bottom: 10px !important;
-                  padding: 0px 10px 0px 10px;
-                  box-shadow: 0 0 .1em #000;
-                  margin: 10px 10px;
-                  background: #dedede
-                }
-
-                .header-info{
-                  border: 1px solid #1aac9b;
-                  padding: 0px 10px 0px 10px;
-                  box-shadow: 0 0 .1em #000;
-                  margin: 10px 10px;
-                  background: #dedede
-                }
-
-                .header-box h2{
-                   padding-left: 10px;
-                   text-shadow: 0 0 .3em #000;
-                }
-
-
-                .header-info h3{
-                  text-align: center;
-                }
-
-                input[type="text"]{
-                    width: 150px;
-                    margin-bottom: 4px;
-                }
-
-                .input-size input[type="text"]{
-                    width: 50px !important;
-                }
-
-                .input-size-2 input[type="text"]{
-                    width: 70px !important;
-                }
-
-                p select {
-                    width: 150px;
-                    margin-bottom: 4px;
-                }
-
-                .base-margin {
-                    margin-left: 15px;
-                }
-
-                .submit-btn {
-                    flex: 1;
-                    margin: 10px 15px;
-                }
-
-                 .submit-btn input{
-                   color: #fff;
-                   background: #1aac9b;
-                   padding: 8px;
-                   width: 12.8em;
-                   font-weight: bold;
-                   text-shadow: 0 0 .3em black;
-                   font-size: 9pt;
-                   border-radius: 5px 5px;
-                }
-
-                .label-tag {
-                   color: #fff;
-                   background: #1aac9b;
-                   padding: 7px;
-                   font-weight: bold;
-                   text-shadow: 0 0 .3em black;
-                   font-size: 9pt;
-                   border-radius: 5px 5px;
-                   width: 100%;
-                   display: inline-block;
-                }
-
-                .input-with-size input[type="text"]{
-                    width : 50px !important;
-                }
-
-                .input-with-size-lg input[type="text"]{
-                    width : 400px !important;
-                }
-
-                .hasDatepicker{
-                    width : 80px !important;
-                }
-
-                </style>
-
-                <script type="text/javascript">
-                  jQuery(document).ready(function(){
-                    getField('exitStatus.value').live('change', function() {
+                 var motherOnTarv = getValue('motherOnTarv.value');
+                  $j("#dateOfDie input").attr('disabled', true);
+                  if(getValue("exitStatus.value") == "1366"){
+                   $j("#dateOfDie input").attr('disabled', false);
+                  }
+                });
+             });
+          </script>
+            
+        </head>
+        <body>
+            
+        <div class="main">
+            
+            <div class="header-box">
+                <h2>FICHA RESUMO</h2>
+            </div>
+    
+            <div class="content">
+    
+                    <div class="header">
+    
+                        <div class="header-data">
+                                <p>
+                                <label>Nome:</label>
+                                <lookup expression="patient.personName"/>
+                            </p>
+    
+                            <p>
+                                <label>Género/Data de Nasc./Idade:</label>
+                                <lookup expression="patient.gender"/> - <lookup expression="patient.birthdate"/> - <lookup expression="patient.age"/>
+                            </p>
+                        </div>
+    
+                        <div class="header-info">
+                            <h3>REPÚBLICA DE MOÇAMBIQUE</h3>
+                            <h3>SERVIÇO NACIONAL DE SAÚDE</h3>
+                            <p>
+                                <label>NID:<lookup expression="patient.getPatientIdentifier(2)"/></label>
+                            </p>
+                        </div>
+    
+                    </div>
                     
-                     var motherOnTarv = getValue('motherOnTarv.value');
-                      $j("#dateOfDie input").attr('disabled', true);
-                      if(getValue("exitStatus.value") == "1366"){
-                       $j("#dateOfDie input").attr('disabled', false);
-                      }
-                    });
-                 });
-              </script>
-                
-            </head>
-            <body>
-                
-            <div class="main">
-                
-                <div class="header-box">
-                    <h2>FICHA RESUMO</h2>
-                </div>
+                    <div class="line-break"></div>
+    
+                    <div class="base-margin">
+    
+                        <label class="label-tag">Livros: Pré-TARV</label>   
+    
+                        <p class="input-size-2">
+                            <obs conceptId="d8ec9c7c-6b46-435b-8c80-3967f396bd71" labelText="Nr. do Livro:" /><br/>
+                            <obs conceptId="c02181e6-8f9f-4387-9cf6-9a3d0f45b7fc" labelText="Página:" /><br/>
+                            <obs conceptId="bf958c27-fa29-4b95-a055-a9d2d162ef76" labelText="Linha:" />
+                        </p>
+    
+                    </div>
+    
+                    <div class="base-margin">
+                        <label class="label-tag">Livros: TARV</label>   
+    
+                        <p class="input-size-2">
+                            <obs conceptId="39a21629-cf4e-45f3-be2e-287cce2d5d4c" labelText="Nr. do Livro:" /><br/>
+                            <obs conceptId="9a9b36c9-ace0-40e9-a296-e547197358df" labelText="Página:" /><br/>
+                            <obs conceptId="65be2cd1-8c97-41f8-9ff9-665d54479943" labelText="Linha:" />
+                        </p>
+                    </div>
+    
+                    <div class="line-break"></div>
+    
+                    <div class="base-margin">
+    
+                        <p>
+                            <label>Unidade Sanitária:</label>
+                            <encounterLocation id="localConsulta" default="GlobalProperty:default_location" type="autocomplete"/>
+                        </p>
+    
+                    </div>
+    
+                    <div class="line-break"></div>
+    
+                    <div class="base-margin">
+    
+                        <p>
+                            <label>Data Abertura da Ficha:</label>                                
+                            <obs conceptId="68d65d0c-8fee-456b-8e95-caed990351e1" required="true" />
+                        </p>
+    
+                    </div>
+    
+                    <div class="base-margin">
+    
+                        <p>
+                            <label>Profissão:</label>
+                            <obs conceptId="e1dc07c2-1d5f-11e0-b929-000c29ad1d07" />
+                        </p> 
+    
+                    </div>
+    
+                    <div class="base-margin">
+    
+                        <p>
+                            <label>Nível de Escolaridade:</label>
+                            <obs conceptId="e1db0700-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1db08fe-1d5f-11e0-b929-000c29ad1d07, e1db09f8-1d5f-11e0-b929-000c29ad1d07, e1db0af2-1d5f-11e0-b929-000c29ad1d07, e1db0bf6-1d5f-11e0-b929-000c29ad1d07" />
+                        </p>  
+    
+                    </div>
+    
+                    <div class="line-break"></div>
+    
+                    <div class="base-margin">
+                            <label class="label-tag">Confidente:</label>   
+    
+                        <p>
+                            <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" labelText="Nome:" />
+                            <obs conceptId="dbf852ab-697f-4c92-a546-74e5301de419" labelText="Parentesco:" /> <br/>
+                            <obs conceptId="eb23c94a-2c2e-40fa-ab82-22308b1c5f27" labelText="Telefone Celular (1):" /><br/>
+                            <obs conceptId="eb23c94a-2c2e-40fa-ab82-22308b1c5f27" labelText="Telefone Celular (2):" /><br/>
+                            <obs conceptId="e1e0c208-1d5f-11e0-b929-000c29ad1d07" labelText="Endereço:" class="input-with-size-lg"/>
+                        </p>
+    
+                    </div>
+    
+                    <div class="line-break"></div>
+    
+                    <div class="base-margin">
+    
+                        <label class="label-tag" style="margin-bottom: 6px;">Situação da família:</label>
 
-                <div class="content">
+                        <div class="space-justify">
+                            
+                            <div class="base-width">
+                                <label>Nome:</label>
+                            </div>
 
-                        <div class="header">
+                            <div class="base-width base-margin">
+                                <label>Parentesco:</label>
+                            </div>
 
-                            <div class="header-data">
-                                    <p>
-                                    <label>Nome:</label>
-                                    <lookup expression="patient.personName"/>
+                            <div class="base-width base-margin">
+                                <label>Outro(Especifique):</label>
+                             </div>
+
+                            <div class="base-margin" style="width: 75px;">
+                                <label>Idade:</label>
+                            </div>
+
+                            <div class="base-width base-margin">
+                                <label>Teste de HIV:</label>
+                            </div>
+
+                            <div class="base-width base-margin">
+                                <label>Cuidades de HIV:</label>
+                            </div>
+
+                            <div class="base-width base-margin">
+                                <label>Em CCR:</label>
+                            </div>
+
+                            <div class="base-margin">
+                                <label>NID:</label>
+                            </div>
+
+                        </div>
+
+                        <repeat>
+                            <template>
+                                <obsgroup groupingConceptId="b1dec8a4-c8a8-4d93-81b9-fd23d9c835fd">
+    
+                                    <div class="space-between boder-in">
+            
+                                        <div>
+                                            <p>
+                                                <obs conceptId="58849bca-141e-4f6c-aaff-509b1efa99ec" />
+                                            </p>
+                                        </div>
+            
+                                        <div class="base-margin">
+                                            <p>
+                                                <obs conceptId="dbf852ab-697f-4c92-a546-74e5301de419" />
+                                            </p>
+                                        </div>
+
+                                        <div class="base-margin">
+                                            <p>
+                                                <obs conceptId="e1e783ea-1d5f-11e0-b929-000c29ad1d07" />
+                                            </p>
+                                        </div>
+            
+                                        <div class="base-margin">
+                                            <p class="input-size-2">
+                                                <obs conceptId="695d79ba-97d1-4d6d-bfe7-25dcb650a568" />
+                                            </p>
+                                        </div>
+            
+                                        <div class="base-margin">
+                                            <p>
+                                                <obs conceptId="42a90771-4d00-44ec-b637-d704025855ba" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" answerLabels="Positivo (P),Negativo (N),Desconhecido (D)" />
+                                            </p>
+                                        </div>
+            
+                                        <div class="base-margin">
+                                            <p>
+                                                <obs conceptId="541d20ec-96d8-4705-ba7d-2df81cfff751" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" answerLabels="Sim,Não"  />
+                                            </p>
+                                        </div>
+            
+                                        <div class="base-margin">
+                                            <p>
+                                                <obs conceptId="e1def0cc-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07,e1d81c70-1d5f-11e0-b929-000c29ad1d07,f3c00a5c-d251-43d0-864e-8897f5556417" answerLabels="Sim (S),Não (N),Alta (A)" />
+                                            </p>
+                                        </div>
+            
+                                        <div class="base-margin">
+                                            <p>
+                                                <obs conceptId="59177ab6-a2db-4c20-a1c6-bb5c7c13cad4" />
+                                            </p>
+                                            
+                                        </div>
+            
+                                    </div>
+            
+                                </obsgroup>
+                            </template>
+                            <render/>
+                            <render/>
+                            <render/>
+                            <render/>
+                            <render/>
+                            <render/>
+                        </repeat>
+    
+                    </div>
+
+                    <div class="line-break"></div>
+    
+                    <div class="base-margin">
+                
+                        <label class="label-tag" style="margin-top: 14px;">Cuidados de HIV</label>
+    
+                        <div class="space-between">
+    
+                            <div>
+                                <p class="input-size-2">
+                                    <obs conceptId="c7ac119c-d59d-474d-8334-0c5bdd2e9863" labelText="Teste HIV+:" style="radio" answerConceptIds="e1d800dc-1d5f-11e0-b929-000c29ad1d07, e1d7f61e-1d5f-11e0-b929-000c29ad1d07" answerLabels="TR, PCR" dateLabel="| Data:"/><br/><br/>
+                                    <obs conceptId="b792c72c-eaf4-4386-b4a5-8f79c9a83746" style="checkbox" answerLabel="Diagnóstico presuntivo em crianças menores de 18 meses:" answerConceptId="e1d81b62-1d5f-11e0-b929-000c29ad1d07" dateLabel="| Data:"/><br/><br/>
+                                    <obs conceptId="f69b1fe0-a657-4225-a996-20b599132508" labelText="Data Inicio Pré-TARV:" commentFieldLabel=" Unidade Sanitária: " /><br/><br/>
+                                    <obs conceptId="e1da7d3a-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1d81b62-1d5f-11e0-b929-000c29ad1d07" answerLabel="Transferido de outra US" dateLabel="| Data:" commentFieldLabel=" Unidade Sanitária: "/>
                                 </p>
         
+                            </div>
+    
+                            <div  class="base-margin">
                                 <p>
-                                    <label>Género/Data de Nasc./Idade:</label>
-                                    <lookup expression="patient.gender"/> - <lookup expression="patient.birthdate"/> - <lookup expression="patient.age"/>
+                                    <obs conceptId="602d1865-4689-4b5b-84ff-092b51e7840c" style="radio" answerConceptIds="bdca9223-527b-46f7-8fb8-0288a58c83f1, cf6e0b75-d0b4-403a-a886-0c06e1e9ea77" answerLabels="Unidade Sanitária, ATSC" commentFieldLabel=" Designação: "/>
+                                    <br/><br/><br/><br/>
+                                    
+                                    
+                                    <obs conceptId="beb9f5d1-3365-4574-894e-445b82a81087" labelText="Sector:" answerConceptIds="e1daea2c-1d5f-11e0-b929-000c29ad1d07, e1e05bc4-1d5f-11e0-b929-000c29ad1d07, e1e0599e-1d5f-11e0-b929-000c29ad1d07, e1dee38e-1d5f-11e0-b929-000c29ad1d07, d6b884fc-c799-4c23-844a-5eb1c470ab62" answerLabels="TB, SAAJ, CPN/G, CCR/L, Clínica" /><br/><br/>
+                                    
+                                    <obs conceptId="4f139c0a-9843-4dc4-b3e5-5aa00812e605" style="radio" answerConceptIds="44f812e8-c4c0-40cd-aef3-6b1ef76d43e1, 7f3af436-5c3a-447c-9012-42bb314e03db" answerLabels="Em Pré-TARV, Em TARV"/>
                                 </p>
                             </div>
-        
-                            <div class="header-info">
-                                <h3>REPÚBLICA DE MOÇAMBIQUE</h3>
-                                <h3>SERVIÇO NACIONAL DE SAÚDE</h3>
-                                <p>
-                                    <label>NID/US:</label>
-                                </p>
-                            </div>
-
+    
+                        </div>
+    
+                    </div>
+    
+                    <div class="line-break"></div>
+    
+                    <div class="base-margin">
+                        
+                        <label class="label-tag" style="margin-bottom: 14px;">Alergia a Medicamentos</label>
+                        
+                        <div class="box-inline">
+                            <repeat>
+                                    <template>					
+                                        <obsgroup groupingConceptId="4b6e0e40-0d93-4112-95fe-38c01ceee2d6">
+                                            <label>Alergia:</label>
+                                            <obs conceptId="e1dcadf8-1d5f-11e0-b929-000c29ad1d07"  dateLabel="| Data:"/>
+                                            <label>Outra (Especifique):</label>
+                                            <obs conceptId="e1dc4af2-1d5f-11e0-b929-000c29ad1d07"/><br/>
+                                        </obsgroup>
+                                    </template>
+                                    <render/>
+                                    <render/>
+                                    <render/>
+                            </repeat>
                         </div>
                         
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-
-                            <label class="label-tag">Livros: Pré-TARV</label>   
-
-                            <p class="input-size-2">
-                                <obs conceptId="d8ec9c7c-6b46-435b-8c80-3967f396bd71" labelText="Nr. do Livro:" /><br/>
-                                <obs conceptId="c02181e6-8f9f-4387-9cf6-9a3d0f45b7fc" labelText="Página:" /><br/>
-                                <obs conceptId="bf958c27-fa29-4b95-a055-a9d2d162ef76" labelText="Linha:" />
-                            </p>
-
-                        </div>
-
-                        <div class="base-margin">
-                            <label class="label-tag">Livros: TARV</label>   
-
-                            <p class="input-size-2">
-                                <obs conceptId="39a21629-cf4e-45f3-be2e-287cce2d5d4c" labelText="Nr. do Livro:" /><br/>
-                                <obs conceptId="9a9b36c9-ace0-40e9-a296-e547197358df" labelText="Página:" /><br/>
-                                <obs conceptId="65be2cd1-8c97-41f8-9ff9-665d54479943" labelText="Linha:" />
-                            </p>
-                        </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-
-                            <p>
-                                <label>Unidade Sanitária:</label>
-                                <encounterLocation id="localConsulta" default="GlobalProperty:default_location"/>
-                            </p>
-
-                        </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-
-                            <p>
-                                <label>Data Abertura da Ficha:</label>
-                                <encounterDate id="dataConsulta" required="true" default="now"/>
-                            </p>
-
-                        </div>
-
-                        <div class="base-margin">
-
-                            <p>
-                                <label>Profissão:</label>
-                                <obs conceptId="e1dc07c2-1d5f-11e0-b929-000c29ad1d07" />
-                            </p> 
-
-                        </div>
-
-                        <div class="base-margin">
-
-                            <p>
-                                <label>Nível de Escolaridade:</label>
-                                <obs conceptId="e1db0700-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1db08fe-1d5f-11e0-b929-000c29ad1d07, e1db09f8-1d5f-11e0-b929-000c29ad1d07, e1db0af2-1d5f-11e0-b929-000c29ad1d07, e1db0bf6-1d5f-11e0-b929-000c29ad1d07" />
-                            </p>  
+                    </div>
     
-                        </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-                                <label class="label-tag">Confidente:</label>   
+                    <div class="base-margin">
+                        
+                        <label class="label-tag">Condições Medicas Importantes</label>
+                        
+                        <div class="space-between">
     
-                            <p>
-                                <obs conceptId="e1de46a4-1d5f-11e0-b929-000c29ad1d07" labelText="Nome:" />
-                                <obs conceptId="dbf852ab-697f-4c92-a546-74e5301de419" labelText="Parentesco:" /> <br/>
-                                <obs conceptId="eb23c94a-2c2e-40fa-ab82-22308b1c5f27" labelText="Telefone Celular (1):" /><br/>
-                                <obs conceptId="eb23c94a-2c2e-40fa-ab82-22308b1c5f27" labelText="Telefone Celular (2):" /><br/>
-                                <obs conceptId="e1e0c208-1d5f-11e0-b929-000c29ad1d07" labelText="Endereço:" class="input-with-size-lg"/>
-                            </p>
-
-                        </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-
-                            <label class="label-tag">Situação da família:</label>
-                            
-                            <obsgroup groupingConceptId="b1dec8a4-c8a8-4d93-81b9-fd23d9c835fd">
-
-                                <div class="space-between">
-
-                                    <div>
-                                        <p>
-                                            <strong>Nome:</strong><br/>
-                                            <obs conceptId="58849bca-141e-4f6c-aaff-509b1efa99ec" /><br/>
-                                            <obs conceptId="58849bca-141e-4f6c-aaff-509b1efa99ec" /><br/>
-                                            <obs conceptId="58849bca-141e-4f6c-aaff-509b1efa99ec" /><br/>
-                                            <obs conceptId="58849bca-141e-4f6c-aaff-509b1efa99ec" /><br/>
-                                            <obs conceptId="58849bca-141e-4f6c-aaff-509b1efa99ec" /><br/>
-                                            <obs conceptId="58849bca-141e-4f6c-aaff-509b1efa99ec" />
-                                        </p>
-                                    </div>
-
-                                    <div class="base-margin">
-                                        <p>
-                                            <strong>Parentesco:</strong><br/>
-                                            <obs conceptId="dbf852ab-697f-4c92-a546-74e5301de419" /><br/>
-                                            <obs conceptId="dbf852ab-697f-4c92-a546-74e5301de419" /><br/>
-                                            <obs conceptId="dbf852ab-697f-4c92-a546-74e5301de419" /><br/>
-                                            <obs conceptId="dbf852ab-697f-4c92-a546-74e5301de419" /><br/>
-                                            <obs conceptId="dbf852ab-697f-4c92-a546-74e5301de419" /><br/>
-                                            <obs conceptId="dbf852ab-697f-4c92-a546-74e5301de419" />
-                                        </p>
-                                    </div>
-
-                                    <div class="base-margin">
-                                        <p class="input-size-2">
-                                            <strong>Idade:</strong><br/>
-                                            <obs conceptId="695d79ba-97d1-4d6d-bfe7-25dcb650a568" /><br/>
-                                            <obs conceptId="695d79ba-97d1-4d6d-bfe7-25dcb650a568" /><br/>
-                                            <obs conceptId="695d79ba-97d1-4d6d-bfe7-25dcb650a568" /><br/>
-                                            <obs conceptId="695d79ba-97d1-4d6d-bfe7-25dcb650a568" /><br/>
-                                            <obs conceptId="695d79ba-97d1-4d6d-bfe7-25dcb650a568" /><br/>
-                                            <obs conceptId="695d79ba-97d1-4d6d-bfe7-25dcb650a568" />
-                                        </p>
-                                    </div>
-
-                                    <div class="base-margin">
-                                        <p>
-                                            <strong>Teste de HIV</strong><br/>
-                                            <obs conceptId="42a90771-4d00-44ec-b637-d704025855ba" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
-                                            <obs conceptId="42a90771-4d00-44ec-b637-d704025855ba" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
-                                            <obs conceptId="42a90771-4d00-44ec-b637-d704025855ba" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
-                                            <obs conceptId="42a90771-4d00-44ec-b637-d704025855ba" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
-                                            <obs conceptId="42a90771-4d00-44ec-b637-d704025855ba" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" /><br/>
-                                            <obs conceptId="42a90771-4d00-44ec-b637-d704025855ba" answerConceptIds="e1d47386-1d5f-11e0-b929-000c29ad1d07, e1d446cc-1d5f-11e0-b929-000c29ad1d07, e1d81d7e-1d5f-11e0-b929-000c29ad1d07" />
-                                        </p>
-                                    </div>
-
-                                    <div class="base-margin">
-                                        <p>
-                                            <strong>Cuidades de HIV</strong><br/>
-                                            <obs conceptId="541d20ec-96d8-4705-ba7d-2df81cfff751"  /><br/>
-                                            <obs conceptId="541d20ec-96d8-4705-ba7d-2df81cfff751"  /><br/>
-                                            <obs conceptId="541d20ec-96d8-4705-ba7d-2df81cfff751"  /><br/>
-                                            <obs conceptId="541d20ec-96d8-4705-ba7d-2df81cfff751"  /><br/>
-                                            <obs conceptId="541d20ec-96d8-4705-ba7d-2df81cfff751"  /><br/>
-                                            <obs conceptId="541d20ec-96d8-4705-ba7d-2df81cfff751"  />
-                                        </p>
-                                    </div>
-
-                                    <div class="base-margin">
-                                        <p>
-                                            <strong>Em CCR</strong><br/>
-                                            <obs conceptId="e1def0cc-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07,e1d81c70-1d5f-11e0-b929-000c29ad1d07" /><br/>
-                                            <obs conceptId="e1def0cc-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07,e1d81c70-1d5f-11e0-b929-000c29ad1d07" /><br/>
-                                            <obs conceptId="e1def0cc-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07,e1d81c70-1d5f-11e0-b929-000c29ad1d07" /><br/>
-                                            <obs conceptId="e1def0cc-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07,e1d81c70-1d5f-11e0-b929-000c29ad1d07" /><br/>
-                                            <obs conceptId="e1def0cc-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07,e1d81c70-1d5f-11e0-b929-000c29ad1d07" /><br/>
-                                            <obs conceptId="e1def0cc-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07,e1d81c70-1d5f-11e0-b929-000c29ad1d07" />
-                                        </p>
-                                    </div>
-
-                                    <div class="base-margin">
-                                        <p>
-                                            <strong>NID:</strong><br/>
-                                            <obs conceptId="59177ab6-a2db-4c20-a1c6-bb5c7c13cad4" /><br/>
-                                            <obs conceptId="59177ab6-a2db-4c20-a1c6-bb5c7c13cad4" /><br/>
-                                            <obs conceptId="59177ab6-a2db-4c20-a1c6-bb5c7c13cad4" /><br/>
-                                            <obs conceptId="59177ab6-a2db-4c20-a1c6-bb5c7c13cad4" /><br/>
-                                            <obs conceptId="59177ab6-a2db-4c20-a1c6-bb5c7c13cad4" /><br/>
-                                            <obs conceptId="59177ab6-a2db-4c20-a1c6-bb5c7c13cad4" />
-                                        </p>
-                                        
-                                    </div>
-
-                                </div>
-
-                            </obsgroup>
-
-                        </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-                    
-                            <label class="label-tag">Cuidados de HIV</label>
-
-                            <div class="space-between">
-
-                                <div>
-                                    <p class="input-size-2">
-                                        <obs conceptId="c7ac119c-d59d-474d-8334-0c5bdd2e9863" labelText="Teste HIV+:" style="radio" answerConceptIds="e1d800dc-1d5f-11e0-b929-000c29ad1d07, e1d7f61e-1d5f-11e0-b929-000c29ad1d07" answerLabels="TR, PCR" dateLabel="| Data:"/><br/>
-                                        <obs conceptId="b792c72c-eaf4-4386-b4a5-8f79c9a83746" style="checkbox" answerLabel="Diagnóstico presuntivo em crianças menores de 18 meses:" answerConceptId="e1d81b62-1d5f-11e0-b929-000c29ad1d07" dateLabel="| Data:"/><br/>
-                                        <obs conceptId="f69b1fe0-a657-4225-a996-20b599132508" labelText="Data Inicio Pré-TARV:" /><br/>
-                                        <obs conceptId="e1da7d3a-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1d81b62-1d5f-11e0-b929-000c29ad1d07" answerLabel="Transferido de outra US" dateLabel="| Data:"/>
-                                    </p>
-            
-                                </div>
-
-                                <div  class="base-margin">
-                                    <p>
-                                        <obs conceptId="84ad6726-e800-4d0c-bee5-43527434ae7e" labelText="Unidade Sanitária" />
-                                        <obs conceptId="cf6e0b75-d0b4-403a-a886-0c06e1e9ea77" labelText="ATSC" /><br/>
-                                        <p></p>
-                                        <obs conceptId="631de714-0fb3-4c55-ad44-77f375c2b34c" labelText="Unidade Sanitária"/>
-                                        <obs conceptId="beb9f5d1-3365-4574-894e-445b82a81087" labelText="Sector:" answerConceptIds="e1daea2c-1d5f-11e0-b929-000c29ad1d07, e1e05bc4-1d5f-11e0-b929-000c29ad1d07, e1e0599e-1d5f-11e0-b929-000c29ad1d07, e1dee38e-1d5f-11e0-b929-000c29ad1d07, d6b884fc-c799-4c23-844a-5eb1c470ab62" answerLabels="TB, SAAJ, CPN/G, CCR/L, Clínica" /><br/>
-                                        <obs conceptId="4d87a2dc-d4cf-4920-be6b-9a3d90873a31" labelText="Unidade Sanitária"/>
-                                        <obs conceptId="4f139c0a-9843-4dc4-b3e5-5aa00812e605" style="radio" answerConceptIds="44f812e8-c4c0-40cd-aef3-6b1ef76d43e1, 7f3af436-5c3a-447c-9012-42bb314e03db" answerLabels="Em Pré-TARV, Em TARV"/>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-                            
-                            <label class="label-tag">Alergia a Medicamentos</label>
-                            
-                            <div class="box-inline">
-                                
+                            <div>
                                 <p class="input-size-2">
-                                    <label>Alergia:</label>
-                                    <obs conceptId="e1dcadf8-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1eb5006-1d5f-11e0-b929-000c29ad1d07, e1eb4ef8-1d5f-11e0-b929-000c29ad1d07, e1e783ea-1d5f-11e0-b929-000c29ad1d07" dateLabel="| Data:"/>
-                                    <label>Outra (Especifique):</label>
-                                    <obs conceptId="e1dc4af2-1d5f-11e0-b929-000c29ad1d07"/><br/>
-                            
-                                    <label>Alergia:</label>
-                                    <obs conceptId="e1dcadf8-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1eb5006-1d5f-11e0-b929-000c29ad1d07, e1eb4ef8-1d5f-11e0-b929-000c29ad1d07, e1e783ea-1d5f-11e0-b929-000c29ad1d07" dateLabel="| Data:"/>
-                                    <label>Outra (Especifique):</label>
-                                    <obs conceptId="e1dc4af2-1d5f-11e0-b929-000c29ad1d07"/><br/>
-                              
-
-                                    <label>Alergia:</label>
-                                    <obs conceptId="e1dcadf8-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1eb5006-1d5f-11e0-b929-000c29ad1d07, e1eb4ef8-1d5f-11e0-b929-000c29ad1d07, e1e783ea-1d5f-11e0-b929-000c29ad1d07" dateLabel="| Data:"/>
-                                    <label>Outra (Especifique):</label>
-                                    <obs conceptId="e1dc4af2-1d5f-11e0-b929-000c29ad1d07"/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cdc68a-1d5f-11e0-b929-000c29ad1d07" answerLabel="Hepatite" dateLabel=" | Data:"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cfe2ee-1d5f-11e0-b929-000c29ad1d07" answerLabel="Diabetes" dateLabel=" | Data:"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cdd38c-1d5f-11e0-b929-000c29ad1d07" answerLabel="TB" dateLabel=" | Data:"/><br/>
+                                    <label>Outra:</label><obs conceptId="e1dd2d50-1d5f-11e0-b929-000c29ad1d07"  dateLabel="Data:"/><br/>
                                 </p>
-
-
+                            </div>
+    
+                            <div  class="base-margin">
+                                <p class="input-size-2">
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="5a5619d5-89df-4acb-b0eb-c5e3c88235b8" answerLabel="HTA" dateLabel=" | Data:"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="d4d5e9e8-9082-11e6-a98e-000c29db4475" answerLabel="Criptococose" dateLabel=" | Data:"/><br/>
+                                    <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1d2984a-1d5f-11e0-b929-000c29ad1d07" answerLabel="S. Kaposi" dateLabel=" | Data:"/>
+                                </p>
                             </div>
                             
                         </div>
-
-                        <div class="base-margin">
-                            
-                            <label class="label-tag">Condições Medicas Importantes</label>
-                            
-                            <div class="space-between">
-
-                                <div>
-                                    <p class="input-size-2">
-                                        <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cdc68a-1d5f-11e0-b929-000c29ad1d07" answerLabel="Hepatite" dateLabel=" | Data:"/><br/>
-                                        <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cfe2ee-1d5f-11e0-b929-000c29ad1d07" answerLabel="Diabetes" dateLabel=" | Data:"/><br/>
-                                        <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1cdd38c-1d5f-11e0-b929-000c29ad1d07" answerLabel="TB" dateLabel=" | Data:"/><br/>
-                                        <label>Outra:</label><obs conceptId="e1dd2d50-1d5f-11e0-b929-000c29ad1d07"  dateLabel="Data:"/><br/>
-                                    </p>
-                                </div>
-
-                                <div  class="base-margin">
-                                    <p class="input-size-2">
-                                        <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="5a5619d5-89df-4acb-b0eb-c5e3c88235b8" answerLabel="HTA" dateLabel=" | Data:"/><br/>
-                                        <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="d4d5e9e8-9082-11e6-a98e-000c29db4475" answerLabel="Criptococose" dateLabel=" | Data:"/><br/>
-                                        <obs conceptId="e1dae234-1d5f-11e0-b929-000c29ad1d07" answerConceptId="e1d2984a-1d5f-11e0-b929-000c29ad1d07" answerLabel="S. Kaposi" dateLabel=" | Data:"/>
-                                    </p>
-                                </div>
-                                
+                        
+                    </div>
+    
+                    <div class="line-break"></div>
+    
+                    <div class="base-margin">
+                        <label>Último CD4:</label>
+                        <obs conceptId="e1dd5ab4-1d5f-11e0-b929-000c29ad1d07" dateLabel="Data:"/><br/>
+                    </div>
+    
+                    <div class="base-margin">
+                        <label>Última Carga Viral:</label>
+                        <obs conceptId="e1d6247e-1d5f-11e0-b929-000c29ad1d07" dateLabel="Data:"/><br/>
+                    </div>
+    
+                    <div class="base-margin">
+                        <label>Ùltima profilaxia Isoniazida (Data Inicio):</label>
+                        <obs conceptId="6fa92ac9-0a96-4372-9e10-dd9683c19135" />
+                        <label>Ùltima profilaxia Isoniazida (Data Fim):</label>
+                        <obs conceptId="9e555978-3a02-4da4-855e-7b1bfc807347" />
+                    </div>
+                    
+                    <div class="base-margin">
+                        <label>ARVs tomados anteriormente, antes do TARV Actual:</label>
+                        <obs conceptId="e1e8d876-1d5f-11e0-b929-000c29ad1d07" style="radio" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" answerLabels="Sim, Não"/>
+                    </div>
+                    <div class="line-break"></div>
+                    <div class="base-margin">
+                        <label>Se SIM:</label>
+                        <obs conceptId="16f3d28e-03d5-467f-841c-ad678e9a4c19" answerConceptId="e1dc0eca-1d5f-11e0-b929-000c29ad1d07" answerLabel="PTV" dateLabel="Data:" commentFieldLabel="Onde?" /><br/>
+                        <obs conceptId="16f3d28e-03d5-467f-841c-ad678e9a4c19" answerConceptId="cdcf3400-f17b-400b-82be-b22cb4f0ebb7" answerLabel="PPE" dateLabel="Data:" commentFieldLabel="Onde?" /><br/>
+                        <obs conceptId="16f3d28e-03d5-467f-841c-ad678e9a4c19" answerConceptId="c29e5740-8ea5-409e-b322-7414f36e2739" answerLabel="PrEP" dateLabel="Data:" commentFieldLabel="Onde?" /><br/>
+                        <obs conceptId="16f3d28e-03d5-467f-841c-ad678e9a4c19" answerConceptId="39cab1ff-93e7-4a5e-bd42-6f8e6cb39359" answerLabel="Outro" dateLabel="Data:" commentFieldLabel="Onde?" />
+                        <obs conceptId="39cab1ff-93e7-4a5e-bd42-6f8e6cb39359" labelText="Especifique:"/>
+                        <obs conceptId="e1dc3e04-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1d3d5de-1d5f-11e0-b929-000c29ad1d07, e1d5d988-1d5f-11e0-b929-000c29ad1d07,e1d5d438-1d5f-11e0-b929-000c29ad1d07,
+                        e1d3d2c8-1d5f-11e0-b929-000c29ad1d07,e1de9046-1d5f-11e0-b929-000c29ad1d07,e1de9140-1d5f-11e0-b929-000c29ad1d07,e1d3d4da-1d5f-11e0-b929-000c29ad1d07" labelText="ARVs:"/><br/>
+                    </div>
+    
+                    <div class="line-break" style="margin-top: 14px;"></div>
+                    
+                    
+                    <div class="line-break"></div>
+    
+                    <div class="base-margin">
+                        
+                        <label class="label-tag">No início do TARV</label>
+                        
+                        <div class="space-between">
+    
+                            <div>
+                                <p>
+                                    
+                                    <label>Data de inicio TARV:</label>
+                                    <obs conceptId="e1d8f690-1d5f-11e0-b929-000c29ad1d07" /><br/>
+                                    <label>Regime ARV inicial de primeira linha:</label>
+                                    <obs conceptId="62cd383d-165d-4b2a-96c1-a557d5c2bb6f"/>
+                                </p>
                             </div>
-                            
-                        </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-                            <label>Último CD4:</label>
-                            <obs conceptId="e1dd5ab4-1d5f-11e0-b929-000c29ad1d07" dateLabel="Data:"/><br/>
-                        </div>
-
-                        <div class="base-margin">
-                            <label>Última Carga Viral:</label>
-                            <obs conceptId="e1d6247e-1d5f-11e0-b929-000c29ad1d07" dateLabel="Data:"/><br/>
-                        </div>
-
-                        <div class="base-margin">
-                            <label>Ùltima profilaxia Isoniazida:</label>
-                            <obs conceptId="6fa92ac9-0a96-4372-9e10-dd9683c19135" />
-                        </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-                            
-                            <label class="label-tag">Primeira Linha</label>
-                            
-                            <div class="space-between">
-
-                                <div>
-                                    <p>
-                                        <label>TARV - Coorte:</label>
-                                        <obs conceptId="cf074fce-5fd4-4af9-b64a-3ac0aa47c7b1" /><br/>
-                                        <label>Data de inicio TARV:</label>
-                                        <obs conceptId="e1d8f690-1d5f-11e0-b929-000c29ad1d07" /><br/>
-                                        <label>Regime ARV inicial de primeira linha:</label>
-                                        <obs conceptId="dde41a1c-6cb9-45ef-a315-6ac35456e7c1"/>
-                                    </p>
-                                </div>
-
-                                <div class="base-margin">
-                                    <p>
-                                        <label>Unidade Sanitária:</label>
-                                        <obs conceptId="760180a9-bcf0-4820-8771-d57d73d1f68d"/><br/>
-                                        <label>Gravidez:</label>
-                                        <obs conceptId="e1e482ee-1d5f-11e0-b929-000c29ad1d07" style="radio" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" answerLabels="Sim, Não"/>
-                                        <label> | Lactante:</label>
-                                        <obs conceptId="bc4fe755-fc8f-49b8-9956-baf2477e8313" style="radio" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" answerLabels="Sim, Não"/><br/>
-                                        <label>Estadio OMS:</label>
-                                        <obs conceptId="e1e53c02-1d5f-11e0-b929-000c29ad1d07"/>
-                                        <label>CD4(Nr.| %):</label>
-                                        <obs conceptId="e1dd5ab4-1d5f-11e0-b929-000c29ad1d07" class="input-with-size"/> |  <obs conceptId="e1d48fba-1d5f-11e0-b929-000c29ad1d07" class="input-with-size"/>
-                                    </p>
-                                </div>
-        
+    
+                            <div class="base-margin">
+                                <p>
+                                    <label>Unidade Sanitária:</label>
+                                    <obs conceptId="760180a9-bcf0-4820-8771-d57d73d1f68d"/><br/>
+                                    <label>Gravidez:</label>
+                                    <obs conceptId="e1e482ee-1d5f-11e0-b929-000c29ad1d07" style="radio" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" answerLabels="Sim, Não"/>
+                                    <label> | Lactante:</label>
+                                    <obs conceptId="bc4fe755-fc8f-49b8-9956-baf2477e8313" style="radio" answerConceptIds="e1d81b62-1d5f-11e0-b929-000c29ad1d07, e1d81c70-1d5f-11e0-b929-000c29ad1d07" answerLabels="Sim, Não"/><br/>
+                                    <label>Estadio OMS:</label>
+                                    <obs conceptId="e1e53c02-1d5f-11e0-b929-000c29ad1d07"/>
+                                    <label>CD4(Nr.| %):</label>
+                                    <obs conceptId="596e9d7c-1a17-4177-b4fb-76341dbee9dd" class="input-with-size"/> |  <obs conceptId="e1d48fba-1d5f-11e0-b929-000c29ad1d07" class="input-with-size"/>
+                                </p>
                             </div>
-                            
+    
                         </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-                                
-                            <label class="label-tag">Alternativas à Linha - Primeira Linha</label>
+                        
+                    </div>
+    
+                    <div class="line-break"></div>
+    
+                    <div class="base-margin">
                             
-                            <div class="space-between">
-
-                                <div>
-                                    <p>
-                                        <label>Novo Regime:</label><br/>
-                                        <obs conceptId="dde41a1c-6cb9-45ef-a315-6ac35456e7c1" dateLabel="Data:"/><br/>
-                                        <obs conceptId="dde41a1c-6cb9-45ef-a315-6ac35456e7c1" dateLabel="Data:"/><br/>
-                                        <obs conceptId="dde41a1c-6cb9-45ef-a315-6ac35456e7c1" dateLabel="Data:"/>
-                                    </p>
-                                </div>
-
-                               <div>
-                                    <p>
-                                        <label>Motivo:</label><br/>
-                                        <obs conceptId="e1dc9de0-1d5f-11e0-b929-000c29ad1d07"/><br/>
-                                        <obs conceptId="e1dc9de0-1d5f-11e0-b929-000c29ad1d07"/><br/>
-                                        <obs conceptId="e1dc9de0-1d5f-11e0-b929-000c29ad1d07"/>
-                                    </p>
-                               </div>
-                            </div>
+                        <label class="label-tag" style="margin-bottom: 14px;">Alternativas à Linha - Primeira Linha</label>
+                        <repeat>
+                            <template>
+                                <obsgroup groupingConceptId="c95bf5fa-a04f-48d9-8504-f0575c2e255f">
+                                        Novo Regime:
+                                        <obs id="regime" conceptId="e1d83d4a-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="
+                                            e1de19fe-1d5f-11e0-b929-000c29ad1d07,
+                                            28b28521-b6cd-454e-9ec5-f2c6c9c58468,
+                                            e1dd2f44-1d5f-11e0-b929-000c29ad1d07,
+                                            9dc17c1b-7b6d-488e-a38d-505a7b65ec82,
+                                            2e44e77e-eac4-4f64-84d2-73d32abf94d5,
+                                            78419317-cdda-42e9-92a3-13cb0cbf0020,
+                                            e3f6bb60-e2cf-46cb-a9da-27d634ba8607,
+                                            af15246d-30b8-4aff-8391-ca2b58e2c88b,
+                                            3e7f46c7-a971-4c0c-82aa-a65589fd518e,
+                                            cf05347e-063c-4896-91a4-097741cf6be6,
+                                            e11be52e-0da1-4d32-ab5c-e0feb9b6abd6,
+                                            f8c5d365-7636-4449-9acd-c83c4fd2ea01,
+                                            d5f9d629-67bc-4f60-9e12-629e6d2c1d08,
+                                            7bf5a88d-6db6-4899-a01a-bfd14ce77b53,
+                                            e8b741b3-463c-46b1-8423-a16f736af8d4,
+                                            ba25f2b5-4216-4605-9e6b-1f591033dc3e,
+                                            7d18d08c-d1a8-4dc8-8d65-02197b42acf7,
+                                            c22c4431-a27e-4054-92bb-a1563482003e,
+                                            c4a56680-ac6e-4538-8126-e3097b7b4789,
+                                            8f9c4e58-0d70-4b09-a109-e776d325e9fd,
+                                            9cb63f72-4c08-4543-878a-537dcabe5670,
+                                            46b8a2ab-36a7-4072-ab62-0af9b3b58e72,
+                                            552dd71f-d1de-426a-a19c-49b8706a4a7f,
+                                            f32e013c-38c8-483a-8012-88596e8b13da,
+                                            c30f826d-9433-4e63-ac91-dbbc158686ff,
+                                            e1e59e0e-1d5f-11e0-b929-000c29ad1d07" labelText="" answerLabels="AZT+3TC+EFV,
+                                                                                                            AZT+3TC+LPV/r,
+                                                                                                            AZT+3TC+NVP,
+                                                                                                            TDF+3TC+EFV,
+                                                                                                            TDF+3TC+NVP,
+                                                                                                            ABC+3TC+EFV,
+                                                                                                            TDF+3TC+DTG,
+                                                                                                            ABC+3TC+DTG,
+                                                                                                            AZT+3TC+ABC,
+                                                                                                            ABC+3TC+LPV/r,
+                                                                                                            ABC+3TC+NVP,
+                                                                                                            TDF+3TC+LPV/r,
+                                                                                                            TDF+3TC+LPV/r+RTV,
+                                                                                                            TDF+3TC+ATV/r,
+                                                                                                            ABC+3TC+ATV/r,
+                                                                                                            AZT+3TC+ATV/r,
+                                                                                                            ABC+3TC+ATV/r+RAL,
+                                                                                                            TDF+3TC+ATV/r+RAL,
+                                                                                                            AZT+3TC+RAL,
+                                                                                                            AZT+3TC+DRV/r,
+                                                                                                            AZT+3TC+DTG,
+                                                                                                            TDF+3TC+RAL+DRV/r,
+                                                                                                            ABC+3TC++RAL+DRV/r,
+                                                                                                            3TC+RAL+DRV/r,
+                                                                                                            AZT+3TC+RAL+DRV/r,
+                                                                                                            OUTRO" dateLabel="Data:"/>
+                                        
+                                        Motivo: <obs conceptId="e1de8862-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1cf3b32-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1e056a6-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1da79ca-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1d85906-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        5f65b955-b575-40bd-865b-7baf4ed70337, 
+                                                                                                                        a1193908-4434-4d5a-a4b8-ab68efbceb34, 
+                                                                                                                        e1de866e-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1de8768-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        f5f837f1-9aa3-4b4e-be80-a3ddd6d68418" 
+                                                                                                    answerLabels="Toxididade/ Efeitos secundários, 
+                                                                                                                  Gravidez, 
+                                                                                                                  Risco de gravidez, 
+                                                                                                                  Inicio de Tratamento de TB, 
+                                                                                                                  Novo medicamento disponivel, 
+                                                                                                                  Ruptura de estock de ARVs, 
+                                                                                                                  Falencia Clinica, 
+                                                                                                                  Falencia Imunológica, 
+                                                                                                                  Falencia virologica" /><br/>
+                                </obsgroup>
+                            </template>
+                            <render/>
+                            <render/>
+                            <render/>
+                        </repeat>		
+                        
+                    </div>
+    
+                    <div class="line-break" style="margin-top: 14px;"></div>
+    
+                    <div class="base-margin">
                             
-                        </div>
+                        <label class="label-tag" style="margin-bottom: 14px;">Segunda Linha</label>
+                        <repeat>
+                            <template>
+                                <obsgroup groupingConceptId="c95bf5fa-a04f-48d9-8504-f0575c2e255f">
+                                        Novo Regime:
+                                        <obs id="regime" conceptId="e1d83d4a-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="
+                                            e1de19fe-1d5f-11e0-b929-000c29ad1d07,
+                                            28b28521-b6cd-454e-9ec5-f2c6c9c58468,
+                                            e1dd2f44-1d5f-11e0-b929-000c29ad1d07,
+                                            9dc17c1b-7b6d-488e-a38d-505a7b65ec82,
+                                            2e44e77e-eac4-4f64-84d2-73d32abf94d5,
+                                            78419317-cdda-42e9-92a3-13cb0cbf0020,
+                                            e3f6bb60-e2cf-46cb-a9da-27d634ba8607,
+                                            af15246d-30b8-4aff-8391-ca2b58e2c88b,
+                                            3e7f46c7-a971-4c0c-82aa-a65589fd518e,
+                                            cf05347e-063c-4896-91a4-097741cf6be6,
+                                            e11be52e-0da1-4d32-ab5c-e0feb9b6abd6,
+                                            f8c5d365-7636-4449-9acd-c83c4fd2ea01,
+                                            d5f9d629-67bc-4f60-9e12-629e6d2c1d08,
+                                            7bf5a88d-6db6-4899-a01a-bfd14ce77b53,
+                                            e8b741b3-463c-46b1-8423-a16f736af8d4,
+                                            ba25f2b5-4216-4605-9e6b-1f591033dc3e,
+                                            7d18d08c-d1a8-4dc8-8d65-02197b42acf7,
+                                            c22c4431-a27e-4054-92bb-a1563482003e,
+                                            c4a56680-ac6e-4538-8126-e3097b7b4789,
+                                            8f9c4e58-0d70-4b09-a109-e776d325e9fd,
+                                            9cb63f72-4c08-4543-878a-537dcabe5670,
+                                            46b8a2ab-36a7-4072-ab62-0af9b3b58e72,
+                                            552dd71f-d1de-426a-a19c-49b8706a4a7f,
+                                            f32e013c-38c8-483a-8012-88596e8b13da,
+                                            c30f826d-9433-4e63-ac91-dbbc158686ff,
+                                            e1e59e0e-1d5f-11e0-b929-000c29ad1d07" labelText="" answerLabels="AZT+3TC+EFV,
+                                                                                                            AZT+3TC+LPV/r,
+                                                                                                            AZT+3TC+NVP,
+                                                                                                            TDF+3TC+EFV,
+                                                                                                            TDF+3TC+NVP,
+                                                                                                            ABC+3TC+EFV,
+                                                                                                            TDF+3TC+DTG,
+                                                                                                            ABC+3TC+DTG,
+                                                                                                            AZT+3TC+ABC,
+                                                                                                            ABC+3TC+LPV/r,
+                                                                                                            ABC+3TC+NVP,
+                                                                                                            TDF+3TC+LPV/r,
+                                                                                                            TDF+3TC+LPV/r+RTV,
+                                                                                                            TDF+3TC+ATV/r,
+                                                                                                            ABC+3TC+ATV/r,
+                                                                                                            AZT+3TC+ATV/r,
+                                                                                                            ABC+3TC+ATV/r+RAL,
+                                                                                                            TDF+3TC+ATV/r+RAL,
+                                                                                                            AZT+3TC+RAL,
+                                                                                                            AZT+3TC+DRV/r,
+                                                                                                            AZT+3TC+DTG,
+                                                                                                            TDF+3TC+RAL+DRV/r,
+                                                                                                            ABC+3TC++RAL+DRV/r,
+                                                                                                            3TC+RAL+DRV/r,
+                                                                                                            AZT+3TC+RAL+DRV/r,
+                                                                                                            OUTRO" dateLabel="Data:"/>
+                                        
+                                            Motivo: <obs conceptId="e1de8862-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1cf3b32-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1e056a6-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1da79ca-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1d85906-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        5f65b955-b575-40bd-865b-7baf4ed70337, 
+                                                                                                                        a1193908-4434-4d5a-a4b8-ab68efbceb34, 
+                                                                                                                        e1de866e-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1de8768-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        f5f837f1-9aa3-4b4e-be80-a3ddd6d68418" 
+                                                                                                    answerLabels="Toxididade/ Efeitos secundários, 
+                                                                                                                  Gravidez, 
+                                                                                                                  Risco de gravidez, 
+                                                                                                                  Inicio de Tratamento de TB, 
+                                                                                                                  Novo medicamento disponivel, 
+                                                                                                                  Ruptura de estock de ARVs, 
+                                                                                                                  Falencia Clinica, 
+                                                                                                                  Falencia Imunológica, 
+                                                                                                                  Falencia virologica" /><br/>
+                                </obsgroup>
+                            </template>
+                            <render/>
+                            <render/>          
+                        </repeat>
 
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-                                
-                            <label class="label-tag">Alternativas à Linha - Segunda Linha</label>
+                    </div>
+    
+                    <div class="line-break" style="margin-top: 14px;" ></div>
+    
+                    <div class="base-margin">
                             
-                            <div class="space-between">
-
-                                <div>
-                                    <p>
-                                        <label>Novo Regime:</label><br/>
-                                        <obs conceptId="618650c6-90c3-4acd-ae4d-ffb2f6452a5b" dateLabel="Data:"/><br/>
-                                        <obs conceptId="618650c6-90c3-4acd-ae4d-ffb2f6452a5b" dateLabel="Data:"/><br/>
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <p>
-                                        <label>Motivo:</label><br/>
-                                        <obs conceptId="e1dc9de0-1d5f-11e0-b929-000c29ad1d07"/><br/>
-                                        <obs conceptId="e1dc9de0-1d5f-11e0-b929-000c29ad1d07"/><br/>
-                                    </p>
-                                </div>
-                            </div>
+                        <label class="label-tag" style="margin-bottom: 14px;">Terceira Linha</label>
+                        <repeat>
+                            <template>
+                                <obsgroup groupingConceptId="c95bf5fa-a04f-48d9-8504-f0575c2e255f">
+                                        Novo Regime:
+                                        <obs id="regime" conceptId="e1d83d4a-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="
+                                            e1de19fe-1d5f-11e0-b929-000c29ad1d07,
+                                            28b28521-b6cd-454e-9ec5-f2c6c9c58468,
+                                            e1dd2f44-1d5f-11e0-b929-000c29ad1d07,
+                                            9dc17c1b-7b6d-488e-a38d-505a7b65ec82,
+                                            2e44e77e-eac4-4f64-84d2-73d32abf94d5,
+                                            78419317-cdda-42e9-92a3-13cb0cbf0020,
+                                            e3f6bb60-e2cf-46cb-a9da-27d634ba8607,
+                                            af15246d-30b8-4aff-8391-ca2b58e2c88b,
+                                            3e7f46c7-a971-4c0c-82aa-a65589fd518e,
+                                            cf05347e-063c-4896-91a4-097741cf6be6,
+                                            e11be52e-0da1-4d32-ab5c-e0feb9b6abd6,
+                                            f8c5d365-7636-4449-9acd-c83c4fd2ea01,
+                                            d5f9d629-67bc-4f60-9e12-629e6d2c1d08,
+                                            7bf5a88d-6db6-4899-a01a-bfd14ce77b53,
+                                            e8b741b3-463c-46b1-8423-a16f736af8d4,
+                                            ba25f2b5-4216-4605-9e6b-1f591033dc3e,
+                                            7d18d08c-d1a8-4dc8-8d65-02197b42acf7,
+                                            c22c4431-a27e-4054-92bb-a1563482003e,
+                                            c4a56680-ac6e-4538-8126-e3097b7b4789,
+                                            8f9c4e58-0d70-4b09-a109-e776d325e9fd,
+                                            9cb63f72-4c08-4543-878a-537dcabe5670,
+                                            46b8a2ab-36a7-4072-ab62-0af9b3b58e72,
+                                            552dd71f-d1de-426a-a19c-49b8706a4a7f,
+                                            f32e013c-38c8-483a-8012-88596e8b13da,
+                                            c30f826d-9433-4e63-ac91-dbbc158686ff,
+                                            e1e59e0e-1d5f-11e0-b929-000c29ad1d07" labelText="" answerLabels="AZT+3TC+EFV,
+                                                                                                            AZT+3TC+LPV/r,
+                                                                                                            AZT+3TC+NVP,
+                                                                                                            TDF+3TC+EFV,
+                                                                                                            TDF+3TC+NVP,
+                                                                                                            ABC+3TC+EFV,
+                                                                                                            TDF+3TC+DTG,
+                                                                                                            ABC+3TC+DTG,
+                                                                                                            AZT+3TC+ABC,
+                                                                                                            ABC+3TC+LPV/r,
+                                                                                                            ABC+3TC+NVP,
+                                                                                                            TDF+3TC+LPV/r,
+                                                                                                            TDF+3TC+LPV/r+RTV,
+                                                                                                            TDF+3TC+ATV/r,
+                                                                                                            ABC+3TC+ATV/r,
+                                                                                                            AZT+3TC+ATV/r,
+                                                                                                            ABC+3TC+ATV/r+RAL,
+                                                                                                            TDF+3TC+ATV/r+RAL,
+                                                                                                            AZT+3TC+RAL,
+                                                                                                            AZT+3TC+DRV/r,
+                                                                                                            AZT+3TC+DTG,
+                                                                                                            TDF+3TC+RAL+DRV/r,
+                                                                                                            ABC+3TC++RAL+DRV/r,
+                                                                                                            3TC+RAL+DRV/r,
+                                                                                                            AZT+3TC+RAL+DRV/r,
+                                                                                                            OUTRO" dateLabel="Data:"/>
+                                        
+                                            Motivo: <obs conceptId="e1de8862-1d5f-11e0-b929-000c29ad1d07" answerConceptIds="e1cf3b32-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1e056a6-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1da79ca-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1d85906-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        5f65b955-b575-40bd-865b-7baf4ed70337, 
+                                                                                                                        a1193908-4434-4d5a-a4b8-ab68efbceb34, 
+                                                                                                                        e1de866e-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        e1de8768-1d5f-11e0-b929-000c29ad1d07, 
+                                                                                                                        f5f837f1-9aa3-4b4e-be80-a3ddd6d68418" 
+                                                                                                    answerLabels="Toxididade/ Efeitos secundários, 
+                                                                                                                  Gravidez, 
+                                                                                                                  Risco de gravidez, 
+                                                                                                                  Inicio de Tratamento de TB, 
+                                                                                                                  Novo medicamento disponivel, 
+                                                                                                                  Ruptura de estock de ARVs, 
+                                                                                                                  Falencia Clinica, 
+                                                                                                                  Falencia Imunológica, 
+                                                                                                                  Falencia virologica" /><br/>
+                                </obsgroup>
+                            </template>
+                            <render/>
+                        </repeat>
+                        
+                    </div>
+                    
+                    <div class="line-break" style="margin-top: 14px;"></div>
+    
+                    <div class="base-margin">
                             
-                        </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-                                
-                            <label class="label-tag">Alternativas à Linha - Terceira Linha</label>
-                            
-                            <div class="space-between">
-
-                                <div>
-                                    <p>
-                                        <label>Novo Regime:</label><br/>
-                                        <obs conceptId="4281f035-183f-407d-8286-92613f3039c8" dateLabel="Data:"/><br/>
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <p>
-                                        <label>Motivo:</label><br/>
-                                        <obs conceptId="e1dc9de0-1d5f-11e0-b929-000c29ad1d07"/><br/>
-                                    </p>
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="base-margin">
-
-                            <p>
-                                <label>Provedor:</label>
-                                <encounterProvider role="Provider" type="autocomplete"/>
-                            </p>
-                            
-                        </div>
-
-                        <div class="line-break"></div>
-
-                        <div class="submit-btn">
-                            <submit submitLabel="Submeter"/>
-                        </div>
-
-                </div>
-
+                        <label class="label-tag" style="margin-bottom: 14px;">Mudanças no Estado de Permanência TARV</label>
+                
+                        <repeat>
+                            <template>
+                                <obsgroup groupingConceptId="563f6607-c93a-4af6-ab30-9e0c07e8f63a">
+                                    Novo Estado:
+                                    <obs id="estadoPermanencia" conceptId="3bd7a5d1-afc0-478d-9aa6-c7bdd9a050c8" answerConceptIds="
+                                    e1de1fee-1d5f-11e0-b929-000c29ad1d07,
+                                    e1de1df0-1d5f-11e0-b929-000c29ad1d07,
+                                    e1de1bfc-1d5f-11e0-b929-000c29ad1d07,
+                                    e1de1cf6-1d5f-11e0-b929-000c29ad1d07,
+                                    e1da766e-1d5f-11e0-b929-000c29ad1d07,
+                                    3cafb15a-7aed-4fc5-b91d-86f7211087fa" labelText="" answerLabels="
+                                    Suspensão,
+                                    Abandono,
+                                    Reinicio,
+                                    Transferido para,
+                                    Óbito,
+                                    Diagnóstico Negativo" dateLabel="Data:" commentFieldLabel="US: "/>  
+                                    
+                                    Motivo (Ef. Secun.): <obs conceptId="e1e07ece-1d5f-11e0-b929-000c29ad1d07" />
+                                    Motivo (Fac. Sociais): <obs conceptId="6106a026-b62d-445c-b7ca-9077bd05e218" id="sociais"/>
+                                    <br/>	
+                                </obsgroup>	
+                            </template>
+                            <render/>
+                            <render/> 
+                            <render/> 	
+                            <render/> 
+                            <render/> 
+                            <render/> 					
+                        </repeat>
+                        
+                    </div>
+                    
+                    <div class="line-break"></div>
+    
+                    <div class="base-margin">
+    
+                        <p>
+                            <label>Provedor:</label>
+                            <encounterProvider role="Provider" type="autocomplete"/>
+                            <encounterDate id="encounterDate"  widget="hidden" default="today"/>
+                        </p>
+                        
+                    </div>
+    
+                    <div class="line-break"></div>
+    
+                    <div class="submit-btn">
+                        <submit submitLabel="Submeter"/>
+                    </div>
             </div>
-        </body>
+        </div>
+    </body>
     </html>
-</htmlform>
+    </htmlform>
